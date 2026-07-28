@@ -13,6 +13,7 @@ $ErrorActionPreference = 'Stop'
 $repositoryRoot = Split-Path -Parent $PSScriptRoot
 $deployScript = Join-Path $PSScriptRoot 'deploy-asgard-docs.sh'
 $nginxConfig = Join-Path $PSScriptRoot 'asgard.benlampson.cn.conf'
+$remoteArchivePath = "/tmp/asgard-docs-$ReleaseId.tgz"
 
 if ([string]::IsNullOrWhiteSpace($ArchivePath)) {
     $ArchivePath = Join-Path $env:TEMP "asgard-docs-$ReleaseId.tgz"
@@ -31,14 +32,14 @@ try {
     tar -czf $ArchivePath -C dist/static .
     if ($LASTEXITCODE -ne 0) { throw "tar failed with exit code $LASTEXITCODE" }
 
-    scp -i $KeyPath $ArchivePath "$SshHost`:/tmp/"
+    scp -i $KeyPath $ArchivePath "$SshHost`:$remoteArchivePath"
     if ($LASTEXITCODE -ne 0) { throw "scp archive failed with exit code $LASTEXITCODE" }
 
     scp -i $KeyPath $nginxConfig "$SshHost`:/tmp/asgard.benlampson.cn.conf"
     if ($LASTEXITCODE -ne 0) { throw "scp Nginx config failed with exit code $LASTEXITCODE" }
 
     $bash = (Get-Content -Raw -LiteralPath $deployScript).Replace("`r", '')
-    $bash | ssh -i $KeyPath $SshHost "bash -s -- $ReleaseId /tmp/asgard-docs-$ReleaseId.tgz /tmp/asgard.benlampson.cn.conf"
+    $bash | ssh -i $KeyPath $SshHost "bash -s -- $ReleaseId $remoteArchivePath /tmp/asgard.benlampson.cn.conf"
     if ($LASTEXITCODE -ne 0) { throw "remote deployment failed with exit code $LASTEXITCODE" }
 
     Write-Host "Deployment completed: $ReleaseId"
