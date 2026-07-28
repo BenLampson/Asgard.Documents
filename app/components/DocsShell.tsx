@@ -3,6 +3,7 @@ import { getProductMetadata, productHomePath } from "../product-registry";
 import { getSkillReferences } from "../skill-references";
 import { siteBaseline } from "../site-baseline";
 import { SiteHeader } from "./SiteHeader";
+import { MermaidDiagram } from "./MermaidDiagram";
 
 function Sidebar({ locale, current, product }: { locale: Locale; current: string; product: Product }) {
   const groups = new Map<string, DocPage[]>();
@@ -21,6 +22,7 @@ function Sidebar({ locale, current, product }: { locale: Locale; current: string
 }
 
 function CodeBlock({ language, value }: { language: string; value: string }) {
+  if (language.toLowerCase() === "mermaid") return <MermaidDiagram value={value} />;
   return <div className="code-block"><div><span>{language}</span><span>ASGARD</span></div><pre><code>{value}</code></pre></div>;
 }
 

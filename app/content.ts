@@ -144,6 +144,39 @@ export type DocPage = {
   relatedDocs?: { product: Product; docSlug: string; label: string }[];
 };
 
+const ecosystemArchitectureDiagram = `flowchart LR
+  Portal["Ecosystem portal"] --> Asgard["Asgard framework"]
+  Portal --> Heimdall["Heimdall OIDC"]
+  Portal --> Skills["Asgard Skills"]
+  Asgard --> Host["Yggdrasil host"]
+  Host --> Plugins["Plugins"]
+  Plugins --> API["Controller → Service → Repository"]
+  Heimdall --> Tokens["Discovery / JWKS / Access Token"]
+  Tokens --> API
+  Skills -. "agent workflow" .-> Asgard
+  Skills -. "agent workflow" .-> Heimdall`;
+
+const asgardRuntimeDiagram = `flowchart TB
+  App["Starter application"] --> Host["YggdrasilHost"]
+  Host --> Pipeline["ASP.NET Core pipeline"]
+  Pipeline --> Controller["BaseController"]
+  Controller --> Service["Service / DTO"]
+  Service --> Repository["Repository"]
+  Repository --> Entity["Entity / database"]
+  Host --> Context["AbsAsgardContext"]
+  Context --> Infra["Cache · MQ · Jobs · Security · Trace"]`;
+
+const heimdallIntegrationDiagram = `sequenceDiagram
+  participant Browser as SPA / Browser
+  participant H as Heimdall
+  participant API as Asgard API
+  Browser->>H: Authorization Code + PKCE
+  H-->>Browser: Access Token
+  Browser->>API: Bearer Access Token
+  API->>H: Local Discovery / JWKS validation
+  API-->>Browser: Unified Response<T>
+  Note over API,H: API CORS and OIDC client CORS are separate boundaries`;
+
 const quickStartProjectCode = `<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -335,6 +368,7 @@ export const docs: Record<Locale, DocPage[]> = {
       description: "用统一宿主、插件模型和基础设施入口搭建模块化 ASP.NET Core 系统。",
       sections: [
         { id: "what", title: "Asgard 是什么", paragraphs: ["Asgard 是以 ASP.NET Core 为宿主的应用框架。它统一配置、插件、公共能力、认证授权、Swagger、静态资源与健康检查，让业务代码聚焦 API、服务、仓储和领域逻辑。", "当前框架版本为 5.1.3，目标框架是 .NET 10、语言基线是 C# 14，源码仓库通过 global.json 固定 SDK 10.0.302。核心入口是 YggdrasilHost、PluginBase、BaseController 与 AbsAsgardContext。"] },
+        { id: "architecture", title: "生态架构", paragraphs: ["总览图把三个站点的职责和集成边界放在一起：Asgard 负责宿主与基础设施，Heimdall 负责标准身份，Skills 把工程规则交给 AI Agent。"], code: { language: "mermaid", value: ecosystemArchitectureDiagram } },
         { id: "modules", title: "核心组成", bullets: ["Asgard.Abstractions：跨宿主契约、配置模型与实体基类", "Asgard.Core：缓存、消息、任务、配置、安全与插件实现", "Asgard.AspNetCore.Core：Web、身份、租户与授权实现", "Asgard.Yggdrasil.AspNetCore：宿主编排入口", "Asgard.PluginSdk：插件开发与快速启动", "Asgard.TsGen / Analyzers：客户端生成与编译期规范"] },
         { id: "fit", title: "适合的系统", paragraphs: ["Asgard 适合需要标准 Web API、统一基础设施、多模块演进、租户与身份边界，以及希望让人类和 AI 使用同一套工程规则的 .NET 项目。它不是单一工具包，而是一套带宿主、上下文、插件和装配约定的开发框架。"] },
       ],
@@ -422,7 +456,7 @@ export const docs: Record<Locale, DocPage[]> = {
       slug: "heimdall", group: "生态", eyebrow: "IDENTITY PROVIDER", title: "Heimdall 身份平台",
       description: "基于 Asgard 的标准 OIDC/OAuth 2.0 身份提供者与多租户安全平台。",
       sections: [
-        { id: "capabilities", title: "主要能力", bullets: ["OIDC Discovery、JWKS、Authorization Code + PKCE、Refresh Token、Client Credentials 与 Device Flow", "Application Manifest、Tenant Application、应用范围 RBAC/Grant 与版本化 Token Claims", "平台/租户用户、客户端、Scope、授权、同意与会话治理", "mini issuer 5.3.19：为已有登录逻辑的小项目签发 Asgard 兼容 JWT，并暴露 Discovery/JWKS", "5.3.x 完整受治理 MCP：OAuth/AK-SK、Tools、Resources、Prompts、Tasks、策略与两阶段写确认", "Tenant-bound Backend Directory 读写、身份失效 Webhook、SCIM、外部 OIDC、LDAP/AD、SAML、TOTP 与 Passkey", "安全事件生命周期、活动会话、SIEM 导出与 Asgard 链路追踪"] },
+        { id: "capabilities", title: "主要能力", bullets: ["OIDC Discovery、JWKS、Authorization Code + PKCE、Refresh Token、Client Credentials 与 Device Flow", "Application Manifest、Tenant Application、应用范围 RBAC/Grant 与版本化 Token Claims", "平台/租户用户、客户端、Scope、授权、同意与会话治理", "mini issuer 5.3.19：为已有登录逻辑的小项目签发 Asgard 兼容 JWT，并暴露 Discovery/JWKS", "5.3.x 完整受治理 MCP：OAuth/AK-SK、Tools、Resources、Prompts、Tasks、策略与两阶段写确认", "Tenant-bound Backend Directory 读写、身份失效 Webhook、SCIM、外部 OIDC、LDAP/AD、SAML、TOTP 与 Passkey", "安全事件生命周期、活动会话、SIEM 导出与 Asgard 链路追踪"], code: { language: "mermaid", value: heimdallIntegrationDiagram } },
         { id: "baseline", title: "运行边界", paragraphs: ["Heimdall 使用 .NET 10 / C# 14，生产主库仅支持 PostgreSQL，缓存使用 Redis，消息使用 RabbitMQ，数据访问使用 FreeSql。启动基础设施配置来自 YAML、环境变量或命令行；登录锁定等业务策略存储在数据库并可即时生效。"] },
         { id: "claims", title: "统一身份契约", bullets: ["sub / user_id / tenant_id", "roles / permissions / scope 使用 JSON 数组字符串", "userMetadatas / tenantMetadata 使用 JSON 对象字符串", "下游 Asgard 服务从 Access Token 恢复 AbsAsgardUserInfo"] },
       ],
@@ -464,6 +498,7 @@ export const docs: Record<Locale, DocPage[]> = {
 docs.en = [
   { slug: "overview", group: "Start", eyebrow: "ASGARD FRAMEWORK", title: "Framework overview", description: "Build modular ASP.NET Core systems with one host, plugin model, and infrastructure surface.", sections: [
     { id: "what", title: "What is Asgard?", paragraphs: ["Asgard is an ASP.NET Core application framework that unifies configuration, plugins, infrastructure, authentication, authorization, Swagger, static files, and health checks so application code can focus on APIs and domain logic.", "The current framework version is 5.1.3 targeting .NET 10 with C# 14; the source repository pins SDK 10.0.302 through global.json. Its stable entry points are YggdrasilHost, PluginBase, BaseController, and AbsAsgardContext."] },
+    { id: "architecture", title: "Ecosystem architecture", paragraphs: ["The portal explains product boundaries: Asgard owns hosting and infrastructure, Heimdall owns standards-based identity, and Skills make those rules executable for AI agents."], code: { language: "mermaid", value: ecosystemArchitectureDiagram } },
     { id: "modules", title: "Core building blocks", bullets: ["Asgard.Abstractions: contracts, configuration models, and entity bases", "Asgard.Core: cache, messaging, jobs, configuration, security, and plugins", "Asgard.AspNetCore.Core: web, identity, tenancy, and authorization", "Asgard.Yggdrasil.AspNetCore: host orchestration", "Asgard.PluginSdk: plugin development and fast startup", "Asgard.TsGen / Analyzers: client generation and compile-time rules"] },
     { id: "fit", title: "Where it fits", paragraphs: ["Use Asgard for standardized Web APIs, shared infrastructure, evolving modules, tenant-aware identity boundaries, and teams that want humans and AI agents to follow the same engineering rules."] },
   ]},
@@ -491,7 +526,7 @@ docs.en = [
     { id: "structure", title: "Recommended structure", code: { language: "text", value: "MyApp.Plugin/\n  MyAppPlugin.cs\n  Controllers/ Services/ Repositories/ Entities/\n  plugin.yaml\n\nMyApp.Starter/\n  Program.cs\n  config/app.yaml" } },
   ]},
   { slug: "api-development", group: "Framework", eyebrow: "WEB API", title: "API development", description: "Build stable APIs with Asgard layering, response, and authorization conventions.", sections: [
-    { id: "rules", title: "Hard boundaries", bullets: ["Every controller inherits BaseController", "The dependency direction is Controller → Service → Repository → Entity", "Services return DTOs; controllers map DTOs to VOs", "Return Response<T>, PageResponse<T>, or CursorResponse<T>; never raw objects"] },
+    { id: "rules", title: "Hard boundaries", bullets: ["Every controller inherits BaseController", "The dependency direction is Controller → Service → Repository → Entity", "Services return DTOs; controllers map DTOs to VOs", "Return Response<T>, PageResponse<T>, or CursorResponse<T>; never raw objects"], code: { language: "mermaid", value: asgardRuntimeDiagram } },
     { id: "example", title: "Controller example", code: { language: "csharp", value: controllerCode } },
     { id: "authorization", title: "Authentication and authorization", paragraphs: ["The host wires JWT Bearer through host.auth. AsgardAuth attributes and expressions combine roles, permissions, scopes, and token_type checks. UI visibility is never a security boundary; the backend always authorizes the request."] },
   ]},
@@ -531,7 +566,7 @@ docs.en = [
   ...enToolingDocs,
   ...enAsgardUpgradeDocs,
   { slug: "heimdall", group: "Ecosystem", eyebrow: "IDENTITY PROVIDER", title: "Heimdall identity platform", description: "A standards-based OIDC/OAuth 2.0 identity provider and multi-tenant security platform built on Asgard.", sections: [
-    { id: "capabilities", title: "Capabilities", bullets: ["Discovery, JWKS, Authorization Code + PKCE, Refresh Token, Client Credentials, and Device Flow", "Application Manifests, Tenant Applications, application-scoped RBAC/Grants, and versioned token claims", "Platform and tenant users, clients, scopes, authorization, consent, and session governance", "Mini issuer 5.3.19 for applications that own login but need Asgard-compatible JWTs plus Discovery/JWKS", "Governed MCP in 5.3.x: OAuth/AK-SK, Tools, Resources, Prompts, Tasks, policy, and two-phase write confirmation", "Tenant-bound Backend Directory reads/writes, invalidation Webhooks, SCIM, external OIDC, LDAP/AD, SAML, TOTP, and Passkeys", "Security-event lifecycle, active sessions, SIEM export, and Asgard tracing"] },
+    { id: "capabilities", title: "Capabilities", bullets: ["Discovery, JWKS, Authorization Code + PKCE, Refresh Token, Client Credentials, and Device Flow", "Application Manifests, Tenant Applications, application-scoped RBAC/Grants, and versioned token claims", "Platform and tenant users, clients, scopes, authorization, consent, and session governance", "Mini issuer 5.3.19 for applications that own login but need Asgard-compatible JWTs plus Discovery/JWKS", "Governed MCP in 5.3.x: OAuth/AK-SK, Tools, Resources, Prompts, Tasks, policy, and two-phase write confirmation", "Tenant-bound Backend Directory reads/writes, invalidation Webhooks, SCIM, external OIDC, LDAP/AD, SAML, TOTP, and Passkeys", "Security-event lifecycle, active sessions, SIEM export, and Asgard tracing"], code: { language: "mermaid", value: heimdallIntegrationDiagram } },
     { id: "baseline", title: "Runtime boundary", paragraphs: ["Heimdall runs on .NET 10 / C# 14. Production storage is PostgreSQL only, with Redis caching, RabbitMQ messaging, and FreeSql data access. Bootstrap configuration comes from YAML, environment variables, or command line; runtime security policies live in the database."] },
     { id: "claims", title: "Unified identity contract", bullets: ["sub / user_id / tenant_id", "roles / permissions / scope as JSON array strings", "userMetadatas / tenantMetadata as JSON object strings", "Downstream Asgard services restore AbsAsgardUserInfo from access-token claims"] },
   ]},
