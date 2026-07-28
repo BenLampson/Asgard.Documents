@@ -38,9 +38,27 @@ try {
     scp -i $KeyPath $nginxConfig "$SshHost`:/tmp/asgard.benlampson.cn.conf"
     if ($LASTEXITCODE -ne 0) { throw "scp Nginx config failed with exit code $LASTEXITCODE" }
 
-    $bash = (Get-Content -Raw -LiteralPath $deployScript).Replace("`r", '')
-    $bash | ssh -i $KeyPath $SshHost "bash -s -- $ReleaseId $remoteArchivePath /tmp/asgard.benlampson.cn.conf"
-    if ($LASTEXITCODE -ne 0) { throw "remote deployment failed with exit code $LASTEXITCODE" }
+    $sshInfo = [System.Diagnostics.ProcessStartInfo]::new()
+    $sshInfo.FileName = 'ssh.exe'
+    $sshInfo.UseShellExecute = $false
+    $sshInfo.RedirectStandardInput = $true
+    $sshInfo.ArgumentList.Add('-i')
+    $sshInfo.ArgumentList.Add($KeyPath)
+    $sshInfo.ArgumentList.Add($SshHost)
+    $sshInfo.ArgumentList.Add("bash -s -- $ReleaseId $remoteArchivePath /tmp/asgard.benlampson.cn.conf")
+    $sshProcess = [System.Diagnostics.Process]::new()
+    $sshProcess.StartInfo = $sshInfo
+    [void]$sshProcess.Start()
+
+    $scriptBytes = [System.IO.File]::ReadAllBytes($deployScript)
+    $lfBytes = [System.Collections.Generic.List[byte]]::new()
+    foreach ($byte in $scriptBytes) {
+        if ($byte -ne 13) { $lfBytes.Add($byte) }
+    }
+    $sshProcess.StandardInput.BaseStream.Write($lfBytes.ToArray(), 0, $lfBytes.Count)
+    $sshProcess.StandardInput.Close()
+    $sshProcess.WaitForExit()
+    if ($sshProcess.ExitCode -ne 0) { throw "remote deployment failed with exit code $($sshProcess.ExitCode)" }
 
     Write-Host "Deployment completed: $ReleaseId"
 }
