@@ -8,6 +8,7 @@ export function MermaidDiagram({ value }: MermaidDiagramProps) {
   const reactId = useId();
   const [svg, setSvg] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -26,8 +27,22 @@ export function MermaidDiagram({ value }: MermaidDiagramProps) {
     };
   }, [reactId, value]);
 
+  useEffect(() => {
+    if (!expanded) return undefined;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setExpanded(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [expanded]);
+
   return (
-    <div className="mermaid-block" aria-label="Mermaid architecture diagram">
+    <div className={`mermaid-block${expanded ? " mermaid-expanded" : ""}`} aria-label="Mermaid architecture diagram">
+      {expanded ? <button className="mermaid-backdrop" type="button" aria-label="Close expanded diagram" onClick={() => setExpanded(false)} /> : null}
+      <div className="mermaid-toolbar">
+        <span>ARCHITECTURE DIAGRAM</span>
+        {svg ? <button type="button" className="mermaid-expand-button" aria-expanded={expanded} onClick={() => setExpanded((current) => !current)}>{expanded ? "Close" : "Expand"} ↗</button> : null}
+      </div>
       {svg ? <div className="mermaid-svg" dangerouslySetInnerHTML={{ __html: svg }} /> : null}
       {error ? <div className="mermaid-error">Mermaid diagram could not be rendered: {error}</div> : null}
       {!svg && !error ? <div className="mermaid-loading">Rendering architecture diagram…</div> : null}
