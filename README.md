@@ -41,6 +41,17 @@ The deployment build is written to `dist/`. See `AGENTS.md` for source-of-truth 
 
 For a static object CDN, upload the **contents** of `dist/static/` and configure directory-index resolution to serve `index.html`. The artifact also contains `sitemap.xml`, `robots.txt`, a versioned `search-index.json`, `llms.txt`, `llms-full.txt`, an audited `skills-manifest.json`, its derived `asgard-skills.lock.json`, and one `index.html.md` companion for every canonical localized guide. The sitemap/search/AI discovery surfaces include only product-scoped canonical pages; legacy bookmark routes remain in the artifact but are deliberately excluded from discovery. `npm run static:check` validates these files against the shared route manifest and shared document content, in addition to route completeness, language/canonical metadata, referenced assets, and the absence of Worker or build-machine file dependencies. For a Worker-compatible runtime, deploy `dist/server/` and `dist/client/` together instead.
 
+### Windows CDN handoff
+
+After `npm run verify` and `npm run build:cdn`, use the PowerShell helper to package `dist/static/`, upload an immutable release archive, install the Nginx configuration, and switch the remote `current` symlink:
+
+```powershell
+$release = Get-Date -Format 'yyyyMMdd-HHmmss'
+& .\build\deploy-asgard-docs.ps1 -ReleaseId $release -KeyPath 'D:\sshKey' -SshHost 'root@47.109.145.141'
+```
+
+The helper fails on archive, upload, SSH, or Nginx errors and keeps each remote release immutable. Keep the private key outside the repository; never commit credentials, `.env` files, or generated archives. Roll back by pointing `current` to a previously verified release instead of overwriting files in place.
+
 Public URLs default to `https://asgard.benlampson.cn`. Set `DOCS_SITE_ORIGIN` to a different absolute HTTPS origin before `npm run build:cdn` and all static checks when packaging for another hostname; paths, credentials, query strings, and fragments are rejected.
 
 Configure CDN metadata so `llms.txt` and `llms-full.txt` are served as UTF-8 `text/plain` (or Markdown-compatible text), every `index.html.md` as UTF-8 `text/markdown` or `text/plain`, and `search-index.json`, `skills-manifest.json`, and `asgard-skills.lock.json` as `application/json`. Before switching traffic, verify real HTTPS `GET` responses, content types, and the links advertised by `llms.txt`; local file existence alone is not a production availability check.
