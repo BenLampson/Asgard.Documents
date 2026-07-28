@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "reviewedBaselineAt": "2026-07-28",
+  "policy": {
+    "commitSubjectsAreEvidenceOnly": true,
+    "automaticReleaseClaims": false,
+    "requiresSourceAndRuntimeVerification": true
+  },
+  "summary": {
+    "requiresReview": false,
+    "sourceCount": 3,
+    "newCommitCount": 0,
+    "dirtySourceCount": 0
+  },
+  "sources": [
+    {
+      "id": "asgard",
+      "version": "5.1.3",
+      "recordedCommit": "d1002d1",
+      "recordedResolvedCommit": "d1002d1af5478e74669a3f0128ed9d4e43465dc2",
+      "currentCommit": "d1002d1af5478e74669a3f0128ed9d4e43465dc2",
+      "comparison": "up-to-date",
+      "commits": [],
+      "dirtyWorktree": {
+        "dirty": false,
+        "fingerprint": null,
+        "changedFiles": [],
+        "publicSurfaceFiles": [],
+        "requiresReview": false
+      },
+      "requiresReview": false
+    },
+    {
+      "id": "heimdall",
+      "version": "5.3.19",
+      "recordedCommit": "0032070cf8584deb4d7e3569900742d1718ab6ef",
+      "recordedResolvedCommit": "0032070cf8584deb4d7e3569900742d1718ab6ef",
+      "currentCommit": "0032070cf8584deb4d7e3569900742d1718ab6ef",
+      "comparison": "up-to-date",
+      "commits": [],
+      "dirtyWorktree": {
+        "dirty": false,
+        "fingerprint": null,
+        "changedFiles": [],
+        "publicSurfaceFiles": [],
+        "requiresReview": false
+      },
+      "requiresReview": false
+    },
+    {
+      "id": "skills",
+      "version": null,
+      "recordedCommit": "7b26856",
+      "recordedResolvedCommit": "7b26856ae6a3266f9d33be44c8880ee8863888d3",
+      "currentCommit": "7b26856ae6a3266f9d33be44c8880ee8863888d3",
+      "comparison": "up-to-date",
+      "commits": [],
+      "dirtyWorktree": {
+        "dirty": false,
+        "fingerprint": null,
+        "changedFiles": [],
+        "publicSurfaceFiles": [],
+        "requiresReview": false
+      },
+      "requiresReview": false
+    }
+  ]
+}

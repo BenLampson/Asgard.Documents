@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-07-28",
+  "sources": {
+    "asgard": {
+      "projects": [
+        { "path": "Common/Asgard.Abstractions/Asgard.Abstractions.csproj", "classification": "public-package", "docs": ["packages-and-installation", "configuration-reference", "database"] },
+        { "path": "Common/Asgard.Abstractions.AspNetCore/Asgard.Abstractions.AspNetCore.csproj", "classification": "public-package", "docs": ["packages-and-installation", "api-development", "identity-and-tenancy"] },
+        { "path": "Common/Asgard.Analyzers/Asgard.Analyzers.csproj", "classification": "public-package", "docs": ["packages-and-installation", "analyzers", "analyzers-operations"] },
+        { "path": "Common/Asgard.AspNetCore.Core/Asgard.AspNetCore.Core.csproj", "classification": "public-package", "docs": ["packages-and-installation", "middleware-pipeline", "identity-authorization-operations"] },
+        { "path": "Common/Asgard.Core/Asgard.Core.csproj", "classification": "public-package", "docs": ["packages-and-installation", "infrastructure", "plugin-lifecycle"] },
+        { "path": "Common/Asgard.TsGen/Asgard.TsGen.csproj", "classification": "public-package", "docs": ["packages-and-installation", "typescript-generation", "tsgen-operations"] },
+        { "path": "Host/Asgard.Yggdrasil.AspNetCore/Asgard.Yggdrasil.AspNetCore.csproj", "classification": "public-package", "docs": ["packages-and-installation", "host-lifecycle", "deployment"] },
+        { "path": "Plugins/Asgard.PluginSdk/Asgard.PluginSdk.csproj", "classification": "public-package", "docs": ["packages-and-installation", "quick-start", "plugin-lifecycle"] },
+        { "path": "examples/Z.Test.Starter/Z.Test.Starter.csproj", "classification": "example", "docs": ["quick-start", "host-and-plugins"] },
+        { "path": "Test/Asgard.AspNetCore.Core.Authorization.Tests/Asgard.AspNetCore.Core.Authorization.Tests.csproj", "classification": "test", "docs": ["authorization", "identity-authorization-operations"] },
+        { "path": "Test/Asgard.AspNetCore.Core.Tests/Asgard.AspNetCore.Core.Tests.csproj", "classification": "test", "docs": ["middleware-pipeline", "cors-operations"] },
+        { "path": "Test/Asgard.Core.Tests/Asgard.Core.Tests.csproj", "classification": "test", "docs": ["infrastructure", "plugin-lifecycle"] },
+        { "path": "Test/Asgard.TsGen.Tests/Asgard.TsGen.Tests.csproj", "classification": "test", "docs": ["typescript-generation", "tsgen-operations"] },
+        { "path": "Test/Asgard.Yggdrasil.AspNetCore.TestPlugin/Asgard.Yggdrasil.AspNetCore.TestPlugin.csproj", "classification": "test-helper", "docs": ["host-and-plugins", "external-plugin-operations"] },
+        { "path": "Test/Asgard.Yggdrasil.AspNetCore.Tests/Asgard.Yggdrasil.AspNetCore.Tests.csproj", "classification": "test", "docs": ["host-lifecycle", "health-and-rate-limiting"] }
+      ]
+    },
+    "heimdall": {
+      "projects": [
+        { "path": "be/Asgard.Heimdall/Asgard.Heimdall.csproj", "classification": "application-module", "docs": ["heimdall", "heimdall-integration", "heimdall-management-api", "heimdall-mcp", "heimdall-service-integration"] },
+        { "path": "be/Asgard.Heimdall.JwtSigning/Asgard.Heimdall.JwtSigning.csproj", "classification": "public-package", "docs": ["heimdall-jwt-signing", "packages-and-installation"] },
+        { "path": "be/Asgard.Heimdall.JwtSigning.AspNetCore/Asgard.Heimdall.JwtSigning.AspNetCore.csproj", "classification": "public-package", "docs": ["heimdall-jwt-signing", "resource-api-authentication"] },
+        { "path": "be/Asgard.Heimdall.Starter/Asgard.Heimdall.Starter.csproj", "classification": "host", "docs": ["heimdall-deployment", "heimdall-reverse-proxy"] },
+        { "path": "be/Test/Asgard.Heimdall.Tests/Asgard.Heimdall.Tests.csproj", "classification": "test", "docs": ["heimdall-release-notes", "heimdall-integration", "heimdall-management-api", "heimdall-mcp", "heimdall-service-integration"] },
+        { "path": "fe/package.json", "classification": "application-module", "docs": ["heimdall-custom-frontend", "heimdall-deployment", "heimdall-management-api", "heimdall-mcp"] }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1256 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "https://github.com/BenLampson/Asgard.Skills",
+    "ref": "7b26856ae6a3266f9d33be44c8880ee8863888d3",
+    "reviewedAt": "2026-07-28",
+    "releaseStatus": "audited-snapshot",
+    "tagAtReview": "v4.0.0"
+  },
+  "dependencySemantics": "explicit-bundles-only",
+  "skills": [
+    {
+      "name": "asgard-admin-frontend",
+      "path": "skills/asgard-admin-frontend",
+      "description": "Use when building or refactoring Asgard or Heimdall management frontend pages, Umi Max admin routes, Ant Design Pro CRUD screens, DVA models, generated TsGen API clients, OIDC login wiring, tenant workspaces, or frontend calls to Asgard APIs.",
+      "sha256": "b044243b9f14def6da56b331e86c4d4bf6996ace2bf20c24df85597a5b809394",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "de60a70702e0ca0ef4d28df1bcfc8e4bb571c6d4773cce00fb01dcc986c54338"
+        },
+        {
+          "path": "references/heimdall-patterns.md",
+          "sha256": "b301ae68902ff982b29d613ad70e9de3bf198b12d7f5d89f47488300de0dfd90"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "5fa899d773adcc78f031ad85c38b968d8335fbd64d9d892f0f79549242e284e0"
+        }
+      ]
+    },
+    {
+      "name": "asgard-api-development",
+      "path": "skills/asgard-api-development",
+      "description": "Asgard Web API 开发 skill。Use when creating or updating controllers, routes, /api URL prefixes, unified Response models, pagination responses, exception handling, Swagger-facing API behavior, or controller code that should follow Asgard BaseController conventions.",
+      "sha256": "d3ae5e3639c82ce4697eb69f0dc3733914ebbd383e22d31b4b1aa0605fe64448",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "39443d27d49759b28554202cc68f2a9b9701e39e0c2df7c3f2909870f100f1e3"
+        },
+        {
+          "path": "references/AsgardExceptionHandlerExtensions.cs",
+          "sha256": "f78e7fb09ceab3c3bd94914bc3b4dab0761a68d77a12716dd41ce66819873c4d"
+        },
+        {
+          "path": "references/BaseController.cs",
+          "sha256": "c4b466eb6d8aafcbbc16bef927014677f26de4e677831449268684326dd34b43"
+        },
+        {
+          "path": "references/Response.cs",
+          "sha256": "0c03794aa6120b000b743b5e081ef64774e7253029c3d18c647ba934954bf74c"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "2f90eafb48dfd271cfa3741267e7c7042bc9737e118bd8054a58bff40f9f0edb"
+        },
+        {
+          "path": "templates/BaseController.cs.template",
+          "sha256": "43df0bd86150333d3f13b8dbdf7ff050bf46b993e90f42b3e55ef8ac5cf74dfa"
+        },
+        {
+          "path": "templates/GetAction.cs.template",
+          "sha256": "b5522c7eab179b313467a6c0cfdf14a4efeda51f8c5bc80ade28d90128bd8596"
+        },
+        {
+          "path": "templates/ListAction_Cursor.cs.template",
+          "sha256": "7ea351da57a18bc144ac3af3c6bb9c1c795d6b0996b954c23b421ad9eecf3e66"
+        },
+        {
+          "path": "templates/ListAction_Page.cs.template",
+          "sha256": "c64391b996235cf21532f5d45d75cea1f9807c93a2f95933b14f0121120f2fbb"
+        },
+        {
+          "path": "templates/Program_AddExceptionHandler.cs.template",
+          "sha256": "1822318be1eefa5bb344887b063e262fbe05681e9421cd5c4ee7c7c905beead7"
+        }
+      ]
+    },
+    {
+      "name": "asgard-auth-authorization",
+      "path": "skills/asgard-auth-authorization",
+      "description": "Asgard 授权与 AsgardAuth skill。Use when designing or debugging AsgardAuth attributes, authorization DSL expressions, role/permission/scope checks, token_type-based access rules, or understanding how identity snapshot fields participate in authorization.",
+      "sha256": "5ca9d190bd6cad407fdb4a88d65d51017e1c50a140301bf5a7b5849081db9343",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "63f58aca6bbfa9e01096c14ef5488b96dd16bcbd6717e4b7982c319407628401"
+        }
+      ]
+    },
+    {
+      "name": "asgard-backend-guard",
+      "path": "skills/asgard-backend-guard",
+      "description": "Asgard 后端代码复查与守卫 skill。Use when reviewing or self-checking Asgard backend changes, especially for Controller/Service/Repository/Entity code, route prefixes, DTO mapping, CRUD flows, tenant data, optimistic-lock updates, response wrappers, audit fields, or other places where generated code may violate Asgard hard rules or repeat known project pitfalls.",
+      "sha256": "8f0fc847c73b6f1bb572123c78f0c5843e14e0699d28d68de824ded79c5988ef",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f98c68161b4eab8b481c54aaf5116af2cd7bcbce47a956525e8b9927f740e2fc"
+        },
+        {
+          "path": "references/review-checklist.md",
+          "sha256": "6160e26fd2961791f48631cbd1139107a875eeca39b404c1e47e3467c71012ce"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "8246c640cfdedffca225f19228d5b1685e315cab32bbfab5df7ec867a726fa3b"
+        }
+      ]
+    },
+    {
+      "name": "asgard-base-types",
+      "path": "skills/asgard-base-types",
+      "description": "Asgard 基类与基础模型 skill。Use when another AI needs the meaning, key fields, inheritance points, and correct usage timing of BaseController, Response models, PluginBase, AbsAsgardContext, AbsAsgardUserInfo, HostConfig, PluginConfig, or other framework base abstractions.",
+      "sha256": "3689f0aa2ee85cac4726f4a61dee99602f3f1f98f8d2cacaef9345ac6f6b038f",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f24d422b20ac214de6493f6f27cdf90b31d58141c84325fdf42cbba9136c876d"
+        },
+        {
+          "path": "references/AbsAsgardContext.cs",
+          "sha256": "c2176d74278bdebbeaf30522fddbcf0c63e963d01930476aecd33cfbbf69347c"
+        },
+        {
+          "path": "references/BaseController.cs",
+          "sha256": "d73e267601bbc78a4ce9112e5739d21fbfb888643d65c62c76c72f95e16645ae"
+        },
+        {
+          "path": "references/PluginBase.cs",
+          "sha256": "7e3a8a99eba7d1bad193552b2f83f8e64f751669b61c66f1d366e8682954849d"
+        },
+        {
+          "path": "references/Response.cs",
+          "sha256": "0c03794aa6120b000b743b5e081ef64774e7253029c3d18c647ba934954bf74c"
+        },
+        {
+          "path": "references/ResponseStaticFactory.cs",
+          "sha256": "3efcb0bee4eb6c0b72954fb9b0cdc21fcc9501c7bfdcf465eb79e571bb0c7c3c"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "ca82631c4a86f37abc0734330d0aa05e2d761c8679fd437196d1e60ad86b7d83"
+        },
+        {
+          "path": "templates/AbsAsgardContextInjection.cs.template",
+          "sha256": "c950295d7f027df0a51e14322ff2de9d23d0db60264a75bc664b87ef9f2a836e"
+        },
+        {
+          "path": "templates/BaseController.cs.template",
+          "sha256": "e730509bd1789108c7ea52e0159a869d491ce9ad82d34cbb349dc42e21a5f330"
+        },
+        {
+          "path": "templates/PluginBaseImplementation.cs.template",
+          "sha256": "0a2cf4d370c7ceb12e8008e2f6c629385405b3bde932a930bc9a11f065cd9930"
+        },
+        {
+          "path": "templates/ResponseSuccess.cs.template",
+          "sha256": "ebbd47b69fe19e458f312a22da70dfa7409f4668922f5c49170c206affbfff8e"
+        }
+      ]
+    },
+    {
+      "name": "asgard-cache",
+      "path": "skills/asgard-cache",
+      "description": "Asgard 缓存模块 skill。Use when configuring or using Asgard caching, including CacheConfig, memory cache, Redis cache, multi-level cache behavior, cache access through AbsAsgardContext, cache keys, expiration, and cache-related graceful degradation.",
+      "sha256": "76054960a5ecee0e3fda896ce162033038ee47bd2705aefb34d84d1d676d2184",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f9259b29315b121d3b773ae21a86ceb3d98fd8a644b9c1c3c5bb6673e3337a8f"
+        },
+        {
+          "path": "references/CacheConfig.cs",
+          "sha256": "b4f62eed39d23bc98c15c0de2f8a0dd5bb6c5ef8de80d95a8f456de51f5674b8"
+        },
+        {
+          "path": "references/CacheManager.cs",
+          "sha256": "f8f1c97bed394e8f2248c11f762a03499d4e8aea0b7a4752f7acad28d7fc79e5"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "f6e2a4a5db313814cecbd9df955fc877c287994fd58358f1d0eb360a8ca44f0e"
+        },
+        {
+          "path": "templates/appsettings.yaml.template",
+          "sha256": "e76bbdd7eeb2c64c8de96ee00309f667f98a5263be8447e9b9e4b3b3dd5fa376"
+        },
+        {
+          "path": "templates/CacheInvalidation.cs.template",
+          "sha256": "b5bcbc28890fd1ec46cd924fbc50de16faada91d1ab05e39bc79c4a157b577a7"
+        },
+        {
+          "path": "templates/CacheUsage.cs.template",
+          "sha256": "2a427f15bf2235d9578fd5c613ee7968ed502ae0a5d74fec58d760abaf2258ef"
+        }
+      ]
+    },
+    {
+      "name": "asgard-configuration",
+      "path": "skills/asgard-configuration",
+      "description": "Asgard 配置系统 skill。Use when defining or explaining app.yaml, plugin.yaml, ConfigPath mappings, YAML loading, host and module configuration, configuration precedence, or strongly typed configuration objects in the Asgard framework.",
+      "sha256": "d8dae4b6682dde2fb51cbce5fe082d100579ec8bc2a6796dd7661ba1c7e8c0ce",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "0fbbe0910ae656d365261de1784e081c75553c0a469a4a9a9e6fda53f017cfc4"
+        },
+        {
+          "path": "references/AsgardConfigurationBuilder.cs",
+          "sha256": "a4ab104dc72cd6c25cbceead24e313aa42f8ebe7bd45f4613ba89a873c08bcc2"
+        },
+        {
+          "path": "references/AsgardConfigurationRoot.cs",
+          "sha256": "4cae0538567634b78c68b67f433b78518875e7f4ecee5fb2e8107994f8138b25"
+        },
+        {
+          "path": "references/ConfigPathAttribute.cs",
+          "sha256": "0505d68f866816db8b729484cc54e15e93c5155be429b3ff05c3bb45d526d557"
+        },
+        {
+          "path": "references/ISystemConfig.cs",
+          "sha256": "b298bbf410e366bbdffa76c241957fbd471400e423032edd2b809c4101a2976b"
+        },
+        {
+          "path": "references/PluginConventions.cs",
+          "sha256": "d16b8327a4131c4a7d7f17dace0835cd78c3241817df2b2f03ecb0e7655d188a"
+        },
+        {
+          "path": "references/YamlConfigLoader.cs",
+          "sha256": "78f20190105b3db9bfd10cb8e970fb2775a7c7235fd6b2879f94f0d057ab8c45"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "7ce8ff13bd19930a014c738f185b7d2c7a9e6402db98a51c60bed2c5fac955ff"
+        },
+        {
+          "path": "templates/AddPluginConventions.cs.template",
+          "sha256": "e1e5afd28d6802eb98780a12b92fcaae20391e6ba91aa2cd199b3a6c20fc0769"
+        },
+        {
+          "path": "templates/plugin.yaml.template",
+          "sha256": "52f2d113c8f27b6a9cd0181c3fb03672cd1caad627f46ad6e03e0b68337dd857"
+        },
+        {
+          "path": "templates/SystemConfigClass.cs.template",
+          "sha256": "7b8f7239f2e4fccdb50d3184581a353e76165d2954c8960f3a1eb5f8b73358dd"
+        }
+      ]
+    },
+    {
+      "name": "asgard-context-usage",
+      "path": "skills/asgard-context-usage",
+      "description": "AsgardContext 使用 skill。Use when a task needs AsgardContext, AbsAsgardContext, shared infrastructure access, null-safe capability usage, Trace note/tag usage, service lifetime reasoning, or guidance on whether to use context versus direct dependency injection in Asgard.",
+      "sha256": "604f4efca4b426845bb306718e9f4cd0f101199385ecd8a749456e48177a8ab0",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "56df758c7ccb61bb3eb37bbe6eacc961ef1d1afa63b4462dd0c545f567511e75"
+        },
+        {
+          "path": "references/AbsAsgardContext.cs",
+          "sha256": "2a44a1e9ff3844459c7b42ebf550de1cf88990fea731dae14de819381673f7fc"
+        },
+        {
+          "path": "references/AsgardContext.cs",
+          "sha256": "b6ac7d690d41f3d12b89a77fb41b11eca3f3d55a6bce17f08912ab9dd246e486"
+        },
+        {
+          "path": "references/AsgardContextServiceCollectionExtensions.cs",
+          "sha256": "422b98965f6fdf05cc8fd1b83781d34a8049b6368f784461364c8a3c7f3f71f0"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "068eb4cda0a65ff4fb581b2ab42d10199e98ac4ef7a1e68933038a43a99903f9"
+        },
+        {
+          "path": "templates/BackgroundJobTenantScope.cs.template",
+          "sha256": "d384ade8987e9c8264bcfce5a44af7308a66af31f9e27613626fdec1604cc717"
+        },
+        {
+          "path": "templates/CacheUsageWithGracefulDegradation.cs.template",
+          "sha256": "885683efce5c51f312bbd6649cdaf57683bcdf9f3047e413cda30e03afd833f6"
+        },
+        {
+          "path": "templates/ProgramAddAsgardContext.cs.template",
+          "sha256": "bc4d1c86fb291ecf5c867053e290d410b56fdae318a5f85f113dbd1b0cfe2c79"
+        },
+        {
+          "path": "templates/ServiceInjection.cs.template",
+          "sha256": "9136d9a67f07bb73c3ab08b4e11d457ae42b8387dcd0abe89fddf5e852920bc9"
+        }
+      ]
+    },
+    {
+      "name": "asgard-database",
+      "path": "skills/asgard-database",
+      "description": "Asgard 数据库模块 skill。Use when configuring database.enabled, provider, connection strings, repositories, data-access structure, or explaining how Asgard database features integrate with repositories and services.",
+      "sha256": "32152b57c609099c9a6c2577f739fa2341865f05f3fec36945416e0b912d87d8",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "7351644a4809620dc90643c81673439e9950edcbd49c1ae371dca6957e05c8ab"
+        },
+        {
+          "path": "references/DatabaseConfig.cs",
+          "sha256": "8e0698f5b326557c56d70da76d914dd66a6f798abc55b4691edd210c0278ad26"
+        },
+        {
+          "path": "references/DatabaseServiceCollectionExtensions.cs",
+          "sha256": "fb8af102013fbe6fe450a229ddbefb6dea8c2fd2397553afd2d01b573b897415"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "d0137adc0b230b56d983f9deabd8ab4b09dff2a9540e6b02365cabf94528ad8c"
+        },
+        {
+          "path": "templates/appyaml.database.yaml.template",
+          "sha256": "ba78dd6af528489fa51a441dcf4c19e8c33d8695ed1ffab32f57bd04f3730a98"
+        },
+        {
+          "path": "templates/Program_AddDatabase.cs.template",
+          "sha256": "f9a3d7cec1e0d9ec139b4063008063232eb1f408bf4280bdc484f10f72de5301"
+        },
+        {
+          "path": "templates/RepositoryInheritance.cs.template",
+          "sha256": "df3674a32bebcc1a9b48b61d84e5ea6067fcf9f27313a4e12ef0205242b4b848"
+        }
+      ]
+    },
+    {
+      "name": "asgard-dotnet-10-csharp-14",
+      "path": "skills/asgard-dotnet-10-csharp-14",
+      "description": "Asgard .NET 10 / C# 14 coding conventions skill. This is the mandatory coding-rules authority for Asgard. Use when writing any C# code for Asgard framework, following required .NET 10 / C# 14 conventions, comments, file rules, dependency injection patterns, testing expectations, Serilog infrastructure, or FreeSql-backed database logging conventions.",
+      "sha256": "04581f7c713175d0509dd5f09f91a3d5f5e976e3d27b80d3f72da6cb3bc9ff46",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "9ce24d19edbd942729255a0e6e762c734ff294af581cb84a12d3163d96dfc633"
+        },
+        {
+          "path": "references/anti-patterns.md",
+          "sha256": "f25d77511c63876767bc567157a5a76d63443fd3c53002355324b50e8f2eb9a9"
+        },
+        {
+          "path": "references/csharp-14.md",
+          "sha256": "8351f946963575d79f9e6b49b1903216ddf2cb26d26eebbf6c5a5306d59149b8"
+        },
+        {
+          "path": "references/infrastructure.md",
+          "sha256": "ed32cbda7f179b9b5652f309d8ebc48421ba01ca62c0fd267ab6dba521931861"
+        },
+        {
+          "path": "references/libraries.md",
+          "sha256": "0316e629a8b87f2f1852cba97dab20d1ac0f552a74aaae9e757ffce6ba53f47f"
+        },
+        {
+          "path": "references/minimal-apis.md",
+          "sha256": "2b5951ec640150fb37312935fb9e668c05c72ef5313bffdcf69d5e495bc18e9c"
+        },
+        {
+          "path": "references/never-do-this.md",
+          "sha256": "94fc37289cee30a2ccdfefa09a32f3d0c6ed4892a76edc688f867a5d5b5ec7fb"
+        },
+        {
+          "path": "references/project_rules.md",
+          "sha256": "6127c41da7a6c1eecda9ec876486577af606574ee0c1d793c472796002eb5d18"
+        },
+        {
+          "path": "references/security.md",
+          "sha256": "a0b57752b970acf599cab356cfa06c498d523c6bbb51bcabd7d64d9583dacbb4"
+        },
+        {
+          "path": "references/testing.md",
+          "sha256": "9e8a939271f6eae89f506e004d69937b862a153243add22765bd754f2466d32b"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "393127fa92557becdf49d830bb5afa538b2f2dce8b81f30ebd4c82a311e80d51"
+        },
+        {
+          "path": "templates/ExtensionBlock.cs.template",
+          "sha256": "5e62758678273a20f99c3d1613c1a3961d75b1880f5a3daf409e49bf9075f685"
+        },
+        {
+          "path": "templates/MediatRCommand.cs.template",
+          "sha256": "351fb71ace106634f4201013132e4aa131c6d7ecc180a12af5c7c05e2ba88993"
+        },
+        {
+          "path": "templates/PrimaryConstructor.cs.template",
+          "sha256": "9b65c4bca445581bb878c3fa89373ab4d444e20ac1a0a47acbbdab6b60051868"
+        }
+      ]
+    },
+    {
+      "name": "asgard-framework-overview",
+      "path": "skills/asgard-framework-overview",
+      "description": "Asgard 框架总览与路由 skill。Use when working with the Asgard framework but the request spans multiple modules, the correct entry point is unclear, or another AI needs a high-level map before choosing host, configuration, api, plugin, context, lifecycle, repository, infrastructure, identity, login, auth, or security skills.",
+      "sha256": "ed85f1d249293940d997ad984979acffa60536ad4e0883f1f8c3ce13c36a2bb9",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "150f450e885b7416b149d04ebac4ece180b5ca30c5d465bbfe42b7b63df3595f"
+        },
+        {
+          "path": "references/AsgardAuthAttributes.cs",
+          "sha256": "6539ece8380236ecd10f889e479bd33ac0e5ed742759d04499a1ddf474c8e90d"
+        },
+        {
+          "path": "references/AuthOptions.cs",
+          "sha256": "24ee7082a4c98adbf5c9c3d3b8c3656702221a0a06005e4602df8363df3c5726"
+        },
+        {
+          "path": "references/framework-architecture.md",
+          "sha256": "b4cfbfe861bbb3220e197e0153d8bfde4d64568fcd964e2ddf734ce4e2834bff"
+        },
+        {
+          "path": "references/ServiceCollectionExtensions.cs",
+          "sha256": "4af63124bff47e0f357abe73447bf446be46ce2f89b075ea52a6a054301af68b"
+        },
+        {
+          "path": "references/YggdrasilHostBuilder.Configurator.cs",
+          "sha256": "944f162a031447926c76ef45bd1cc5b17d7bf3160816b9cb69aad2abbfb3bf19"
+        },
+        {
+          "path": "references/YggdrasilHostBuilder.Services.cs",
+          "sha256": "b490de8f096d32680aa440a1ef9115628270068764205e5c500e5a62534678a9"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "d95f99969670cd8ebb126bd04267e5d42b9f8cb4bf9b3b2841c3fb215e690cd4"
+        },
+        {
+          "path": "templates/question-routing.md.template",
+          "sha256": "d4877ee37e633046a44106046549302ee7687be9266f9c4f7f4d930ec4fdbd0d"
+        }
+      ]
+    },
+    {
+      "name": "asgard-host-features",
+      "path": "skills/asgard-host-features",
+      "description": "Asgard 宿主特性配置与用法 skill。Use when configuring or explaining host.staticFiles, host.cors, host.auth, host.swagger, host.tsGen, host.rateLimiting, host.healthCheck, middleware order, tenant middleware placement, or host-managed web features in Asgard. For host.auth, this skill covers host-side JWT Bearer registration, middleware wiring, and config semantics, not frontend login flows or PKCE design.",
+      "sha256": "b141a28e3bc1dbd96cc0a22c18af2d4a6a42042ddf21cf5a2f793c65a405a3a7",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d822b196b75bbf3b8bed2b110f8a1b2792da6554c8ceddb645b2392cc4e1d40d"
+        },
+        {
+          "path": "references/HostConfig.cs",
+          "sha256": "0b6a065adb034aafe3ee0b9c61205ab6f6ba1cce3adba0bfef58738435af07a6"
+        },
+        {
+          "path": "references/StaticFileHostOptions.cs",
+          "sha256": "c461f46ae54f805a861cfb756f980f2c4afaa0c7c63239c7221ffcc1b3227606"
+        },
+        {
+          "path": "references/TsGenHostOptions.cs",
+          "sha256": "528bb83985cee6ceafe8b6564d50589b6126812630f2051fb1da3aeda2c488b0"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "a863d82dab5bd98dd07041fd060876ea1a4cff3dfe03e25747e8634591315e0b"
+        },
+        {
+          "path": "templates/appyaml-host.yaml.template",
+          "sha256": "bc25ca8c28164fb359f2b01a7b82b7a033abd9206060e297f19af95091ee53f9"
+        },
+        {
+          "path": "templates/appyaml-hostfeatures.yaml.template",
+          "sha256": "06e8555d34a2dd6eaa3ca5da6f4b7bc94b4a5fa4c2339961b8f10521f1b33e7e"
+        },
+        {
+          "path": "templates/MiddlewareOrder.cs.template",
+          "sha256": "d9992fab7a3c9cab31006a52a3f78b67bcd956f715e3c5e2db64971009e7dbb7"
+        }
+      ]
+    },
+    {
+      "name": "asgard-host-project",
+      "path": "skills/asgard-host-project",
+      "description": "Asgard ASP.NET Host 项目编写 skill。Use when creating, refactoring, or explaining an Asgard host project, including startup entry selection, YggdrasilHost usage, Program.cs layout, middleware registration, built-in plugin hosting, and host-level project structure.",
+      "sha256": "d2cff85617c369d70d857f94c6c1ce99c45670b45a962b25a7ea3e51a73948c4",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "738b1a0557eb832fd3e2822d5d7baac4b2929ce7c671fa2a6caef2dac70d7121"
+        },
+        {
+          "path": "references/PluginWebAppDefaults.cs",
+          "sha256": "bec29cedc1b302d14276f2efbc9f5216a7931183338e76d1030fbdcefb232f4c"
+        },
+        {
+          "path": "references/YggdrasilHost.cs",
+          "sha256": "9992488234ebef19070a3b5106618620c26e4e1207da3d786c1d3c08e4cf3dcb"
+        },
+        {
+          "path": "references/YggdrasilHostBuilder.cs",
+          "sha256": "1c228af1cc7efe07ed23c2e10cbb7e5cea9b7f3a1fc12fa875c9918e3c02c03a"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "d9e5d199b162e25f139b59f0c266093a80fbac2ae31216f395b88c9d3053ba5d"
+        },
+        {
+          "path": "templates/Program-Full.cs.template",
+          "sha256": "f1a16f2effdc5e73d40814ba1149cc6f80967963c45eac6b2dfcfa6360943466"
+        },
+        {
+          "path": "templates/Program-Minimal.cs.template",
+          "sha256": "c1841755bc531eb88bb2e18cbab77209e77a60e8910a8934753a767944fd7916"
+        },
+        {
+          "path": "templates/Program-WithHooks.cs.template",
+          "sha256": "09d3bf3930288e17116bc3b63b6cf8d8902528fb972841dd411b2012e551555d"
+        }
+      ]
+    },
+    {
+      "name": "asgard-identity-userinfo",
+      "path": "skills/asgard-identity-userinfo",
+      "description": "Asgard 身份用户信息 skill。Use when a task needs AbsAsgardUserInfo, IAsgardIdentityContext, standard claim contract mapping, application/tenant authorization snapshot claims, identity modeling, or test/user-session construction in Asgard.",
+      "sha256": "d3720dbf3dce4841ecf909c63452663d8b92290357ddaae0267fcf44daca2450",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "983829d69b0a5edce895f8eef250a502a5b0ff5a97dbf7b432d7a27a0ec53430"
+        },
+        {
+          "path": "references/AbsAsgardUserInfo.cs",
+          "sha256": "5898afb80d7a8617fc1ec561b4476a6cae03e8c475f208c8e8a68561a973b2e2"
+        },
+        {
+          "path": "references/AsgardClaimTypes.cs",
+          "sha256": "1decf7fe7b0468c9bbd3d261d3dc3532a1fa1c38a00723cf75ea2feaf41cd69a"
+        },
+        {
+          "path": "references/AsgardIdentitySnapshot.cs",
+          "sha256": "45602770cececdc3c68c4a7fd5473f17785dee746d9bf725d9d0cf60dec2ca35"
+        },
+        {
+          "path": "references/AsgardTokenProfiles.cs",
+          "sha256": "c561df21ee1fd5805d6456f66cd53e49194e5f2f6b6aad422700d798c450643b"
+        },
+        {
+          "path": "references/DefaultAsgardIdentityContextResolver.cs",
+          "sha256": "665ae1a5e3c4f0e0164fd91692a88edcb3e196a31ead9a5e2548b49baac1381b"
+        },
+        {
+          "path": "references/DefaultAsgardUserInfo.cs",
+          "sha256": "02c10621ff8412cf76e7b795f87462d9e57ec0db33ce00c716d687bfca0233d6"
+        },
+        {
+          "path": "references/IAsgardIdentityContext.cs",
+          "sha256": "8a42e2ea335303eccf2413bd7d7b2de418d668dabf9ff2b5c9004c655f4a5ed9"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "60deef41df366ff74b14d265da388faa2a95860423029325e1675df28d69a000"
+        },
+        {
+          "path": "templates/BuildBackendServiceClaims.cs.template",
+          "sha256": "fa3fc0888ad629420e1a50762ced969779d243c3ba1d5b1166385be273fc0251"
+        },
+        {
+          "path": "templates/BuildIdentityClaims.cs.template",
+          "sha256": "eba3c1c18fa73125585273f44f18c9a635e11a246cec27c4ecd7855b46abcc03"
+        },
+        {
+          "path": "templates/CustomAsgardUserInfo.cs.template",
+          "sha256": "5b9cd3bf94ebd3bf3e7903782308f48be203eba93f83886b078eca2fee02278e"
+        }
+      ]
+    },
+    {
+      "name": "asgard-job-scheduling",
+      "path": "skills/asgard-job-scheduling",
+      "description": "Asgard 作业调度 skill。Use when configuring JobConfig, scheduler options, cron or simple triggers, runtime job registration, plugin auto job loading from plugin.yaml, or job operations through AbsAsgardContext.JobScheduler in Asgard.",
+      "sha256": "39ed57e3e9f0d3c502c76ad2ddd228bb2e420b8f0c0053076c7b0cd31d17ba17",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "35e9cfc32fed7ce37c8d7f180381ce10d899b831fe99f4407b8d9420f7ecd6d1"
+        },
+        {
+          "path": "references/IJobScheduler.cs",
+          "sha256": "76eaff1ee2aa1ec28d3a62a12122086d7e4ea1da717da54b18efbbd3679c5529"
+        },
+        {
+          "path": "references/JobConfig.cs",
+          "sha256": "46efd0de75783eb5b24c0e1e2c8500280ae843145412e93074ab2c3b7c0c4f40"
+        },
+        {
+          "path": "references/JobManager.cs",
+          "sha256": "ffbb996651e75f1a78655c156b7135774f310f3023ff6ffecd2c579d59796228"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b0b03f05e106dfd9dee94408d5b9022b1b59d9e23c0787a3f123602d8bd91e51"
+        },
+        {
+          "path": "templates/app.yaml.template",
+          "sha256": "33c230c21607e03814ce16c6bc7fb1c74480af1680343f08e904afdb46d3740f"
+        },
+        {
+          "path": "templates/DynamicRegistration.cs.template",
+          "sha256": "f6a5e053af4fa4fc41a8bb36fb20db34dec48a1bbbfd973a5d2efc49ea228c00"
+        },
+        {
+          "path": "templates/JobImplementation.cs.template",
+          "sha256": "f2c6e7e2d607c806a5b1c96fa858009df24bfc9da1c8bba5a694863ccf116bd9"
+        },
+        {
+          "path": "templates/JobOperationViaContext.cs.template",
+          "sha256": "7edd0ada79eebfe51b2a6f41002b3cbd01e45d5dc1bac56f162c023b9fe96f92"
+        }
+      ]
+    },
+    {
+      "name": "asgard-messaging",
+      "path": "skills/asgard-messaging",
+      "description": "Asgard 消息队列模块 skill。Use when configuring or using messaging.enabled, MQConfig, RabbitMQ, tracing, retry, delayed messages, dead-letter handling, message publishing, subscription handlers, or message processing through AbsAsgardContext.",
+      "sha256": "23258aea21905427f8ccaa7f872b2c4de73f94809cf2ea927e37013592863895",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "e49d4d76b9afbdf7ccbd4ac3df861e87dd5d6670eb1dce0bd5978ff0c0f6a2a0"
+        },
+        {
+          "path": "references/IMessageQueue.cs",
+          "sha256": "7c57797de5d02170be214d6fdbc2ea8a40e7c715ee8df87aa76ccd1a7e96bc33"
+        },
+        {
+          "path": "references/MQConfig.cs",
+          "sha256": "08a27eaa912dd87133f50fbea745be2f14ff18132aaf327c701bac9e890d82ce"
+        },
+        {
+          "path": "references/MQManager.cs",
+          "sha256": "24b9744c79c084758cb683d3edfc36fbd28434cfc8f2da8aaf0285dba480bae1"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "3b1cf7b1a26f7e99370c19d05594152f64de19dd1f6e4c60b1765cd2e885296b"
+        },
+        {
+          "path": "templates/app.yaml.template",
+          "sha256": "735a89214fbc1ecfcfdda3986736ca01be6e3647aecc362c91b481e50710903c"
+        },
+        {
+          "path": "templates/PublishMessage.cs.template",
+          "sha256": "0556051f52cad4da3509fee3765a805f4cfc205a660727d9635e6d9469510ea4"
+        },
+        {
+          "path": "templates/SubscribeMessage.cs.template",
+          "sha256": "d98b4e1699aafb12bdf7423790a247a73b8b8b800ee647784f57d348a9f6811d"
+        }
+      ]
+    },
+    {
+      "name": "asgard-mini-jwt-issuer",
+      "path": "skills/asgard-mini-jwt-issuer",
+      "description": "Asgard mini 认证颁发 / Heimdall lightweight JWT issuer skill。Use when a small Asgard project needs to issue Asgard-compatible JWT access tokens without the full Heimdall IDP, wire `Asgard.Heimdall.JwtSigning`, expose OIDC discovery/JWKS endpoints, create user-login or backend-service tokens, configure resource services with `host.auth.jwt`, or explain the mini issuer boundary to other teams.",
+      "sha256": "3a662a9b26bd413a69ed2705930a1b64d49453b1b23b2ed2a07be73dee08f16f",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "bf18388fd2a41058790b3ada6d61b4dc0e469251202bcfdc2c6590d95f5ccf1d"
+        },
+        {
+          "path": "assets/BackendServiceToken.cs.template",
+          "sha256": "c245d24410c59ecb810ac1db39ea6000da0a1e9852564e4c56a198f721bb7ccf"
+        },
+        {
+          "path": "assets/LoginEndpoint.cs.template",
+          "sha256": "e3b53f71be2b3f52b8426c7a3b2e8fc62b2046186219d282881baf4e1c24bfd2"
+        },
+        {
+          "path": "assets/MinimalIssuerProgram.cs.template",
+          "sha256": "48cb9aac9877f4aecf97670ad149d6f58e3505084f5fe69c47f963df9edc1f28"
+        },
+        {
+          "path": "assets/ResourceServiceAuth.app.yaml.template",
+          "sha256": "10cdeacf2246b54a248137a42d2feb4ecc6f56cffa7a2ca277e6a14ef04773c4"
+        },
+        {
+          "path": "references/AsgardHeimdallJwtSigningEndpointRouteBuilderExtensions.cs",
+          "sha256": "9227cc239b63ba7e478e8464d0f41c0e6fefca8dd9e6742484a8cf9556a75db1"
+        },
+        {
+          "path": "references/AsgardHeimdallJwtSigningServiceCollectionExtensions.cs",
+          "sha256": "ca9020ecd1c31c117226579a2374a06f3277672af9eeba92bb690b3990217e71"
+        },
+        {
+          "path": "references/AsgardJwtIssuer.cs",
+          "sha256": "93583550271a98841cd4a538757d2f9acd9d137cdffcc669f588093e0ada7fd1"
+        },
+        {
+          "path": "references/AsgardJwtSigning.AspNetCore.Readme.md",
+          "sha256": "c0f444140ff90753fc0010e6c5cee68735a919ca132494ef9a76a603df1bb732"
+        },
+        {
+          "path": "references/AsgardJwtSigning.Readme.md",
+          "sha256": "35dc0bcd6737743d431d07a324fc211d42474b9dd11a2206204417fc17372fc9"
+        },
+        {
+          "path": "references/AsgardJwtSigningOptions.cs",
+          "sha256": "a16eafcb1a7e1d2443425b299d5568df46f2f0beff5b763d155420ccd34ccbb2"
+        },
+        {
+          "path": "references/AsgardJwtSubject.cs",
+          "sha256": "933ee621b40ef773b17fe6b054abda80d8988a5d5ef4681b44c49fd92e377429"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "11d402f2be6db3820c02139692d2bb6081aa71f8bafca4cee12372cff11bc436"
+        }
+      ]
+    },
+    {
+      "name": "asgard-plugin-development",
+      "path": "skills/asgard-plugin-development",
+      "description": "Asgard 内建插件开发 skill。Use when implementing built-in plugin entrypoints, PluginBase lifecycle hooks, PluginWebAppDefaults.RunAsync for plugins, AddPluginConventions, plugin bootstrap logic, or plugin.yaml-driven startup behavior in Asgard.",
+      "sha256": "64a77ccb911c25155a15d5764592037b5884ad9ac9918b934dd7b5100f8fac7b",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "c064cf7e04351ed28b5204aa5431b7370c71a6bbaeef5f0e1ec8ed8db2d567e1"
+        },
+        {
+          "path": "references/IPlugin.cs",
+          "sha256": "14ae22d5e6a9c82278255cd8538058a1bfdb822c876a69fa3386bd1330a011d4"
+        },
+        {
+          "path": "references/PluginBase.cs",
+          "sha256": "4b8665cd29b583ffb113ffcd46576616a4e66bac47ff70f57dec3c5ee0f0064f"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b18be1110d89d1ee847edfdff01d917093cc112a71c09e1d5cebe574481369ae"
+        },
+        {
+          "path": "templates/Plugin-Minimal.cs.template",
+          "sha256": "930e88e1fc7b4b310170ce042f25b82a29b54494174b1d51a740a94dab26228d"
+        },
+        {
+          "path": "templates/Plugin-WithConfig.cs.template",
+          "sha256": "a8b1b0bee18e4faf6ae14b2ba4a86af4803cf1a0bdf68096f2d61199868f3dc8"
+        },
+        {
+          "path": "templates/Plugin-WithJobs.cs.template",
+          "sha256": "26e1a9005c313cedd644daeb27a459672b88e82d63d96be2ce2a60b44f64f827"
+        },
+        {
+          "path": "templates/plugin.yaml.template",
+          "sha256": "c9387c344b050f412dbc3adff5d0c1cfa5f443eda84884b1c0f6496723918f7e"
+        },
+        {
+          "path": "templates/PluginModuleRegistrationExtensions.cs.template",
+          "sha256": "8cb05df130683b22d80f2f038f97f652f64ff55a94c164222077924278729dd5"
+        },
+        {
+          "path": "templates/Program-Minimal.cs.template",
+          "sha256": "ab729d994c469730df930c1c291cc5c54b779f8c73fffe6c2fca0efb4f703301"
+        }
+      ]
+    },
+    {
+      "name": "asgard-plugin-lifecycle",
+      "path": "skills/asgard-plugin-lifecycle",
+      "description": "Asgard 插件生命周期 skill。Use when explaining or implementing host builder hooks, plugin lifecycle stages, PluginState transitions, service availability timing, startup order, shutdown behavior, or code that depends on lifecycle boundaries in Asgard.",
+      "sha256": "c2b931f478f1c3b4d26b53db0e1b848f64deebc12896afbc4fc3c4ed4c3bde6e",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "582038434d83009d8f3298393a9bee0e90a52b8e29a619257d445b063bf74c20"
+        },
+        {
+          "path": "references/IPluginMiddlewareConfigurationContext.cs",
+          "sha256": "6d61903eab52196076b0e53264aa6c73b1bf8cb42147222cc76951a2fc29838c"
+        },
+        {
+          "path": "references/IPluginServiceConfigurationContext.cs",
+          "sha256": "0b589a2c654042b3e11f9a5e6f3ecdff5be5cbd061da4fb9facc90735a23c388"
+        },
+        {
+          "path": "references/PluginState.cs",
+          "sha256": "87c5b365c9c86744cbbbb3b7f1feca136ea94e2cc988c91ba7d75b7f65b1d287"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "0de959e7a923ab2ed362c6def2b4e0b7c45d95430964c192f63a6298ec36a567"
+        },
+        {
+          "path": "templates/PhaseChecklist.cs.template",
+          "sha256": "9997b09762117a5570b3ae8b8a0e16fe58cece10162d2db5247f51349fe71c7f"
+        },
+        {
+          "path": "templates/PluginLifecycleOrder.md.template",
+          "sha256": "e5f3c35c41f045085515b78bb0e4c2d53b9e84ed24a95bae1ca13194c776a32c"
+        }
+      ]
+    },
+    {
+      "name": "asgard-plugin-structure",
+      "path": "skills/asgard-plugin-structure",
+      "description": "Asgard 插件项目结构 skill。Use when scaffolding a new Asgard plugin project, defining folder layout, choosing starter files, separating plugin implementation from starter/host bootstrap, placing DTO/VO/Entity/Repository/Service code, configuring GlobalUsings.cs, or deciding where Mapper, Config, app.yaml, and plugin.yaml belong.",
+      "sha256": "4e5ac5b579f0a4ce549678079352e42538fb96577ed78038c19ef59423a676a0",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "ae0b53656d5196a727cbab1c559237a5e11d2b4ebc956a45a9070f581e9fd69b"
+        },
+        {
+          "path": "examples/full-plugin-structure.md",
+          "sha256": "34defa0f3e11a8e71db03d08017f7fb3fa1d20836960fcc923ab9461c359bc2b"
+        },
+        {
+          "path": "examples/minimal-plugin-structure.md",
+          "sha256": "84492a3ddf99bafca7bf7295e76bae5873518fddf94cb0d5d9ff386836f7166b"
+        },
+        {
+          "path": "references/layer-flow.md",
+          "sha256": "1806be732305d1cdf53d3b79babc4047f597d569e28fdbe4610313a15c018bb4"
+        },
+        {
+          "path": "references/package-globalusings-and-mapper.md",
+          "sha256": "5793d66a02b01227e047646e9ebf7dbd8c066b97b2c1cd8d7865683f6e8a90dd"
+        },
+        {
+          "path": "references/project-layout.md",
+          "sha256": "27698c885823f06bf83f285c9ec1fb39effcbb5d78c6cf6966e70a2a3bc86d8e"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "a96f8fc850af1dd6c7ed390947399938ecfcbbbace989fc067c77e696716a7f7"
+        },
+        {
+          "path": "templates/app.yaml.template",
+          "sha256": "bfc945e2d2c6ba43a0be434bc404e8838ca60e31252edc31de9feac9d51dfecf"
+        },
+        {
+          "path": "templates/AsgardPlugin.csproj.template",
+          "sha256": "3dad7913fb63476b1b085d07d6284554a7e8d62ccbe2fecaac565f321540857d"
+        },
+        {
+          "path": "templates/AsgardStarter.csproj.template",
+          "sha256": "16b72ce6d5d44a2bc8ef260c3cdb79fc12af83f74a7a2b1a4456d4ba25e0a3d6"
+        },
+        {
+          "path": "templates/GlobalUsings.cs.template",
+          "sha256": "fdb5e676cc62b4a6a2d0f395536d325c638a214dd31188717216ba3bd20771a3"
+        },
+        {
+          "path": "templates/plugin.yaml.template",
+          "sha256": "dd93f7b04d1ab4c17d53b846295f93b26eab9a82250c6776eac34482f8b9e6ca"
+        },
+        {
+          "path": "templates/Program.cs.template",
+          "sha256": "2e8aea318b16ca0382b52ef5714b98815922f70db288059eb36e9f8fde323609"
+        },
+        {
+          "path": "templates/project-tree.txt.template",
+          "sha256": "9c33e5275690a95728e266cebaa5597c6ae42f437d72833f81e80aa275821d84"
+        }
+      ]
+    },
+    {
+      "name": "asgard-repository-service-registration",
+      "path": "skills/asgard-repository-service-registration",
+      "description": "Asgard 仓储与服务注册 skill。Use when implementing repositories, scanning assemblies, using RepositoryAttribute, AddRepositories, service registration conventions, PluginConventions, or deciding whether to use explicit DI versus service scanners in Asgard.",
+      "sha256": "6e1e26e1101805027112662de88f78face3eea1dd610c4bc91bd397287d03a9d",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "d5158e142fb5e1ca87f05360d4f4a49b47297931bd0d316d970d34077bef7b62"
+        },
+        {
+          "path": "references/PluginConventions_AddPluginConventions.cs",
+          "sha256": "3387a0c59aaa7cc1d50e4526cde02df63b4883b60e1629491cc2cc0a1e182683"
+        },
+        {
+          "path": "references/PluginConventions.cs",
+          "sha256": "81991484ab7c9744d252adf857d8b152634bbe6b9376e0481b8401772cb56317"
+        },
+        {
+          "path": "references/RepositoryAttribute.cs",
+          "sha256": "e6e928eaa24916d91a0494b9eda51540beaaba549cff96d7daf2ece8f6c7b935"
+        },
+        {
+          "path": "references/RepositoryServiceCollectionExtensions.cs",
+          "sha256": "46df0cffbf8b0813df5b487e9cd1305a7c60d3626a3189cca9fee089b3b4b74f"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "98e8a58f7ea575878709e3dddcea05feae1883596e7e59c16485e0e29b61bd31"
+        },
+        {
+          "path": "templates/AddPluginConventions.cs.template",
+          "sha256": "1a282446399c5d16e3fabc623414ef20f2162d6d11ed727d56885798e228b9ee"
+        },
+        {
+          "path": "templates/AddRepositories_Manual.cs.template",
+          "sha256": "eb941aa4219847e9953c4958db4764960e9c15ffd4a1d00c33093a18ad4dfcd7"
+        },
+        {
+          "path": "templates/Repository.cs.template",
+          "sha256": "df3674a32bebcc1a9b48b61d84e5ea6067fcf9f27313a4e12ef0205242b4b848"
+        },
+        {
+          "path": "templates/Service.cs.template",
+          "sha256": "23ad684676d23ad49052b04b6164086cf8b51f95bf90c1502aa9c5c35c862093"
+        }
+      ]
+    },
+    {
+      "name": "asgard-security",
+      "path": "skills/asgard-security",
+      "description": "Asgard 安全能力 skill。Use when working with Asgard encryption, password hashing, key generation, sensitive data handling, Asgard.Encryption configuration, or deciding how to use Encryption, PasswordHasher, and KeyGenerator from AbsAsgardContext.",
+      "sha256": "0f7f6e1c8490ae58da60988471696008ee4155dc2cc259e0c78b66b98809c686",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "381525fea963336c4c16f19141217dbb33480524a7a2299924973b318a64e704"
+        },
+        {
+          "path": "references/IEncryptionService.cs",
+          "sha256": "86ae86edad3e3715a5cb0b94b7de76f54ad6c84ada0600c7fecd70a810c74a6d"
+        },
+        {
+          "path": "references/IKeyGenerator.cs",
+          "sha256": "e9483dd3081bcc0aae600dff66ad1e04ff3a84f9fb0eb6d553553e0140f9c1c6"
+        },
+        {
+          "path": "references/IPasswordHasher.cs",
+          "sha256": "8b24fb546f9ebcfdc59a15abdc33ecfc66a167563511049dce49aaee0820a193"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "00424fddffd7b97b10ef599e5a38a203a44a86f0bd9ea85cd574e9777767f60f"
+        },
+        {
+          "path": "templates/EncryptDecryptViaContext.cs.template",
+          "sha256": "776bb766d346468a94b77983c389e3181a6ca434ddda2a51871bb1750bd61160"
+        },
+        {
+          "path": "templates/GenerateKeys.cs.template",
+          "sha256": "b73884426754e933be73a18e4b1531be78ad11ca2fc6c6341857cd247a37703e"
+        },
+        {
+          "path": "templates/PasswordHashVerify.cs.template",
+          "sha256": "cf05820a90bdeeca613ce6ef9e9190a06553a41b2f505515b5a27aefb7c7b6c9"
+        }
+      ]
+    },
+    {
+      "name": "asgard-tracing-observability",
+      "path": "skills/asgard-tracing-observability",
+      "description": "Asgard 轻量链路追踪与可观测性 skill。Use when working with Asgard request tracing, independent Trace persistence, asgard_trace records, database log records, ITraceQueryService, IDatabaseLogQueryService, plugin-owned observability query APIs, error/5xx request snapshots for AI replay, Trace notes/tags, framework step logging, or reproducing unit-test inputs from runtime logs.",
+      "sha256": "68e3f8bf65c2701bea24fb6c1135c56907b03a6db0f2637578d2be9211961967",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "46a0559636712f515fd2767cfd3ac0429d3292913019e2e8286f99a52fd7a9de"
+        }
+      ]
+    },
+    {
+      "name": "dotnet-10-csharp-14",
+      "path": "skills/dotnet-10-csharp-14",
+      "description": "Generic .NET 10 / C# 14 reference skill. Use when building non-Asgard .NET 10 or C# 14 applications, especially minimal APIs, modular monolith patterns, feature folders, HTTP resilience, Options pattern, Channels, or validation. Do not use this skill as the coding-rules authority for Asgard; in Asgard repositories prefer $asgard-dotnet-10-csharp-14.",
+      "sha256": "b54a5208fb8f0c8b70a33d5e0cd96e50031ccf88706983215f4f826e7c2c5d7a",
+      "files": [
+        {
+          "path": "anti-patterns.md",
+          "sha256": "060fff9f94d5b7462d5cedc0baa7500e7a9c1de6866f46d61203729660ac9253"
+        },
+        {
+          "path": "csharp-14.md",
+          "sha256": "080e4e37eea3245cf5d503d4dc60e7d0c247990d548a2f4f7d17dc3a91741117"
+        },
+        {
+          "path": "infrastructure.md",
+          "sha256": "66010a2e20d6e2f10811e66edaa976cefe84cafc17b1ef4b6db559a605150a7d"
+        },
+        {
+          "path": "libraries.md",
+          "sha256": "0316e629a8b87f2f1852cba97dab20d1ac0f552a74aaae9e757ffce6ba53f47f"
+        },
+        {
+          "path": "minimal-apis.md",
+          "sha256": "2fb97daa9b501614ca0f2aff5e53ec33a07e1aa3236826bce2680215db368b86"
+        },
+        {
+          "path": "security.md",
+          "sha256": "1de02b70f82040fe7424a3341c8388eccb8417f4c769ae82cfb5cb61592cfe3d"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c431051edfd6c37f778011c03182ef1d10b2a18142359d62b889d9f07a741714"
+        },
+        {
+          "path": "testing.md",
+          "sha256": "119ba9592eac80b87577e441da3e00a36a9a052bb23aa00e247f5adeb3cb6168"
+        }
+      ]
+    },
+    {
+      "name": "dotnet-unit-testing",
+      "path": "skills/dotnet-unit-testing",
+      "description": ".NET unit testing standards skill. Use when creating, updating, reviewing, or migrating .NET/C# unit tests, test projects, test package references, test fixtures, assertions, mocks, test data builders, or CI test commands. Requires xUnit v3 for new and updated tests; use when avoiding or replacing xUnit 2.x packages and APIs.",
+      "sha256": "85a4ad00b8cd41d995052b603dd315ba6e018460666f235a9ef13c57e022f2c2",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "4df4954380cca2c488cc848bf06a311b09b1c6eb9322436d239931217a390f39"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "9355503da5e494ad8995b6d51bb0da569cfaa2633d248b04480206f4bf3039bf"
+        }
+      ]
+    },
+    {
+      "name": "heimdall-application-rbac",
+      "path": "skills/heimdall-application-rbac",
+      "description": "Heimdall 应用域 RBAC skill。Use when designing, implementing, migrating, reviewing, or debugging Application Manifest permissions and roles, TenantApplication bindings, SystemUser application grants, application-scoped Tenant RBAC or OIDC Clients, application/version JWT claims, or multi-application tenant visibility and authorization boundaries in Heimdall.",
+      "sha256": "b48f717ba73e7148b70e206e25e561cd9ed855ad2161dfccd769a48ce2e05d6f",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "31ec5d29e6a873002a674b4f6e29b5c6dfa8ab4af9edba7226977dbbb381eaba"
+        },
+        {
+          "path": "references/domain-contract.md",
+          "sha256": "efbbaa4f72d71eed1f367fa06d94e5a221a1e739e075dc4ed2ec41f67c85c5dd"
+        },
+        {
+          "path": "references/review-checklist.md",
+          "sha256": "79f957aea871eeeed626ba68735da88bedc6c0db3870fc19f6a48ca6f14d24cf"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "7d6f078ef772af0a3b76fb168278922bd1d0d148c5b2f656fd5fe892dcca71c1"
+        }
+      ]
+    },
+    {
+      "name": "heimdall-mcp-management",
+      "path": "skills/heimdall-mcp-management",
+      "description": "Heimdall MCP 管理与集成 skill。Use when building, extending, reviewing, testing, or consuming Heimdall's `/mcp` Streamable HTTP server, management tools, Resources, Prompts, Tasks, OAuth Bearer or AK/SK authentication, credential policies, tenant boundaries, write confirmation, audit, rate limits, or MCP administration UI.",
+      "sha256": "1fecd429d3f1ebbf7d5923b98e2621da4234ab62a14cba83369480671587ea7f",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "2af137c51b74de65093f093b988ed3f9f6183d54b70c5316db84c6f80625aba2"
+        },
+        {
+          "path": "references/mcp-contract.md",
+          "sha256": "34a5474378838a70855cf8f6c6ba0ea578221602a7ab23dcca26d80b6ec20d49"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "110f64eb00dd59f88f1539b43bf306709821404bb610ff0445a57fa5a4a23f01"
+        }
+      ]
+    },
+    {
+      "name": "heimdall-service-integration",
+      "path": "skills/heimdall-service-integration",
+      "description": "Heimdall 微服务身份集成与交付 skill。Use when designing, implementing, documenting, reviewing, or accepting tenant-bound BackendService client_credentials, read-only directory and user-permission APIs, permission-gated ticket assignment, TenantUser effective status, subject invalidation Webhooks, JWT revocation propagation, client secret rotation, or service-side identity reconciliation against Heimdall.",
+      "sha256": "d36db2b353df53ccdbad2289c55e7d4a51ea2f6f3239cf4375b2f313478ced7f",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "23723a38bd255258da1e3d8203b9957255101142e4123dc26ed49b2ea5ffd7b8"
+        },
+        {
+          "path": "references/backend-directory-api.md",
+          "sha256": "9203a3b2a7debc50bed91ded6967bb66488c7b7eca77e1c1d5df19680aae8ed6"
+        },
+        {
+          "path": "references/client-credentials-lifecycle.md",
+          "sha256": "b26365415417bfe1d5b2bce93278e8d38957bfb24df8cd6a6e86cafe1fe1c0b7"
+        },
+        {
+          "path": "references/end-to-end-acceptance.md",
+          "sha256": "8f90b1190879377a709a22f6be86ad5e187fa7ce13f2bdaa470ed4d781616278"
+        },
+        {
+          "path": "references/identity-invalidation-webhook.md",
+          "sha256": "c05eb4c07cde4a32fa412746202cc0bc5f844eea351778bd27885d303dcea639"
+        },
+        {
+          "path": "references/integration-guide.md",
+          "sha256": "84ebdfa150057efc132d0aefc8cebb296cba1db79c72d1c4704f0b2b386a76a0"
+        },
+        {
+          "path": "references/service-contract.md",
+          "sha256": "cef07116ac692964f5ba7617dee52bdb22be3b48c457030cee3b1c2b61119aa3"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "c78dc5c77006b1ba798a4d54b3adf52d7ceeda5f102a1ee60ffdc55658eb9ca1"
+        }
+      ]
+    },
+    {
+      "name": "identity-integration",
+      "path": "skills/identity-integration",
+      "description": "Asgard 身份集成 skill。Use when designing or integrating login flows, IDP/OIDC wiring, Web SPA PKCE, backend JWT Bearer validation, token claim contracts, `/userinfo` boundaries, or deciding how frontend, IDP, gateway, and Asgard APIs should cooperate.",
+      "sha256": "1e435b7a2cbf1922e987a74e8f46da223a9d5ef216cf9b57b45ee075c8e13e1b",
+      "files": [
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "191a44393c07dbc25394a6408bb39b2ba3cc89d6c77b295d2fa1a97ef4c262b9"
+        },
+        {
+          "path": "references/AbsAsgardUserInfo.cs",
+          "sha256": "b60fee22264348d44f4e7c87e2ef7177b90b7f3388ba915ce5dd52d0cac7eb1b"
+        },
+        {
+          "path": "references/AsgardClaimTypes.cs",
+          "sha256": "b378215bc29ee6a527c79e78a76c333b7763dee5d65bb0851208347bef028312"
+        },
+        {
+          "path": "references/AsgardIdentitySnapshot.cs",
+          "sha256": "45602770cececdc3c68c4a7fd5473f17785dee746d9bf725d9d0cf60dec2ca35"
+        },
+        {
+          "path": "references/AsgardTokenProfiles.cs",
+          "sha256": "c561df21ee1fd5805d6456f66cd53e49194e5f2f6b6aad422700d798c450643b"
+        },
+        {
+          "path": "references/DefaultAsgardIdentityContextResolver.cs",
+          "sha256": "665ae1a5e3c4f0e0164fd91692a88edcb3e196a31ead9a5e2548b49baac1381b"
+        },
+        {
+          "path": "references/IAsgardIdentityContext.cs",
+          "sha256": "8a42e2ea335303eccf2413bd7d7b2de418d668dabf9ff2b5c9004c655f4a5ed9"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "b11765ad74533972d86288578df73ba3a000b7d252c56095f62d74d65020f487"
+        },
+        {
+          "path": "templates/BackendJwtBearer.cs.template",
+          "sha256": "c92d4f3f343be1c7d6429cfdf4978e7c848db9a143e6d6357ccd74914b072004"
+        },
+        {
+          "path": "templates/OidcPkceChecklist.md.template",
+          "sha256": "6a1d6c0b97cfb875c99acf6be54f68a810f0843c253b4aae7c514956b5eae47d"
+        },
+        {
+          "path": "templates/TokenContract.json.template",
+          "sha256": "659a3aefd237e1a8cd9605aaa9816137e1bd95a5d183c85dccb59f5e0032cc73"
+        }
+      ]
+    }
+  ],
+  "bundles": [
+    {
+      "id": "all-reviewed",
+      "purposeZh": "安装当前审核快照中的全部 29 个 Skill；这是显式集合，不推断传递依赖。",
+      "purposeEn": "Install all 29 Skills in the reviewed snapshot; this is an explicit set and does not infer transitive dependencies.",
+      "skills": [
+        "asgard-admin-frontend",
+        "asgard-api-development",
+        "asgard-auth-authorization",
+        "asgard-backend-guard",
+        "asgard-base-types",
+        "asgard-cache",
+        "asgard-configuration",
+        "asgard-context-usage",
+        "asgard-database",
+        "asgard-dotnet-10-csharp-14",
+        "asgard-framework-overview",
+        "asgard-host-features",
+        "asgard-host-project",
+        "asgard-identity-userinfo",
+        "asgard-job-scheduling",
+        "asgard-messaging",
+        "asgard-mini-jwt-issuer",
+        "asgard-plugin-development",
+        "asgard-plugin-lifecycle",
+        "asgard-plugin-structure",
+        "asgard-repository-service-registration",
+        "asgard-security",
+        "asgard-tracing-observability",
+        "dotnet-10-csharp-14",
+        "dotnet-unit-testing",
+        "heimdall-application-rbac",
+        "heimdall-mcp-management",
+        "heimdall-service-integration",
+        "identity-integration"
+      ]
+    },
+    {
+      "id": "asgard-api",
+      "purposeZh": "实现并复查标准 Asgard Web API 与 CRUD 纵切。",
+      "purposeEn": "Implement and review a standard Asgard Web API and CRUD vertical slice.",
+      "skills": [
+        "asgard-framework-overview",
+        "asgard-plugin-structure",
+        "asgard-api-development",
+        "asgard-database",
+        "asgard-repository-service-registration",
+        "asgard-dotnet-10-csharp-14",
+        "dotnet-unit-testing",
+        "asgard-backend-guard"
+      ]
+    },
+    {
+      "id": "identity-integration",
+      "purposeZh": "对接 SPA、Heimdall、资源 API 与后端服务身份。",
+      "purposeEn": "Integrate SPAs, Heimdall, resource APIs, and backend service identities.",
+      "skills": [
+        "identity-integration",
+        "heimdall-application-rbac",
+        "heimdall-mcp-management",
+        "heimdall-service-integration",
+        "asgard-auth-authorization",
+        "asgard-identity-userinfo",
+        "asgard-host-features",
+        "asgard-mini-jwt-issuer"
+      ]
+    },
+    {
+      "id": "infrastructure-operations",
+      "purposeZh": "配置和排查 Asgard 基础设施与可观测性模块。",
+      "purposeEn": "Configure and troubleshoot Asgard infrastructure and observability modules.",
+      "skills": [
+        "asgard-context-usage",
+        "asgard-configuration",
+        "asgard-database",
+        "asgard-cache",
+        "asgard-messaging",
+        "asgard-job-scheduling",
+        "asgard-security",
+        "asgard-tracing-observability"
+      ]
+    }
+  ],
+  "compatibilityWarningIds": [
+    "stale-asgard-release-baseline",
+    "fixed-mini-issuer-template",
+    "stale-host-auth-tenant-placeholder",
+    "stale-database-routing-template",
+    "stale-static-default-file-default",
+    "stale-health-check-endpoint-key",
+    "overstated-middleware-placement-control",
+    "unreliable-pre-framework-override-claim",
+    "overstated-plugin-state-transition-graph",
+    "automatic-discovery-assumption"
+  ]
+}

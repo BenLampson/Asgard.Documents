@@ -1,0 +1,2161 @@
+{
+  "reviewedAt": "2026-07-28",
+  "asgard": {
+    "path": "D:\\Codes\\AsgardV3\\src",
+    "commit": "d1002d1",
+    "releaseTag": "v5.1.3",
+    "releaseCommit": "90e8a8b",
+    "version": "5.1.3",
+    "worktreeDirty": false,
+    "worktreeFingerprint": null
+  },
+  "nuget": {
+    "feed": "https://api.nuget.org/v3-flatcontainer",
+    "asgardRelease": "5.1.3",
+    "checkedAt": "2026-07-28",
+    "packages": [
+      "Asgard.PluginSdk",
+      "Asgard.Abstractions",
+      "Asgard.Abstractions.AspNetCore",
+      "Asgard.Core",
+      "Asgard.AspNetCore.Core",
+      "Asgard.Yggdrasil.AspNetCore",
+      "Asgard.TsGen",
+      "Asgard.Analyzers"
+    ],
+    "additionalPackages": [
+      { "id": "Asgard.Heimdall.JwtSigning", "version": "5.3.19" },
+      { "id": "Asgard.Heimdall.JwtSigning.AspNetCore", "version": "5.3.19" }
+    ]
+  },
+  "configurationContract": {
+    "reviewedAt": "2026-07-28",
+    "sourceFiles": [
+      "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+      "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+      "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+      "Common/Asgard.Abstractions/SystemConfig/ConfigPathAttribute.cs",
+      "Common/Asgard.Core/SystemConfig/YamlConfigBinder.cs",
+      "Common/Asgard.Core/SystemConfig/YamlPathResolver.cs",
+      "Common/Asgard.Core/SystemConfig/YamlValueConverter.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/HostConfig.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/StaticFileHostOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/CorsOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/AuthOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/JwtOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/SwaggerOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/TsGenHostOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/RateLimitingOptions.cs",
+      "Common/Asgard.Abstractions.AspNetCore/Host/HealthCheckOptions.cs",
+      "Common/Asgard.Abstractions/Data/DatabaseConfig.cs",
+      "Common/Asgard.Abstractions/Caching/CacheConfig.cs",
+      "Common/Asgard.Abstractions/Messaging/MQConfig.cs",
+      "Common/Asgard.Core/Job/JobConfig.cs",
+      "Common/Asgard.Abstractions/Plugin/PluginConfig.cs",
+      "Common/Asgard.Abstractions/Tracing/TraceOptions.cs",
+      "Common/Asgard.Abstractions/Security/AsgardEncryptionOptions.cs"
+    ],
+    "anchors": [
+      "host.staticFiles.enableDefaultFiles",
+      "host.cors",
+      "host.auth.jwt.issuerTemplate",
+      "host.auth.jwt.jwksCacheMinutes",
+      "host.swagger.routePrefix",
+      "host.tsGen.enabled",
+      "host.rateLimiting.policy",
+      "host.healthCheck.readyPath",
+      "database.enabled",
+      "caching.enabled",
+      "messaging.enabled",
+      "job.enabled",
+      "plugin.enabled",
+      "Trace.Enabled"
+    ]
+  },
+  "moduleContracts": [
+    {
+      "name": "Asgard NuGet package selection contract",
+      "sourceFiles": [
+        "Directory.Build.props",
+        "Plugins/Asgard.PluginSdk/Asgard.PluginSdk.csproj",
+        "Host/Asgard.Yggdrasil.AspNetCore/Asgard.Yggdrasil.AspNetCore.csproj",
+        "Common/Asgard.AspNetCore.Core/Asgard.AspNetCore.Core.csproj",
+        "Common/Asgard.Core/Asgard.Core.csproj",
+        "Common/Asgard.Abstractions.AspNetCore/Asgard.Abstractions.AspNetCore.csproj",
+        "Common/Asgard.Abstractions/Asgard.Abstractions.csproj",
+        "Common/Asgard.TsGen/Asgard.TsGen.csproj",
+        "Common/Asgard.Analyzers/Asgard.Analyzers.csproj"
+      ],
+      "anchors": [
+        { "source": "<MajorVersion>5</MajorVersion>", "content": "5.1.3" },
+        { "source": "<PackageId>Asgard.PluginSdk</PackageId>", "content": "Asgard.PluginSdk" },
+        { "source": "Asgard.Yggdrasil.AspNetCore.csproj", "content": "Asgard.Yggdrasil.AspNetCore" },
+        { "source": "Asgard.AspNetCore.Core.csproj", "content": "Asgard.AspNetCore.Core" },
+        { "source": "Asgard.Core.csproj", "content": "Asgard.Core" },
+        { "source": "Asgard.Abstractions.AspNetCore.csproj", "content": "Asgard.Abstractions.AspNetCore" },
+        { "source": "Asgard.Abstractions.csproj", "content": "Asgard.Abstractions" },
+        { "source": "Asgard.TsGen.csproj", "content": "Asgard.TsGen" },
+        { "source": "<PackageId>Asgard.Analyzers</PackageId>", "content": "Asgard.Analyzers" },
+        { "source": "<PrivateAssets>all</PrivateAssets>", "content": "PrivateAssets=all" }
+      ]
+    },
+    {
+      "name": "Asgard 5.1.3 release delta",
+      "sourceFiles": [
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "global.json",
+        "Common/Asgard.Abstractions/Identity/AsgardClaimTypes.cs",
+        "Common/Asgard.Abstractions/Identity/AbsAsgardUserInfo.cs",
+        "Common/Asgard.TsGen/TypeScriptEmitter.CommonContent.cs",
+        "Common/Asgard.TsGen/TypeScriptEmitter.Helpers.cs"
+      ],
+      "anchors": [
+        { "source": "<PatchVersion>3</PatchVersion>", "content": "Asgard 5.1.3" },
+        { "source": "\"version\": \"10.0.302\"", "content": "SDK 10.0.302" },
+        { "source": "<PackageVersion Include=\"Mapster\" Version=\"10.0.11\" />", "content": "Mapster 10.0.11" },
+        { "source": "<PackageVersion Include=\"Quartz\" Version=\"3.19.1\" />", "content": "Quartz 3.19.1" },
+        { "source": "public const string ApplicationId = \"application_id\"", "content": "application_id" },
+        { "source": "buildQueryParams = <T extends object>", "content": "T extends object" },
+        { "source": "const waitForReconnect", "content": "waitForReconnect" }
+      ]
+    },
+    {
+      "name": "Asgard 5.0.3 to 5.1.3 upgrade acceptance",
+      "sourceFiles": [
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "global.json",
+        "Common/Asgard.Abstractions/Identity/AsgardClaimTypes.cs",
+        "Common/Asgard.Abstractions/Identity/AbsAsgardUserInfo.cs",
+        "Common/Asgard.TsGen/TypeScriptEmitter.CommonContent.cs",
+        "Common/Asgard.TsGen/TypeScriptEmitter.Helpers.cs",
+        "Test/Asgard.Core.Tests/Identity/AbsAsgardUserInfoTests.cs",
+        "Test/Asgard.TsGen.Tests/Generation/TsGenerationTypeScriptCompatibilityTests.cs",
+        "Test/Asgard.TsGen.Tests/Generation/TsGenerationSseCompatibilityTests.cs"
+      ],
+      "anchors": [
+        { "source": "<PatchVersion>3</PatchVersion>", "content": "Upgrade to Asgard 5.1" },
+        { "source": "\"rollForward\": \"disable\"", "content": "rollForward=disable" },
+        { "source": "public const string ApplicationManifestVersion = \"application_manifest_version\"", "content": "application_manifest_version" },
+        { "source": "public const string ApplicationAuthorizationVersion = \"application_authorization_version\"", "content": "application_authorization_version" },
+        { "source": "public const string TenantAuthorizationVersion = \"tenant_authorization_version\"", "content": "tenant_authorization_version" },
+        { "source": "buildQueryParams = <T extends object>", "content": "T extends object" },
+        { "source": "const waitForReconnect", "content": "waitForReconnect" },
+        { "source": "Last-Event-ID", "content": "Last-Event-ID" },
+        { "source": "maxReconnectAttempts: 1", "content": "maximum reconnects" },
+        { "source": "abortController.abort()", "content": "abort" }
+      ]
+    },
+    {
+      "name": "first application",
+      "sourceFiles": [
+        "Plugins/Asgard.PluginSdk/Asgard.PluginSdk.csproj",
+        "Plugins/Asgard.PluginSdk/PluginWebAppDefaults.cs",
+        "Common/Asgard.Core/Plugin/PluginBase.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Controller/BaseController.cs",
+        "Common/Asgard.Abstractions/Security/AsgardEncryptionOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs"
+      ],
+      "anchors": [
+        { "source": "<PackageId>Asgard.PluginSdk</PackageId>", "content": "Asgard.PluginSdk" },
+        { "source": "RunAsync<TPlugin>", "content": "RunAsync<FirstAppPlugin>" },
+        { "source": "public abstract string Id", "content": "public override string Id" },
+        { "source": "Success<T>(T data", "content": "Success<string>" },
+        { "source": "SectionName = \"Asgard:Encryption\"", "content": "Asgard:\n  Encryption:" },
+        { "source": "AddAsgardSecurityServices", "content": "unconditionally" },
+        { "source": "UseHttpsRedirection", "content": "UseHttpsRedirection" }
+      ]
+    },
+    {
+      "name": "Asgard context usage contract",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/AbsAsgardContext.cs",
+        "Common/Asgard.Core/AsgardContext.cs",
+        "Common/Asgard.Core/AsgardContextModule/AsgardContextServiceCollectionExtensions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Controller/BaseController.cs",
+        "Common/Asgard.Core/Plugin/PluginBase.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs"
+      ],
+      "anchors": [
+        { "source": "public abstract IMultiLevelCache? Cache", "content": "IMultiLevelCache?" },
+        { "source": "ICompressionService? compression = null", "content": "ICompressionService?" },
+        { "source": "AddScoped<AbsAsgardContext, AsgardContext>()", "content": "Scoped" },
+        { "source": "protected readonly AbsAsgardContext AsgardContext", "content": "BaseController" },
+        { "source": "_phase < LifecyclePhase.Initialized", "content": "GetAsgardContext" },
+        { "source": "new MultiLevelCache(null, null, _cacheConfig)", "content": "MultiLevelCache(null, null, cacheConfig)" }
+      ]
+    },
+    {
+      "name": "Heimdall resource API authentication",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/AuthOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/JwtOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/Authentication/AsgardOidcAuthenticationServices.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Authentication.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Common/Asgard.AspNetCore.Core/Identity/AsgardTokenConventionValidator.cs",
+        "Common/Asgard.AspNetCore.Core/Identity/DefaultAsgardIdentityContextResolver.cs",
+        "Common/Asgard.AspNetCore.Core/ServiceCollectionExtensions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Authorization/AsgardAuthAttributes.cs"
+      ],
+      "anchors": [
+        { "source": "issuerTemplate.IndexOf(\"{tenant}\"", "content": "exactly one {tenant}" },
+        { "source": "MapInboundClaims = false", "content": "AsgardIdentitySnapshot" },
+        { "source": "ClockSkew = TimeSpan.Zero", "content": "ClockSkew" },
+        { "source": "GetSigningKeysAsync(match.Issuer", "content": "Discovery and JWKS" },
+        { "source": "identity.AddClaim(new Claim(AsgardClaimTypes.TenantId, match.TenantId))", "content": "tenant_id" },
+        { "source": "NormalizeAndValidate(identity)", "content": "Token profile" },
+        { "source": "UseAsgardTenant()", "content": "UseAsgardTenant" },
+        { "source": "RequireAuthenticatedUser()", "content": "inherit AuthorizeAttribute" }
+      ]
+    },
+    {
+      "name": "cache",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Caching/CacheConfig.cs",
+        "Common/Asgard.Abstractions/Caching/MemoryCacheOptions.cs",
+        "Common/Asgard.Abstractions/Caching/RedisCacheOptions.cs",
+        "Common/Asgard.Abstractions/Caching/IMultiLevelCache.cs",
+        "Common/Asgard.Core/Caching/MultiLevelCache.cs"
+      ],
+      "anchors": [
+        { "source": "ExpirationScanFrequencyMinutes", "content": "caching.memory.expirationScanFrequencyMinutes" },
+        { "source": "FallbackToMemoryCache", "content": "caching.redis.fallbackToMemoryCache" },
+        { "source": "TimeSpan.FromSeconds(2)", "content": "fixed at two seconds" },
+        { "source": "FlushDatabaseAsync", "content": "FLUSHDB" },
+        { "source": "RefreshAsync<T>", "content": "RefreshAsync<T>" }
+      ]
+    },
+    {
+      "name": "messaging",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Messaging/MQConfig.cs",
+        "Common/Asgard.Abstractions/Messaging/RabbitMQOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/TracingOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/RetryOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/DelayedMessageOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/PublishOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/IMessageQueue.cs",
+        "Common/Asgard.Core/Messaging/RabbitMQ/RabbitMQMessageQueue.cs"
+      ],
+      "anchors": [
+        { "source": "DelayedExchangePrefix", "content": "messaging.delayedMessage.delayedExchangePrefix" },
+        { "source": "DelayMilliseconds", "content": "DelayMilliseconds" },
+        { "source": "BasicNackAsync", "content": "Nack" },
+        { "source": "PublishBatchAsync<T>", "content": "PublishBatchAsync<T>" },
+        { "source": "IsHealthyAsync", "content": "IsHealthyAsync" }
+      ]
+    },
+    {
+      "name": "job scheduling",
+      "sourceFiles": [
+        "Common/Asgard.Core/Job/JobConfig.cs",
+        "Common/Asgard.Core/Job/QuartzJobScheduler.cs",
+        "Common/Asgard.Core/Job/QuartzTriggerFactory.cs",
+        "Common/Asgard.Abstractions/Job/JobSchedulerOptions.cs",
+        "Common/Asgard.Abstractions/Job/JobDefinitionOptions.cs",
+        "Common/Asgard.Abstractions/Job/TriggerOptions.cs",
+        "Common/Asgard.Abstractions/Job/IJob.cs",
+        "Common/Asgard.Abstractions/Job/IJobScheduler.cs"
+      ],
+      "anchors": [
+        { "source": "XmlConvert.ToTimeSpan", "content": "PT5M" },
+        { "source": "RAMJobStore", "content": "RAMJobStore" },
+        { "source": "MisfireInstruction", "content": "job.jobs[].triggers[].misfireInstruction" },
+        { "source": "ExecuteAsync", "content": "IJob.ExecuteAsync" },
+        { "source": "ScheduleJobAsync<TJob>", "content": "ScheduleJobAsync" }
+      ]
+    },
+    {
+      "name": "database",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/DatabaseConfig.cs",
+        "Common/Asgard.Core/Data/FreeSqlDataTypeResolver.cs",
+        "Common/Asgard.Core/Data/DatabaseServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Asgard.Core.csproj",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.Crud.cs"
+      ],
+      "anchors": [
+        { "source": "Provider { get; set; } = \"MySQL\"", "content": "database.provider" },
+        { "source": "FreeSql.Provider.MySql", "content": "FreeSql.Provider.MySql" },
+        { "source": "AddSingleton<IFreeSql>", "content": "lazy singleton" },
+        { "source": "GetEntityCacheKey", "content": "tenant-aware keys" },
+        { "source": "GlobalFilter.ApplyIf", "content": "GlobalFilter" }
+      ]
+    },
+    {
+      "name": "host lifecycle and request operations",
+      "sourceFiles": [
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardRuntimeHostedService.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/RateLimitingOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/HealthCheckOptions.cs",
+        "Common/Asgard.Core/Plugin/PluginBase.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.Lifecycle.cs"
+      ],
+      "anchors": [
+        { "source": "BeforeConfigurationLoad", "content": "BeforeConfigurationLoad" },
+        { "source": "_configureMiddleware?.Invoke(app)", "content": "ConfigureMiddleware" },
+        { "source": "UseAsgardTenant()", "content": "UseAsgardTenant" },
+        { "source": "PartitionedRateLimiter.Create", "content": "PartitionedRateLimiter" },
+        { "source": "TimeoutSeconds", "content": "timeoutSeconds" },
+        { "source": "ConfigureMiddlewareAsync", "content": "ConfigureMiddlewareAsync" },
+        { "source": "ShutdownAsync", "content": "JobManager" }
+      ]
+    },
+    {
+      "name": "dependency registration and host document surfaces",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/RepositoryAttribute.cs",
+        "Common/Asgard.Abstractions/Data/RepositoryScanner.cs",
+        "Common/Asgard.Abstractions/Data/ServiceAttribute.cs",
+        "Common/Asgard.Abstractions/Data/ServiceScanner.cs",
+        "Common/Asgard.Core/Data/RepositoryServiceCollectionExtensions.cs",
+        "Plugins/Asgard.PluginSdk/PluginConventions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/StaticFileHostOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Extensions/StaticFileApplicationBuilderExtensions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/SwaggerOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Swagger.cs"
+      ],
+      "anchors": [
+        { "source": "AddPluginConventions", "content": "AddPluginConventions" },
+        { "source": "AddServices", "content": "AddServices" },
+        { "source": "ServiceLifetime.Scoped", "content": "Scoped" },
+        { "source": "EnableDefaultFiles { get; set; } = false", "content": "enableDefaultFiles=false" },
+        { "source": "Directory.CreateDirectory", "content": "Automatic empty-directory creation hides" },
+        { "source": "RoutePrefix { get; set; } = \"swagger\"", "content": "routePrefix=swagger" },
+        { "source": "ConfigureSwaggerSecurity", "content": "Bearer" }
+      ]
+    },
+    {
+      "name": "Asgard dependency scanning resolution and release contract",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/RepositoryAttribute.cs",
+        "Common/Asgard.Abstractions/Data/ServiceAttribute.cs",
+        "Common/Asgard.Abstractions/Data/RepositoryScanner.cs",
+        "Common/Asgard.Abstractions/Data/ServiceScanner.cs",
+        "Common/Asgard.Core/Data/RepositoryServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Plugin/PluginServiceConfigurator.cs",
+        "Plugins/Asgard.PluginSdk/PluginConventions.cs"
+      ],
+      "anchors": [
+        { "source": "Inherited = false", "content": "Inherited=false" },
+        { "source": "assembly.GetTypes()", "content": "Assembly.GetTypes() is unsorted" },
+        { "source": "!t.IsAbstract && !t.IsInterface", "content": "Only abstract and interface are excluded" },
+        { "source": "services.Add(new ServiceDescriptor(type, type, ServiceLifetime.Scoped))", "content": "Everything defaults Scoped" },
+        { "source": "services.Add(new ServiceDescriptor(@interface, type, ServiceLifetime.Scoped))", "content": "every interface from GetInterfaces()" },
+        { "source": "services.AddScoped(descriptor.ImplementationType, descriptor.ImplementationType)", "content": "implementation is appended as itself" },
+        { "source": "var interfaces = descriptor.ImplementationType.GetInterfaces()", "content": "every interface" },
+        { "source": "context.Services.AddRepositories(assembly)", "content": "calls AddRepositories and then AddServices" },
+        { "source": "context.Services.AddServices(assembly)", "content": "AddServices" },
+        { "source": "return new TConfig()", "content": "missing plugin.yaml returns new TConfig()" },
+        { "source": "context.Services.AddSingleton(config)", "content": "TConfig instance as Singleton" },
+        { "source": "if (descriptor.Info.AutoScanRepositories)", "content": "autoScanRepositories runs after ConfigureServicesAsync" }
+      ]
+    },
+    {
+      "name": "Asgard Swagger OpenAPI production and compatibility contract",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/HostConfig.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/SwaggerOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.PluginIntegration.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Swagger.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs"
+      ],
+      "anchors": [
+        { "source": "public SwaggerOptions? Swagger { get; set; }", "content": "HostConfig.swagger is nullable" },
+        { "source": "public bool Enabled { get; set; } = true", "content": "enabled value defaults to true" },
+        { "source": "if (string.IsNullOrWhiteSpace(RoutePrefix))", "content": "enabled=false therefore requires" },
+        { "source": "options.SwaggerDoc(_hostConfig.Swagger.Version", "content": "calls SwaggerDoc(version, OpenApiInfo) once" },
+        { "source": "mvcBuilder.AddApplicationPart(descriptor.Assembly)", "content": "plugin assemblies to MVC ApplicationPart" },
+        { "source": "assemblies.AddRange(_pluginDescriptors.Select", "content": "plugin descriptor assemblies" },
+        { "source": "return File.Exists(xmlPath) ? xmlPath : null", "content": "silently skipped" },
+        { "source": "ConfigureSwaggerSecurity(options)", "content": "Bearer scheme" },
+        { "source": "_ = app.UseSwagger();", "content": "no RouteTemplate override" },
+        { "source": "$\"/{_hostConfig.Swagger.RoutePrefix}/{_hostConfig.Swagger.Version}/swagger.json\"", "content": "site-root absolute" }
+      ]
+    },
+    {
+      "name": "Asgard static-file production delivery and public security boundary",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/HostConfig.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/StaticFileHostOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Extensions/StaticFileApplicationBuilderExtensions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Test/Asgard.Yggdrasil.AspNetCore.Tests/YggdrasilHostBuilderTests.cs"
+      ],
+      "anchors": [
+        { "source": "public StaticFileHostOptions StaticFiles { get; set; } = new()", "content": "Omitting host.staticFiles does not disable" },
+        { "source": "if (!Enabled)", "content": "Validate returns immediately when disabled" },
+        { "source": "Directory.CreateDirectory(webRootPath)", "content": "Automatic empty-directory creation hides" },
+        { "source": "requestPath.TrimEnd('/')", "content": "/ or //// normalizes to an empty string" },
+        { "source": "new PhysicalFileProvider(webRootPath)", "content": "PhysicalFileProvider" },
+        { "source": "app.UseAsgardStaticFiles()", "content": "before Trace" },
+        { "source": "return app.UseStaticFiles(middlewareOptions)", "content": "A hit short-circuits" },
+        { "source": "Build_ShouldServeStaticFiles_WhenHostStaticFilesEnabled", "content": "real GET" },
+        { "source": "Build_ShouldNotServeStaticFiles_WhenHostStaticFilesDisabled", "content": "explicitly set host.staticFiles.enabled=false" }
+      ]
+    },
+    {
+      "name": "plugin host",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Plugin/PluginConfig.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginEntry.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginScanDirectory.cs",
+        "Common/Asgard.Core/Plugin/PluginServiceConfigurator.cs",
+        "Common/Asgard.Core/Plugin/PluginLoaderHelper.cs",
+        "Common/Asgard.Core/Plugin/PluginLoadContext.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.cs"
+      ],
+      "anchors": [
+        { "source": "EnableHotReload", "content": "plugin.enableHotReload" },
+        { "source": "LoadTimeoutSeconds", "content": "plugin.loadTimeoutSeconds" },
+        { "source": "AssemblyLoadContext", "content": "AssemblyLoadContext" },
+        { "source": "ReloadAsync", "content": "ReloadAsync" },
+        { "source": "AutoScanRepositories", "content": "autoScanRepositories" }
+      ]
+    },
+    {
+      "name": "Asgard plugin lifecycle production sequence and failure contract",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Plugin/PluginState.cs",
+        "Common/Asgard.Core/Plugin/PluginBase.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.Lifecycle.cs",
+        "Common/Asgard.Core/Plugin/PluginServiceConfigurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.PluginIntegration.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardRuntimeHostedService.cs"
+      ],
+      "anchors": [
+        { "source": "State = PluginState.Initialized", "content": "writes Initialized before OnInitializeAsync" },
+        { "source": "await AutoRegisterJobsAsync(cancellationToken)", "content": "automatic jobs are registered afterwards" },
+        { "source": "State = PluginState.Running", "content": "writes Running only after all succeed" },
+        { "source": "skippedPlugins.UnionWith(FindAllDependents(pluginId))", "content": "skips dependent Start" },
+        { "source": "foreach (var plugin in LoadedPlugins)", "content": "without checking State" },
+        { "source": "InitializeAsync(default).GetAwaiter().GetResult()", "content": "default CancellationToken" },
+        { "source": "ConfigureMiddlewareAsync(app).GetAwaiter().GetResult()", "content": "synchronously waits for middleware configuration" },
+        { "source": "LoadedPlugins.Count(plugin => plugin.State == PluginState.Running)", "content": "Plugin system ready (N running)" },
+        { "source": "if (plugin.State == PluginState.Running)", "content": "Running plugin gets Stop before Dispose" },
+        { "source": "await jobManager.ShutdownAsync()", "content": "shuts down JobManager before disposing PluginManager" },
+        { "source": "await pluginManager.DisposeAsync()", "content": "disposing PluginManager" },
+        { "source": "await reloadedDescriptor.Instance.InitializeAsync(cancellationToken)", "content": "does not call ConfigureServices, Start" }
+      ]
+    },
+    {
+      "name": "external plugin production operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Plugin/PluginConfig.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginEntry.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginScanDirectory.cs",
+        "Common/Asgard.Core/Plugin/PluginServiceConfigurator.cs",
+        "Common/Asgard.Core/Plugin/PluginLoaderHelper.cs",
+        "Common/Asgard.Core/Plugin/PluginDependencyResolver.cs",
+        "Common/Asgard.Core/Plugin/PluginLoadContext.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.Lifecycle.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.PluginIntegration.cs",
+        "Test/Asgard.Core.Tests/Plugin/PluginDependencyResolverTests.cs",
+        "Test/Asgard.Core.Tests/Plugin/PluginManagerTests.cs"
+      ],
+      "anchors": [
+        { "source": "info.Id = plugin.Id", "content": "PluginInfo.Id" },
+        { "source": "Directory.GetDirectories(fullDirectory)", "content": "first-level children" },
+        { "source": "entryPoints[0]", "content": "unspecified first item" },
+        { "source": "ResolveLoadOrder", "content": "Missing dependencies" },
+        { "source": "LoadedPlugins.Count(plugin => plugin.State == PluginState.Running)", "content": "Plugin system ready (N running)" },
+        { "source": "public bool EnableHotReload", "content": "enableHotReload" },
+        { "source": "public int LoadTimeoutSeconds", "content": "loadTimeoutSeconds" },
+        { "source": "public async Task<IPlugin> ReloadAsync", "content": "ReloadAsync" },
+        { "source": "Directory.CreateDirectory(dataDirectory)", "content": "only creates dataDirectory/plugin.Id" }
+      ]
+    },
+    {
+      "name": "Asgard Kestrel TLS and capacity operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/HostConfig.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/KestrelOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/KestrelLimitsOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/EndpointOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/CertificateOptions.cs",
+        "Common/Asgard.Core/SystemConfig/YamlConfigBinder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.HostConfiguration.cs",
+        "Test/Asgard.AspNetCore.Core.Tests/SystemConfig/HostConfigLoaderTests.cs",
+        "Test/Asgard.Yggdrasil.AspNetCore.Tests/YggdrasilHostBuilderTests.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"limits\")]", "content": "When limits is absent" },
+        { "source": "public int MaxConcurrentUpgradedConnections", "content": "maxConcurrentUpgradedConnections has no attribute default" },
+        { "source": "new Uri(endpoint.Url, UriKind.Absolute)", "content": "URI parsing occurs during host configuration" },
+        { "source": "string.Equals(uri.Host, \"localhost\"", "content": "host=localhost" },
+        { "source": "options.ListenAnyIP(uri.Port", "content": "silently falls back to ListenAnyIP" },
+        { "source": "listenOptions.UseHttps(endpoint.Certificate.Path, endpoint.Certificate.Password)", "content": "UseHttps(PFX path, password)" },
+        { "source": "options.Limits.MaxRequestBodySize", "content": "maxRequestBodySize sets Kestrel's global request-body limit" },
+        { "source": "RequestHeadersTimeout = TimeSpan.FromSeconds", "content": "requestHeadersTimeoutSeconds limits time to receive request headers" }
+      ]
+    },
+    {
+      "name": "Asgard health readiness and global rate limiting operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/HealthCheckOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/RateLimitingOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Test/Asgard.Yggdrasil.AspNetCore.Tests/YggdrasilHostBuilderTests.cs"
+      ],
+      "anchors": [
+        { "source": "tags: [\"live\", \"ready\"]", "content": "carries live and ready" },
+        { "source": "public int TimeoutSeconds", "content": "is not passed to MapHealthChecks" },
+        { "source": "Predicate = predicate", "content": "runs only checks tagged ready" },
+        { "source": "PartitionedRateLimiter.Create<HttpContext, string>", "content": "fixed key global" },
+        { "source": "QueueProcessingOrder.OldestFirst", "content": "OldestFirst" },
+        { "source": "AutoReplenishment = true", "content": "AutoReplenishment=true" },
+        { "source": "options.RejectionStatusCode = StatusCodes.Status429TooManyRequests", "content": "Rejection sets only HTTP 429" },
+        { "source": "app.UseAsgardStaticFiles()", "content": "Static files run before limiting" },
+        { "source": "app.UseRateLimiter()", "content": "global bucket" }
+      ]
+    },
+    {
+      "name": "logging and trace",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Logging/LogConfig.cs",
+        "Common/Asgard.Abstractions/Logging/ConsoleSinkOptions.cs",
+        "Common/Asgard.Abstractions/Logging/FileSinkOptions.cs",
+        "Common/Asgard.Abstractions/Logging/DatabaseSinkOptions.cs",
+        "Common/Asgard.Abstractions/Tracing/TraceOptions.cs",
+        "Common/Asgard.Core/Logging/FreeSqlDatabaseLogSink.cs",
+        "Common/Asgard.Core/Tracing/FreeSqlTraceStore.cs",
+        "Common/Asgard.AspNetCore.Core/Tracing/AsgardTraceQueueItemFactory.cs"
+      ],
+      "anchors": [
+        { "source": "UseColors", "content": "useColors" },
+        { "source": "FileSizeLimitBytes", "content": "fileSizeLimitBytes" },
+        { "source": "CaptureAllRequest", "content": "CaptureAllRequest" },
+        { "source": "Channel.CreateUnbounded", "content": "unbounded Channel" },
+        { "source": "request.QueryString.Value", "content": "QueryString" }
+      ]
+    },
+    {
+      "name": "Asgard Console and file logging production operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Logging/LogConfig.cs",
+        "Common/Asgard.Abstractions/Logging/ConsoleSinkOptions.cs",
+        "Common/Asgard.Abstractions/Logging/FileSinkOptions.cs",
+        "Common/Asgard.Core/Logging/SerilogConfigurator.cs",
+        "Common/Asgard.Core/Logging/LoggingServiceCollectionExtensions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs"
+      ],
+      "anchors": [
+        { "source": "public LogLevel MinimumLevel { get; set; } = LogLevel.Information", "content": "minimumLevel=Information" },
+        { "source": "public FileSinkOptions File { get; set; } = new()", "content": "Defaults write both Console and files" },
+        { "source": "public bool Enabled { get; set; } = true", "content": "file.enabled=true" },
+        { "source": "public string Path { get; set; } = \"logs/log-.txt\"", "content": "file.path=logs/log-.txt" },
+        { "source": "Directory.CreateDirectory(directory)", "content": "synchronously created" },
+        { "source": "fileSizeLimitBytes: options.FileSizeLimitBytes", "content": "does not pass rollOnFileSizeLimit" },
+        { "source": "if (options.UseColors)", "content": "useColors has no behavioral effect" },
+        { "source": "outputTemplate: options.OutputTemplate);", "content": "same WriteTo.Console(outputTemplate)" },
+        { "source": "CreateBootstrapLoggerFactory()", "content": "bootstrap logger directly from the main app.yaml" },
+        { "source": "_logConfig = _asgardConfiguration.Load<LogConfig>()", "content": "reloads and validates LogConfig" },
+        { "source": "services.AddAsgardSerilog(_logConfig!)", "content": "AddAsgardSerilog(_logConfig)" }
+      ]
+    },
+    {
+      "name": "security",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Security/AsgardEncryptionOptions.cs",
+        "Common/Asgard.Abstractions/Security/IEncryptionService.cs",
+        "Common/Asgard.Abstractions/Security/IPasswordHasher.cs",
+        "Common/Asgard.Abstractions/Security/IKeyGenerator.cs",
+        "Common/Asgard.Core/Security/AesEncryptionService.cs",
+        "Common/Asgard.Core/Security/BcryptPasswordHasher.cs",
+        "Common/Asgard.Core/Security/SecureKeyGenerator.cs",
+        "Common/Asgard.Core/Security/SecurityServiceCollectionExtensions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Common/Asgard.Abstractions/AbsAsgardContext.cs"
+      ],
+      "anchors": [
+        { "source": "SectionName = \"Asgard:Encryption\"", "content": "Asgard:Encryption" },
+        { "source": "aes.IV = _iv", "content": "one configured IV" },
+        { "source": "DefaultWorkFactor = 11", "content": "default work factor is 11" },
+        { "source": "currentWorkFactor < DefaultWorkFactor", "content": "cost below 11" },
+        { "source": "_maxKeySizeInBytes = 1024", "content": "1024 bytes" },
+        { "source": "AddSingleton<IEncryptionService>", "content": "all three singletons" },
+        { "source": "public abstract IEncryptionService? Encryption", "content": "AbsAsgardContext.Encryption" }
+      ]
+    },
+    {
+      "name": "host application, Kestrel, and encryption field reference",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/ApplicationOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/KestrelOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/EndpointOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/CertificateOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/KestrelLimitsOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.HostConfiguration.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Common/Asgard.Abstractions/Security/AsgardEncryptionOptions.cs",
+        "Common/Asgard.Core/Security/SecurityServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Security/AesEncryptionService.cs"
+      ],
+      "anchors": [
+        { "source": "public string Name { get; set; } = \"Asgard.Yggdrasil\"", "content": "host.application.name" },
+        { "source": "ASPNETCORE_ENVIRONMENT", "content": "bootstrap-only" },
+        { "source": "public bool DetailedErrors", "content": "detailedErrors" },
+        { "source": "MaxConcurrentUpgradedConnections <= 0", "content": "limits: {}" },
+        { "source": "UseHttps(endpoint.Certificate.Path, endpoint.Certificate.Password)", "content": "certificate.password" },
+        { "source": "CreateValidatedSnapshot", "content": "Asgard.Encryption.Key" }
+      ]
+    },
+    {
+      "name": "Asgard production deployment and go-live",
+      "sourceFiles": [
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHost.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.HostConfiguration.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardRuntimeHostedService.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/HealthCheckOptions.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginConfig.cs",
+        "Common/Asgard.Core/Plugin/PluginBase.cs",
+        "Common/Asgard.Abstractions/Logging/LogConfig.cs"
+      ],
+      "anchors": [
+        { "source": "ASPNETCORE_ENVIRONMENT", "content": "ASPNETCORE_ENVIRONMENT" },
+        { "source": "_configureMiddleware?.Invoke(app)", "content": "ConfigureMiddleware" },
+        { "source": "\"self\"", "content": "built-in self check" },
+        { "source": "await jobManager.ShutdownAsync()", "content": "shuts down an active JobManager" },
+        { "source": "OnStopAsync(cancellationToken)", "content": "OnStopAsync" },
+        { "source": "Path = \"plugins\"", "content": "scanDirectories" }
+      ]
+    },
+    {
+      "name": "Asgard response, pagination, and exception contracts",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Controller/BaseController.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Model/ResponseBase.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Model/ResponseOfT.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Model/PageResponse.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Model/CursorResponse.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Middleware/AsgardExceptionHandlerMiddleware.cs",
+        "Plugins/Asgard.PluginSdk/PluginWebAppDefaults.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs"
+      ],
+      "anchors": [
+        { "source": "Success<T>(T data", "content": "Success<string>" },
+        { "source": "public long TotalCount", "content": "totalCount" },
+        { "source": "public string? NextCursor", "content": "nextCursor" },
+        { "source": "ArgumentException _ => Response.Fail", "content": "ArgumentException" },
+        { "source": "UseAsgardExceptionHandler", "content": "PluginWebAppDefaults" },
+        { "source": "_configureMiddleware?.Invoke(app)", "content": "ConfigureMiddleware" }
+      ]
+    },
+    {
+      "name": "Asgard CRUD vertical slice",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/Entities/AbsAsgardBaseEntity.cs",
+        "Common/Asgard.Abstractions/Data/Entities/AbsAsgardTenantEntity.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.Crud.cs",
+        "Common/Asgard.Core/Data/DatabaseServiceCollectionExtensions.cs",
+        "Common/Asgard.Abstractions/Data/IAsgardRepositoryContext.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Controller/BaseController.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Model/PageResponse.cs",
+        "Plugins/Asgard.PluginSdk/PluginConventions.cs"
+      ],
+      "anchors": [
+        { "source": "IsVersion = true", "content": "IsVersion=true" },
+        { "source": "MarkAsDeleted", "content": "MarkAsDeleted" },
+        { "source": "GetEntityCacheKey", "content": "entity type and id" },
+        { "source": "DeleteAsync(TEntity entity", "content": "physical deletion" },
+        { "source": "AddRepositories", "content": "AddPluginConventions" },
+        { "source": "PageResponse<TItem>", "content": "PageResponse" }
+      ]
+    },
+    {
+      "name": "Asgard tenant isolation outside HTTP requests",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/ITenantScopeFactory.cs",
+        "Common/Asgard.AspNetCore.Core/Data/TenantScopeFactory.cs",
+        "Common/Asgard.AspNetCore.Core/Data/AsgardTenantScope.cs",
+        "Common/Asgard.AspNetCore.Core/Identity/AsgardIdentityContextAccessor.cs",
+        "Common/Asgard.Core/Data/DatabaseServiceCollectionExtensions.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.cs",
+        "Common/Asgard.Core/Job/QuartzJobFactory.cs",
+        "Common/Asgard.Core/Job/AsgardJobAdapter.cs"
+      ],
+      "anchors": [
+        { "source": "with { TenantId = tenantId }", "content": "overrides only snapshot TenantId" },
+        { "source": "public IDisposable Push", "content": "Dispose" },
+        { "source": "GlobalFilter.ApplyIf", "content": "Guid.Empty" },
+        { "source": "GetEntityCacheKey", "content": "{entity}:{id}" },
+        { "source": "CreateServiceScope", "content": "DI scope" },
+        { "source": "context.Result = result", "content": "does not rethrow" }
+      ]
+    },
+    {
+      "name": "Asgard observability operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Tracing/TraceOptions.cs",
+        "Common/Asgard.Abstractions/Tracing/IAsgardTraceContext.cs",
+        "Common/Asgard.Core/Tracing/FreeSqlTraceStore.cs",
+        "Common/Asgard.Core/Tracing/TraceWorker.cs",
+        "Common/Asgard.Core/Tracing/FreeSqlTraceBatchWriter.cs",
+        "Common/Asgard.Core/Observability/TraceQueryService.cs",
+        "Common/Asgard.Core/Observability/DatabaseLogQueryService.cs",
+        "Common/Asgard.AspNetCore.Core/Tracing/AsgardRequestTraceMiddleware.cs",
+        "Common/Asgard.AspNetCore.Core/Tracing/AsgardTraceQueueItemFactory.cs",
+        "Common/Asgard.AspNetCore.Core/Tracing/AsgardReplayRequestCapture.cs"
+      ],
+      "anchors": [
+        { "source": "Channel.CreateUnbounded<TraceQueueItem>", "content": "unbounded Channel" },
+        { "source": "request.QueryString.Value", "content": "QueryString unchanged" },
+        { "source": "Convert.ToBase64String", "content": "Base64" },
+        { "source": "batch.Clear();", "content": "no retry" },
+        { "source": "WaitAsync(TimeSpan.FromSeconds(15))", "content": "15 seconds" },
+        { "source": "GetByTraceIdAsync", "content": "TraceId" },
+        { "source": "ShouldRunCleanup()", "content": "Cleanup runs only after" }
+      ]
+    },
+    {
+      "name": "Asgard database production operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/DatabaseConfig.cs",
+        "Common/Asgard.Core/Data/FreeSqlDataTypeResolver.cs",
+        "Common/Asgard.Core/Data/DatabaseServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Asgard.Core.csproj",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.Crud.cs",
+        "Common/Asgard.Abstractions/Data/Entities/AbsAsgardBaseEntity.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"database.enabled\"", "content": "database.enabled" },
+        { "source": "FreeSql.Provider.MySql", "content": "only FreeSql.Provider.MySql 3.5.310" },
+        { "source": "AddSingleton<IFreeSql>", "content": "registers IFreeSql as a singleton" },
+        { "source": "GlobalFilter.ApplyIf<AbsAsgardTenantEntity>", "content": "AsgardTenantFilter" },
+        { "source": "GetEntityCacheKey", "content": "{entity}:{id}" },
+        { "source": "var result = await base.UpdateAsync", "content": "after the database write" },
+        { "source": "IsVersion = true", "content": "IsVersion = true" },
+        { "source": "\"self\"", "content": "reports self only" }
+      ]
+    },
+    {
+      "name": "Asgard cache production operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Caching/CacheConfig.cs",
+        "Common/Asgard.Abstractions/Caching/MemoryCacheOptions.cs",
+        "Common/Asgard.Abstractions/Caching/RedisCacheOptions.cs",
+        "Common/Asgard.Abstractions/Caching/IMultiLevelCache.cs",
+        "Common/Asgard.Abstractions/Serialization/JsonSerializerOptionsFactory.cs",
+        "Common/Asgard.Core/Caching/CacheManager.cs",
+        "Common/Asgard.Core/Caching/MultiLevelCache.cs",
+        "Common/Asgard.Core/Caching/MultiLevelCacheConfigurator.cs",
+        "Common/Asgard.Core/Caching/MultiLevelCacheServiceCollectionExtensions.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.cs",
+        "Common/Asgard.Abstractions/Data/AbsAsgardRepositoryBase.Crud.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"caching.enabled\"", "content": "caching.enabled defaults to false" },
+        { "source": "Enabled && !Memory.Enabled && !Redis.Enabled", "content": "at least one provider" },
+        { "source": "TimeSpan.FromSeconds(2)", "content": "fixed two-second hot layer" },
+        { "source": "JsonSerializerOptionsFactory.Default", "content": "JsonSerializerOptionsFactory.Default" },
+        { "source": "new MultiLevelCache(null, null, _cacheConfig)", "content": "injectable no-op" },
+        { "source": "parts.Add(_redisConfigAbortConnect)", "content": "only adds abortConnect=false" },
+        { "source": "GetAsync(\"__asgard_health_check__\"", "content": "__asgard_health_check__" },
+        { "source": "Name.ToLower()}:{id}", "content": "lower-case entity type plus id" },
+        { "source": "FlushDatabaseAsync", "content": "FLUSHDB" },
+        { "source": "foreach (var key in keys)", "content": "loops over RemoveAsync sequentially" }
+      ]
+    },
+    {
+      "name": "Asgard Redis distributed lock operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/DistributedLocking/IDistributedLock.cs",
+        "Common/Asgard.Abstractions/DistributedLocking/IDistributedLockHandle.cs",
+        "Common/Asgard.Abstractions/DistributedLocking/DistributedLockOptions.cs",
+        "Common/Asgard.Abstractions/DistributedLocking/DistributedLockAcquireOptions.cs",
+        "Common/Asgard.Core/DistributedLocking/DistributedLockServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/DistributedLocking/RedisDistributedLock.cs",
+        "Common/Asgard.Core/DistributedLocking/RedisDistributedLockHandle.cs",
+        "Common/Asgard.Abstractions/AbsAsgardContext.cs",
+        "Common/Asgard.Core/AsgardContext.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Test/Asgard.Core.Tests/DistributedLocking/DistributedLockOptionsTests.cs",
+        "Test/Asgard.Core.Tests/DistributedLocking/DistributedLockServiceCollectionExtensionsTests.cs",
+        "Test/Asgard.Core.Tests/DistributedLocking/RedisDistributedLockIntegrationTests.cs"
+      ],
+      "anchors": [
+        { "source": "AddDistributedLock(this IServiceCollection services)", "content": "explicitly calls AddDistributedLock" },
+        { "source": "public string KeyPrefix { get; set; } = \"lock:\"", "content": "KeyPrefix=lock:" },
+        { "source": "TimeSpan.FromSeconds(30)", "content": "DefaultLeaseTime=30 seconds" },
+        { "source": "TimeSpan.FromSeconds(5)", "content": "DefaultAcquireTimeout=5 seconds" },
+        { "source": "TimeSpan.FromMilliseconds(200)", "content": "RetryInterval=200 milliseconds" },
+        { "source": "if (!cacheConfig.Redis.Enabled)", "content": "caching.redis.enabled must be true" },
+        { "source": "When.NotExists", "content": "SET NX plus a TTL" },
+        { "source": "redis.call('get', KEYS[1]) == ARGV[1]", "content": "owner-token comparison" },
+        { "source": "throw new TimeoutException", "content": "throws TimeoutException" },
+        { "source": "public abstract IDistributedLock? DistributedLock", "content": "Context contract itself is nullable" },
+        { "source": "Interlocked.Exchange(ref _releaseState, 1)", "content": "marks the handle released before contacting Redis" },
+        { "source": "第一版实现基于单个逻辑 Redis 入口", "content": "one logical Redis" }
+      ]
+    },
+    {
+      "name": "Asgard host CORS operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/HostConfig.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/CorsOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/CorsPolicyOptions.cs",
+        "Common/Asgard.Abstractions/Plugin/IPluginCorsContributor.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.PluginIntegration.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/PluginCorsPostConfigureOptions.cs",
+        "Test/Asgard.AspNetCore.Core.Tests/SystemConfig/HostConfigLoaderTests.cs"
+      ],
+      "anchors": [
+        { "source": "Cors?.Validate();", "content": "enabled:false cannot bypass" },
+        { "source": "public bool Enabled { get; set; } = true", "content": "enabled=true" },
+        { "source": "public bool AllowAnyMethod { get; set; } = true", "content": "allowAnyMethod=true" },
+        { "source": "public bool AllowAnyHeader { get; set; } = true", "content": "allowAnyHeader=true" },
+        { "source": "public int PreflightMaxAgeSeconds { get; set; } = 600", "content": "preflightMaxAgeSeconds=600" },
+        { "source": "if (AllowAnyOrigin && AllowCredentials)", "content": "allowAnyOrigin=true together with allowCredentials=true fails" },
+        { "source": "options.AddDefaultPolicy", "content": "default policy" },
+        { "source": "options.AddPolicy(name", "content": "registers named policies" },
+        { "source": "app.UseCors();", "content": "parameterless UseCors()" },
+        { "source": "app.UseAsgardStaticFiles();", "content": "Static files and request Trace run before CORS" },
+        { "source": "IEnumerable<string> GetAllowedOrigins();", "content": "IPluginCorsContributor" },
+        { "source": "defaultPolicy.Origins.Add(origin)", "content": "extends only the default policy" }
+      ]
+    },
+    {
+      "name": "Asgard messaging production operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Messaging/MQConfig.cs",
+        "Common/Asgard.Abstractions/Messaging/RabbitMQOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/IMessageQueue.cs",
+        "Common/Asgard.Abstractions/Messaging/Message.cs",
+        "Common/Asgard.Abstractions/Messaging/SubscribeOptions.cs",
+        "Common/Asgard.Core/Messaging/MQManager.cs",
+        "Common/Asgard.Core/Messaging/MessageQueue.cs",
+        "Common/Asgard.Core/Messaging/MQServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Messaging/RabbitMQ/RabbitMQMessageQueue.cs",
+        "Common/Asgard.Core/Messaging/RabbitMQ/RabbitMQConfigurator.cs",
+        "Common/Asgard.Core/Messaging/RabbitMQ/RabbitMQMessageFactory.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"messaging.enabled\"", "content": "messaging.enabled determines" },
+        { "source": "return new RabbitMQ.RabbitMQMessageQueue(config);", "content": "one IMessageQueue implementation: RabbitMQ" },
+        { "source": "_mqManager.InitializeAsync().GetAwaiter().GetResult()", "content": "host construction opens a connection" },
+        { "source": "AddSingleton<IMessageConsumer<T>, TConsumer>()", "content": "registers only a singleton" },
+        { "source": "mandatory: false", "content": "mandatory=false" },
+        { "source": "foreach (var message in messages)", "content": "awaits each message in a loop" },
+        { "source": "var requeue = message.RetryCount < options.MaxRetryCount", "content": "does not create a finite three-attempt policy" },
+        { "source": "await PublishAsync(topic, message.Value", "content": "sends only Value" },
+        { "source": "arguments[\"x-dead-letter-routing-key\"] = dlqName", "content": "does not declare or bind that DLQ" },
+        { "source": "properties.Headers[_traceIdHeaderName] = Guid.NewGuid().ToString()", "content": "new random X-Trace-Id" },
+        { "source": "JsonSerializer.Deserialize<T>", "content": "before invoking the user handler" },
+        { "source": "return connection.IsOpen", "content": "checks only connection IsOpen" }
+      ]
+    },
+    {
+      "name": "Asgard job production operations",
+      "sourceFiles": [
+        "Common/Asgard.Core/Job/JobConfig.cs",
+        "Common/Asgard.Abstractions/Job/JobSchedulerOptions.cs",
+        "Common/Asgard.Abstractions/Job/TriggerOptions.cs",
+        "Common/Asgard.Abstractions/Job/PluginJobConfig.cs",
+        "Common/Asgard.Core/Job/QuartzJobScheduler.cs",
+        "Common/Asgard.Core/Job/QuartzJobScheduler.JobManagement.cs",
+        "Common/Asgard.Core/Job/QuartzTriggerFactory.cs",
+        "Common/Asgard.Core/Job/QuartzJobFactory.cs",
+        "Common/Asgard.Core/Job/AsgardJobAdapter.cs",
+        "Common/Asgard.Core/Job/AsgardJobExecutionContext.cs",
+        "Common/Asgard.Core/Plugin/PluginBase.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardRuntimeHostedService.cs"
+      ],
+      "anchors": [
+        { "source": "_quartzRamJobStoreType", "content": "hard-codes Quartz.Simpl.RAMJobStore" },
+        { "source": "public string MisfireInstruction", "content": "does not read TriggerOptions.MisfireInstruction" },
+        { "source": "public void Validate()", "content": "PluginJobConfig.Validate is currently empty" },
+        { "source": "_jobManager?.SetServiceProvider(app.Services)", "content": "SetServiceProvider(app.Services)" },
+        { "source": "context.Result = result", "content": "does not rethrow" },
+        { "source": "public bool CancelRequested => false", "content": "always returns false" },
+        { "source": "_ = _scheduler.Shutdown(waitForJobsToComplete)", "content": "discards the Task returned by Quartz Shutdown" },
+        { "source": "_ = scheduler.ScheduleJob", "content": "discard the Task returned by Quartz" }
+      ]
+    },
+    {
+      "name": "Asgard security production operations",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Security/AsgardEncryptionOptions.cs",
+        "Common/Asgard.Core/Security/SecurityServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Security/AesEncryptionService.cs",
+        "Common/Asgard.Core/Security/BcryptPasswordHasher.cs",
+        "Common/Asgard.Core/Security/SecureKeyGenerator.cs",
+        "Common/Asgard.Core/AsgardContext.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs"
+      ],
+      "anchors": [
+        { "source": "public const string SectionName = \"Asgard:Encryption\"", "content": "Asgard:Encryption" },
+        { "source": "AddSingleton<IEncryptionService>", "content": "as singletons" },
+        { "source": "BitConverter.ToString(encrypted).Replace(\"-\", \"\")", "content": "uppercase hexadecimal ciphertext without separators" },
+        { "source": "DefaultWorkFactor = 11", "content": "fixed default work factor of 11" },
+        { "source": "needsRehash = currentWorkFactor < DefaultWorkFactor", "content": "only when that cost is below 11" },
+        { "source": "_maxKeySizeInBytes = 1024", "content": "1–1024 bytes" },
+        { "source": "IEncryptionService? encryption = null", "content": "context properties remain null" }
+      ]
+    },
+    {
+      "name": "Asgard identity tenant and authorization operations",
+      "sourceFiles": [
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Authentication.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Common/Asgard.Abstractions/Identity/AsgardClaimTypes.cs",
+        "Common/Asgard.Abstractions/Identity/AbsAsgardUserInfo.cs",
+        "Common/Asgard.Abstractions/Identity/AsgardTokenProfiles.cs",
+        "Common/Asgard.AspNetCore.Core/Identity/AsgardTokenConventionValidator.cs",
+        "Common/Asgard.AspNetCore.Core/Identity/DefaultAsgardIdentityContextResolver.cs",
+        "Common/Asgard.AspNetCore.Core/Data/AsgardTenantMiddleware.cs",
+        "Common/Asgard.AspNetCore.Core/Data/AsgardTenantScope.cs",
+        "Common/Asgard.Core/Data/DatabaseServiceCollectionExtensions.cs",
+        "Common/Asgard.AspNetCore.Core/Authorization/AsgardAuthHandler.cs",
+        "Test/Asgard.Core.Tests/Identity/AbsAsgardUserInfoTests.cs"
+      ],
+      "anchors": [
+        { "source": "options.MapInboundClaims = false", "content": "MapInboundClaims=false" },
+        { "source": "identity.AddClaim(new Claim(AsgardClaimTypes.TenantId, match.TenantId))", "content": "fills tenant_id only when absent" },
+        { "source": "TryResolveExplicitTokenType", "content": "falls back to inference" },
+        { "source": "public const string ApplicationManifestVersion = \"application_manifest_version\"", "content": "application_manifest_version" },
+        { "source": "public string? ApplicationAuthorizationVersion", "content": "nullable opaque strings" },
+        { "source": "claims.Add(new Claim(AsgardClaimTypes.TenantAuthorizationVersion", "content": "round-trip" },
+        { "source": "identityContext.GetCurrentTenantId() != Guid.Empty", "content": "Guid.Empty, disabling the FreeSql tenant filter" },
+        { "source": "UseAsgardTenant()", "content": "Access Token → principal → snapshot → policy → ownership → repository" }
+      ]
+    },
+    {
+      "name": "Asgard TsGen production operations",
+      "sourceFiles": [
+        "Common/Asgard.TsGen/Asgard.TsGen.csproj",
+        "Common/Asgard.TsGen/ControllerMetadataExtractor.cs",
+        "Common/Asgard.TsGen/TypeScriptEmitter.CommonContent.cs",
+        "Common/Asgard.TsGen/TypeScriptEmitter.Helpers.cs",
+        "Common/Asgard.TsGen/TypeScriptTypeMapper.cs",
+        "Common/Asgard.TsGen/TypeScriptFileWriter.cs",
+        "Common/Asgard.Abstractions/CodeGeneration/AsgardTsGenAttribute.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/TsGenHostOptions.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.TsGen.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardTsGenControllerSource.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardTsGenArchiveService.cs",
+        "Test/Asgard.TsGen.Tests/Generation/TsGenerationSseCompatibilityTests.cs",
+        "Test/Asgard.TsGen.Tests/Generation/TsGenerationTypeScriptCompatibilityTests.cs"
+      ],
+      "anchors": [
+        { "source": "<OutputType>Library</OutputType>", "content": "OutputType Library" },
+        { "source": ".Where(HasTsGenerationAttribute)", "content": "explicitly decorated" },
+        { "source": "_generatedDirectoryNames = [\"common\", \"controller\", \"models\"]", "content": "recursively deletes common/" },
+        { "source": "[ConfigPath(\"host.tsGen.enabled\", DefaultValue = false)]", "content": "host.tsGen.enabled defaults to false" },
+        { "source": "_applicationPartManager.PopulateFeature(controllerFeature)", "content": "ControllerFeature" },
+        { "source": "_requestImportPath = \"@/services/request\"", "content": "fixed RequestImportPath" },
+        { "source": "LongToStringConverter", "content": "property-level LongToStringConverter" },
+        { "source": "buildQueryParams = <T extends object>", "content": "T extends object" },
+        { "source": "const waitForReconnect", "content": "waitForReconnect" },
+        { "source": "'Last-Event-ID'", "content": "Last-Event-ID" }
+      ]
+    },
+    {
+      "name": "Asgard infrastructure configuration field contract",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions/Data/DatabaseConfig.cs",
+        "Common/Asgard.Core/Data/DatabaseServiceCollectionExtensions.cs",
+        "Common/Asgard.Core/Data/FreeSqlDataTypeResolver.cs",
+        "Common/Asgard.Abstractions/Caching/CacheConfig.cs",
+        "Common/Asgard.Abstractions/Caching/MemoryCacheOptions.cs",
+        "Common/Asgard.Abstractions/Caching/RedisCacheOptions.cs",
+        "Common/Asgard.Core/Caching/MultiLevelCacheConfigurator.cs",
+        "Common/Asgard.Core/Caching/CacheManager.cs",
+        "Common/Asgard.Core/Caching/MultiLevelCache.cs",
+        "Common/Asgard.Abstractions/Messaging/MQConfig.cs",
+        "Common/Asgard.Abstractions/Messaging/RabbitMQOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/TracingOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/RetryOptions.cs",
+        "Common/Asgard.Abstractions/Messaging/DelayedMessageOptions.cs",
+        "Common/Asgard.Core/Messaging/RabbitMQ/RabbitMQConfigurator.cs",
+        "Common/Asgard.Core/Messaging/RabbitMQ/RabbitMQMessageQueue.cs",
+        "Common/Asgard.Core/Job/JobConfig.cs",
+        "Common/Asgard.Abstractions/Job/JobSchedulerOptions.cs",
+        "Common/Asgard.Abstractions/Job/JobDefinitionOptions.cs",
+        "Common/Asgard.Abstractions/Job/TriggerOptions.cs",
+        "Common/Asgard.Core/Job/QuartzJobScheduler.cs",
+        "Common/Asgard.Core/Job/QuartzJobRegistrar.cs",
+        "Common/Asgard.Core/Job/QuartzTriggerFactory.cs",
+        "Common/Asgard.Abstractions/Logging/LogConfig.cs",
+        "Common/Asgard.Abstractions/Logging/ConsoleSinkOptions.cs",
+        "Common/Asgard.Abstractions/Logging/FileSinkOptions.cs",
+        "Common/Asgard.Abstractions/Logging/DatabaseSinkOptions.cs",
+        "Common/Asgard.Core/Logging/SerilogConfigurator.cs",
+        "Common/Asgard.Core/Logging/FreeSqlDatabaseLogSink.cs",
+        "Common/Asgard.Abstractions/Tracing/TraceOptions.cs",
+        "Common/Asgard.Core/Tracing/FreeSqlTraceStore.cs",
+        "Common/Asgard.AspNetCore.Core/Tracing/AsgardRequestTraceMiddleware.cs",
+        "Common/Asgard.AspNetCore.Core/Tracing/AsgardTraceQueueItemFactory.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"database.enabled\"", "content": "database.enabled" },
+        { "source": "public int RetryCount", "content": "caching.redis.retryCount" },
+        { "source": "abortConnect=false", "content": "abortConnect=false" },
+        { "source": "public bool FallbackToMemoryCache", "content": "fallbackToMemoryCache" },
+        { "source": "public double CompactOnMemoryPressure", "content": "compactOnMemoryPressure" },
+        { "source": "public int RetryIntervalMilliseconds", "content": "messaging.rabbitmq.retryIntervalMilliseconds" },
+        { "source": "arguments[\"x-dead-letter-routing-key\"] = dlqName", "content": "target DLQ" },
+        { "source": "_quartzRamJobStoreType", "content": "RAMJobStore" },
+        { "source": "public string MisfireInstruction", "content": "misfireInstruction" },
+        { "source": "public Dictionary<string, object?> Data", "content": "job.jobs[].data" },
+        { "source": "public bool UseColors", "content": "logging.console.useColors" },
+        { "source": "public string OutputTemplate", "content": "logging.database.outputTemplate" },
+        { "source": "public bool CaptureAllRequest", "content": "Trace.CaptureAllRequest" },
+        { "source": "public bool ShouldCaptureRequest", "content": "headers/body/identity" },
+        { "source": "public int MaxBodyBytes", "content": "Trace.MaxBodyBytes" }
+      ]
+    },
+    {
+      "name": "Asgard host feature and plugin configuration field contract",
+      "sourceFiles": [
+        "Common/Asgard.Abstractions.AspNetCore/Host/HostConfig.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/StaticFileHostOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/CorsOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/CorsPolicyOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/AuthOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/JwtOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/SwaggerOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/TsGenHostOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/RateLimitingOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Host/HealthCheckOptions.cs",
+        "Common/Asgard.Abstractions.AspNetCore/Extensions/StaticFileApplicationBuilderExtensions.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginConfig.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginEntry.cs",
+        "Common/Asgard.Abstractions/Plugin/PluginScanDirectory.cs",
+        "Common/Asgard.Abstractions/Plugin/IPluginCorsContributor.cs",
+        "Common/Asgard.Core/Plugin/PluginLoaderHelper.cs",
+        "Common/Asgard.Core/Plugin/PluginServiceConfigurator.cs",
+        "Common/Asgard.Core/Plugin/PluginDependencyResolver.cs",
+        "Common/Asgard.Core/Plugin/PluginManager.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Authentication.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/Authentication/AsgardOidcAuthenticationServices.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Services.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Configurator.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.Swagger.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.TsGen.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardTsGenArchiveService.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/AsgardTsGenControllerSource.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/YggdrasilHostBuilder.PluginIntegration.cs",
+        "Host/Asgard.Yggdrasil.AspNetCore/PluginCorsPostConfigureOptions.cs",
+        "Common/Asgard.TsGen/TypeScriptFileWriter.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"host.staticFiles.enableDefaultFiles\", DefaultValue = false)]", "content": "host.staticFiles.enableDefaultFiles" },
+        { "source": "if (AllowAnyOrigin && AllowCredentials)", "content": "mutually exclusive" },
+        { "source": "options.AddPolicy(name", "content": "registered/opt-in" },
+        { "source": "ValidateTemplate(authOptions.Jwt.IssuerTemplate)", "content": "exactly one {tenant}" },
+        { "source": "AudienceValidator =", "content": "host.auth.jwt.audience" },
+        { "source": "$\"/{_hostConfig.Swagger.RoutePrefix}/{_hostConfig.Swagger.Version}/swagger.json\"", "content": "/swagger/{version}/swagger.json" },
+        { "source": "app.MapGet(\"/asgard-tsgen\"", "content": "GET /asgard-tsgen" },
+        { "source": "RateLimitPartition.GetFixedWindowLimiter", "content": "FixedWindow" },
+        { "source": "\"global\"", "content": "partition key" },
+        { "source": "public int TimeoutSeconds", "content": "host.healthCheck.timeoutSeconds" },
+        { "source": "var mappedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase)", "content": "silently de-duplicated" },
+        { "source": "public bool EnableHotReload", "content": "plugin.enableHotReload" },
+        { "source": "public int LoadTimeoutSeconds", "content": "plugin.loadTimeoutSeconds" },
+        { "source": "public bool AutoScanRepositories", "content": "plugin.plugins[].autoScanRepositories" },
+        { "source": "SearchOption.AllDirectories", "content": "recursive" },
+        { "source": "IPluginCorsContributor", "content": "IPluginCorsContributor" },
+        { "source": "options.GetPolicy(options.DefaultPolicyName)", "content": "named policies are not changed" }
+      ]
+    },
+    {
+      "name": "Asgard analyzer and CI operations",
+      "sourceFiles": [
+        "Common/Asgard.Analyzers/Asgard.Analyzers.csproj",
+        "Common/Asgard.Analyzers/AsgardDiagnosticDescriptors.cs",
+        "Common/Asgard.Analyzers/AsgardCodeStyleAnalyzer.cs",
+        "Common/Asgard.Analyzers/CommentAnalysisHelper.cs",
+        "Directory.Build.props"
+      ],
+      "anchors": [
+        { "source": "id: \"ASG0008\"", "content": "ASG0001–ASG0008" },
+        { "source": "defaultSeverity: DiagnosticSeverity.Error", "content": "defaults to Error" },
+        { "source": "ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None)", "content": "ConfigureGeneratedCodeAnalysis(None)" },
+        { "source": "filePath.Contains(@\"\\Tests\\\"", "content": "Test/Tests" },
+        { "source": "OutputItemType=\"Analyzer\"", "content": "OutputItemType=Analyzer" },
+        { "source": "<IncludeBuildOutput>false</IncludeBuildOutput>", "content": "analyzers/dotnet/cs" }
+      ]
+    }
+  ],
+  "heimdall": {
+    "path": "D:\\Codes\\github\\Asgard.Heimdall",
+    "commit": "0032070cf8584deb4d7e3569900742d1718ab6ef",
+    "releaseTag": "v5.3.19",
+    "version": "5.3.19",
+    "worktreeDirty": false,
+    "worktreeFingerprint": null
+  },
+  "heimdallContracts": [
+    {
+      "name": "Heimdall 5.3.19 local quick start",
+      "sourceFiles": [
+        "be/Directory.Build.props",
+        "be/Asgard.Heimdall.Starter/Program.cs",
+        "be/Asgard.Heimdall.Starter/Asgard.Heimdall.Starter.csproj",
+        "be/Asgard.Heimdall/plugin.yaml",
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcPluginConfig.cs",
+        "be/Asgard.Heimdall/OidcPlugin.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/DefaultAdminBootstrapService.cs",
+        "be/Docker/docker-compose.yaml",
+        "docs/local-manual-testing.md",
+        "fe/.env.development"
+      ],
+      "anchors": [
+        { "source": "<PatchVersion>19</PatchVersion>", "content": "Heimdall 5.3.19" },
+        { "source": "PluginWebAppDefaults.RunAsync<OidcPlugin>(configPath)", "content": "dotnet run --project be/Asgard.Heimdall.Starter/Asgard.Heimdall.Starter.csproj" },
+        { "source": "oidc.bootstrap.auto_sync_schema", "content": "oidc.bootstrap.auto_sync_schema=true" },
+        { "source": "DefaultValue = false", "content": "defaults to false" },
+        { "source": "Oidc:Bootstrap:DefaultAdminPassword", "content": "Oidc__Bootstrap__DefaultAdminPassword" },
+        { "source": "_environment.IsDevelopment()", "content": "SeedDefaultAdmin is skipped outside Development" },
+        { "source": "GetByUsernameAsync(defaultUsername)", "content": "does not replace the password" },
+        { "source": "http://localhost:5000/.well-known/openid-configuration", "content": "localhost:5000/.well-known/openid-configuration" },
+        { "source": "UMI_APP_OIDC_AUTHORITY=http://localhost:5000", "content": "localhost ports 5000 and 3001" },
+        { "source": "UMI_APP_PUBLIC_ORIGIN=http://localhost:3001", "content": "http://localhost:3001/test-lab" },
+        { "source": "external: true", "content": "does not create these services" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.1.2 federation and MFA production operations",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Extensions/HeimdallModuleRegistrationExtensions.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/ExternalOidcLoginController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/ExternalOidcDiscoveryService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/ExternalOidcTokenValidator.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/ExternalOidcLoginTransactionService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/LdapDirectoryClient.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/SamlLoginService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/ExternalGroupRoleMappingService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/MfaLoginTicketService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/MfaRecoveryCodeService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/PasskeyLoginService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/PasskeyManagementService.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/PasskeyManagementController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/PasskeyLoginController.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantExternalOidcProvider.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantExternalGroupRoleMapping.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantSamlProvider.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantSamlIdentityBinding.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantLdapProvider.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantLdapIdentityBinding.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/PasskeyCredential.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/MfaRecoveryCode.cs"
+      ],
+      "anchors": [
+        { "source": "client.Timeout = TimeSpan.FromSeconds(10)", "content": "ten-second request timeout" },
+        { "source": "AllowAutoRedirect = false", "content": "rejects 3xx" },
+        { "source": "ReferralChasing = ReferralChasingOptions.None", "content": "ReferralChasing=None" },
+        { "source": "[RequestSizeLimit(256 * 1024)]", "content": "256 KiB" },
+        { "source": "FindFirst(\"auth_time\")", "content": "auth_time" },
+        { "source": "tenant_external_oidc_provider", "content": "tenant_external_oidc_provider" },
+        { "source": "tenant_external_group_role_mapping", "content": "tenant_external_group_role_mapping" },
+        { "source": "tenant_saml_provider", "content": "tenant_saml_provider" },
+        { "source": "tenant_saml_identity_binding", "content": "tenant_saml_identity_binding" },
+        { "source": "tenant_ldap_provider", "content": "tenant_ldap_provider" },
+        { "source": "tenant_ldap_identity_binding", "content": "tenant_ldap_identity_binding" },
+        { "source": "passkey_credential", "content": "passkey_credential" },
+        { "source": "mfa_recovery_code", "content": "mfa_recovery_code" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.3.19 BackendService integration",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Tenants/BackendDirectoryController.cs",
+        "be/Asgard.Heimdall/Identity/BackendDirectoryConstants.cs",
+        "be/Asgard.Heimdall/Identity/BackendDirectoryAudienceAttribute.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/BackendDirectoryService.cs",
+        "be/Asgard.Heimdall/Domains/Repositories/Tenants/TenantDirectoryGroupRepository.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/BackendDirectoryGroupWriteDto.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/BackendDirectoryMemberWriteDto.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TenantUserIdentityStateService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TenantUserIdentityInvalidationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityWebhookDeliveryService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcClientInfoService.Admin.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantOidcClientController.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/TenantOidcClientSecretRotateDto.cs",
+        "be/Asgard.Heimdall/Identity/Protocol/OpenIddictConstants.Errors.cs",
+        "docs/openapi/backend-directory-api.openapi.yaml",
+        "docs/schemas/identity-subject-invalidated.schema.json",
+        "be/Test/Asgard.Heimdall.Tests/Controllers/BackendDirectoryAuthorizationContractTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Controllers/BackendDirectoryControllerBehaviorTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Tenants/BackendDirectoryServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Tenants/TenantOidcClientRevocationTests.cs"
+      ],
+      "anchors": [
+        { "source": "[Route(\"api/backend/directory\")]", "content": "/api/backend/directory/users" },
+        { "source": "[AsgardAuthMatch(\"token_type = 'BackendService'\")]", "content": "token_type=BackendService" },
+        { "source": "public const string Audience = \"heimdall-directory-api\"", "content": "heimdall-directory-api" },
+        { "source": "public const string ReadScope = \"heimdall.directory.read\"", "content": "heimdall.directory.read" },
+        { "source": "public const string WriteScope = \"heimdall.directory.write\"", "content": "heimdall.directory.write" },
+        { "source": "GetUser(string tenantUserId)", "content": "users/{tenantUserId}" },
+        { "source": "[HttpGet(\"groups\")]", "content": "/api/backend/directory/groups" },
+        { "source": "[HttpPost(\"groups\")]", "content": "heimdall.directory.write" },
+        { "source": "[HttpPut(\"groups/{groupId}/members\")]", "content": "tenant_user_ids" },
+        { "source": "Insert<TenantDirectoryGroupMember>()", "content": "typed FreeSql insert builder" },
+        { "source": "maximum: 500", "content": "size defaults 10 and caps at 500" },
+        { "source": "\"event_type\":", "content": "identity.subject.invalidated" },
+        { "source": "\"version\":", "content": "version=1" },
+        { "source": "GracePeriodMinutes", "content": "0–1440" },
+        { "source": "invalid_client", "content": "invalid_client" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.1.2 security-event lifecycle",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/SecurityEventController.cs",
+        "be/Asgard.Heimdall/Identity/SecurityEventHandlingModes.cs",
+        "be/Asgard.Heimdall/Identity/SecurityEventPolicy.cs",
+        "be/Asgard.Heimdall/Identity/SecurityEventStatuses.cs",
+        "be/Asgard.Heimdall/Identity/AsgardPlatformPermissions.cs",
+        "be/Asgard.Heimdall/Config/PluginConfigs/SecurityEventLifecycleConfig.cs",
+        "be/Asgard.Heimdall/Jobs/SecurityEventLifecycleJob.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/SecurityEvent.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/LoginProtectionRecord.cs",
+        "be/Asgard.Heimdall/Models/VO/Identity/SecurityEventLifecycleResult.cs",
+        "be/Asgard.Heimdall/Models/VO/Identity/SecurityEventSummaryVo.cs",
+        "be/Asgard.Heimdall/Models/VO/Identity/SecurityEventVo.cs",
+        "be/Asgard.Heimdall/Queries/SecurityEventQuery.cs",
+        "be/Asgard.Heimdall/Domains/Repositories/Tenants/SecurityEventRepository.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/SecurityEventService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/SecurityEventLifecycleService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/SecurityEventExportService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/LoginProtectionService.cs",
+        "be/Asgard.Heimdall/Services/Services/Platform/RuntimeSettingRegistry.cs",
+        "be/Asgard.Heimdall/plugin.yaml",
+        "be/Database/Migrations/20260716_security_event_lifecycle.postgresql.sql",
+        "be/Test/Asgard.Heimdall.Tests/Services/Identity/SecurityEventServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Identity/SecurityEventLifecycleServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/SecurityEventRepositoryTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/SecurityEventLifecycleJobContractTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/SecurityEventExportServiceTests.cs"
+      ],
+      "anchors": [
+        { "source": "[HttpGet(\"summary\")]", "content": "GET /api/security-events/summary" },
+        { "source": "ResolveHandlingMode", "content": "high, critical, and unknown event types" },
+        { "source": "ActionableOnly", "content": "actionableOnly" },
+        { "source": "CreateCorrelationKey", "content": "correlationKey" },
+        { "source": "ArchiveAutomatically", "content": "Archive targets only automatic + identity.login.failed + low/medium + open" },
+        { "source": "AuditLast24HoursCount", "content": "auditLast24HoursCount" },
+        { "source": "SecurityEventLifecycleJob", "content": "SecurityEventLifecycleJob" },
+        { "source": "cron: \"0 0/15 * * * ?\"", "content": "every 15 minutes" },
+        { "source": "RoutineRetentionDays", "content": "routine 30" },
+        { "source": "DeleteExpiredAsync", "content": "Physical deletion" },
+        { "source": "DryRun", "content": "dry_run" },
+        { "source": "AggregationWindowMinutes", "content": "aggregation_window_minutes" },
+        { "source": "ADD COLUMN IF NOT EXISTS handling_mode", "content": "20260716_security_event_lifecycle.postgresql.sql" },
+        { "source": "ADD COLUMN IF NOT EXISTS protection_key", "content": "ProtectionKey" },
+        { "source": "UpsertFailurePostgreSqlAsync", "content": "atomic ProtectionKey UPSERT" },
+        { "source": "private const string _schemaVersion = \"1.1\"", "content": "schemaVersion=1.1" },
+        { "source": "cursorTime", "content": "physically deleted" },
+        { "source": "platform.security.manage", "content": "platform.security.manage" },
+        { "source": "X-Heimdall-Event-Count", "content": "X-Heimdall-Event-Count" },
+        { "source": "Math.Clamp(query.Limit, 1, 1000)", "content": "1–1000" },
+        { "source": "OrderBy(item => item.OccurredAt)", "content": "occurred_at then id" },
+        { "source": "private static readonly string[] _sensitiveKeys", "content": "key-name defense" },
+        { "source": "CEF:0|Asgard|Heimdall|4.1", "content": "hard-codes product version 4.1" },
+        { "source": "[Quartz.DisallowConcurrentExecution]", "content": "DisallowConcurrentExecution" },
+        { "source": "BatchSize { get; set; } = 1000", "content": "batch 1000" },
+        { "source": "RunAsync_ShouldUseDispositionTimeForRetention", "content": "retention" },
+        { "source": "ExportAsync_ShouldPageAndRedactSensitiveDetails", "content": "recursive redaction" },
+        { "source": "ArchiveRoutineLoginFailuresAsync_ShouldIncrementVersionOnlyOnceAndRemainIdempotent", "content": "repository" }
+      ]
+    },
+    {
+      "name": "Heimdall release status baseline",
+      "sourceFiles": [
+        "be/Directory.Build.props",
+        "be/Asgard.Heimdall/Asgard.Heimdall.csproj",
+        "be/Asgard.Heimdall/OidcPlugin.cs",
+        "be/Asgard.Heimdall/Extensions/Plugin/MultiTenantCorsPolicyProvider.cs",
+        "be/Asgard.Heimdall.JwtSigning/Asgard.Heimdall.JwtSigning.csproj",
+        "be/Asgard.Heimdall.JwtSigning.AspNetCore/Asgard.Heimdall.JwtSigning.AspNetCore.csproj",
+        "be/Asgard.Heimdall/Models/Entities/Applications/ApplicationInfo.cs",
+        "be/Asgard.Heimdall/Mcp/Infrastructure/McpWriteGuard.cs",
+        "be/Database/Migrations/20260720_application_domain_00_precheck.postgresql.sql",
+        "be/Database/Migrations/20260720_mcp_credential_policy.postgresql.sql",
+        "docs/releases/5.3.19.md",
+        "be/Database/Migrations/README.runtime-settings.md",
+        "be/Database/Migrations/20260715_identity_webhook.postgresql.sql",
+        "be/Database/Migrations/20260715_mcp_credentials.postgresql.sql"
+      ],
+      "anchors": [
+        { "source": "<BaseVersion>$(MajorVersion).$(MinorVersion).$(PatchVersion)</BaseVersion>", "content": "5.3.19" },
+        { "source": "<TargetFramework>net10.0</TargetFramework>", "content": ".NET 10" },
+        { "source": "new(5, 3, 19)", "content": "OidcPlugin.Version" },
+        { "source": "<PackageVersion>$(Version)</PackageVersion>", "content": "Mini JWT issuer packages" },
+        { "source": "public sealed class ApplicationInfo", "content": "Application-domain RBAC" },
+        { "source": "McpWriteGuard", "content": "two-phase confirmation" },
+        { "source": "CREATE TABLE IF NOT EXISTS identity_webhook_subscription", "content": "Identity Webhook" },
+        { "source": "credential_name varchar(128)", "content": "AK/SK policy" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.3.19 Application-domain RBAC",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Identity/AsgardPlatformPermissions.cs",
+        "be/Asgard.Heimdall/Enums/ApplicationTenantScopeTypeEnum.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/ApplicationManifestService.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/Support/ApplicationManifestService.Validation.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/ApplicationResourceAccessGuard.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/TenantApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/SysUserApplicationGrantService.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/TenantApplicationRbacService.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/TenantApplicationRbacService.Roles.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/TenantApplicationRbacService.Relations.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/TenantApplicationRbacService.Users.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/TenantApplicationRbacService.Helpers.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/AsgardIdentityClaimsBuilder.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/AsgardIdentityClaimsBuilder.ApplicationAuthorization.cs",
+        "be/Asgard.Heimdall/Models/Entities/Applications/ApplicationInfo.cs",
+        "be/Asgard.Heimdall/Models/Entities/Applications/TenantApplication.cs",
+        "be/Database/Migrations/20260720_application_domain_00_precheck.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_01_migrate.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_02_postcheck.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_03_cleanup.postgresql.sql",
+        "be/Test/Asgard.Heimdall.Tests/Services/Applications/ApplicationManifestServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Applications/ApplicationResourceAccessGuardTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Applications/TenantApplicationLifecycleTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Applications/TenantApplicationRbacServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Applications/SysUserApplicationGrantServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/AsgardIdentityClaimsBuilderApplicationScopeTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Applications/ApplicationDomainMigrationSqlContractTests.cs"
+      ],
+      "anchors": [
+        { "source": "public const string ApplicationTenantManage = \"platform.application.tenant.manage\"", "content": "platform.application.tenant.manage" },
+        { "source": "AllApplicationTenants = 1", "content": "AllApplicationTenants" },
+        { "source": "ExplicitTenantList = 2", "content": "ExplicitTenantList" },
+        { "source": "Manifest 版本必须严格递增", "content": "current_manifest_version + 1" },
+        { "source": "item.Status == TenantApplicationStatusEnum.Enabled", "content": "Enabled binding" },
+        { "source": "binding.CompleteSync(targetManifestVersion, operatorId)", "content": "applied_manifest_version" },
+        { "source": "application.BumpAuthorizationVersion(operatorId)", "content": "application_authorization_version" },
+        { "source": "identity.SetClaim(AsgardIdentityClaimTypes.ApplicationId", "content": "application_id" },
+        { "source": "AsgardIdentityClaimTypes.ApplicationManifestVersion", "content": "application_manifest_version" },
+        { "source": "AsgardIdentityClaimTypes.TenantAuthorizationVersion", "content": "tenant_authorization_version" },
+        { "source": "CREATE TABLE IF NOT EXISTS application_migration_catalog", "content": "application_migration_catalog" },
+        { "source": "CREATE UNIQUE INDEX IF NOT EXISTS uidx_application_permission_code ON application_permission(application_id, code)", "content": "(application_id, code)" },
+        { "source": "CREATE UNIQUE INDEX IF NOT EXISTS uidx_tenant_application ON tenant_application(tenant_id, application_id)", "content": "(tenant_id, application_id)" },
+        { "source": "DROP TABLE IF EXISTS tenant_role_permission", "content": "cleanup" }
+      ]
+    },
+    {
+      "name": "Heimdall atomic tenant onboarding management API",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantOnboardingController.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/TenantOnboardingDto.cs",
+        "be/Asgard.Heimdall/Models/VO/Tenants/TenantOnboardingResultVo.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantOnboardingRequest.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOnboardingService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantLogoCodec.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcClientInfoService.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Tenants/TenantOnboardingServiceTests.cs"
+      ],
+      "anchors": [
+        { "source": "[Route(\"api/Tenant/onboarding\")]", "content": "POST /api/Tenant/onboarding" },
+        { "source": "CanManageApplicationAsync(dto.Client.ApplicationId)", "content": "ApplicationId" },
+        { "source": "[FromHeader(Name = \"Idempotency-Key\")]", "content": "Idempotency-Key" },
+        { "source": "FreeSqlUnitOfWorkExecutor.ExecuteAsync", "content": "same transaction" },
+        { "source": "requestId.Length > 128", "content": "at most 128" },
+        { "source": "dto.KeySize is not (2048 or 3072 or 4096)", "content": "2048, 3072, or 4096" },
+        { "source": "OnboardAsync_ShouldRejectDifferentPayloadForSameRequestId", "content": "same key cannot carry different content" }
+      ]
+    },
+    {
+      "name": "Heimdall Device Authorization Grant",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/TokenManagementController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityTokenManagementApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityTokenManagementApplicationService.DeviceFlow.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Token.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcProtocolStoreService.RevocationAndDevice.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/TenantOidcClientInfoDto.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcClientInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcMetadataService.cs",
+        "be/Asgard.Heimdall/Jobs/OidcTokenCleanupJob.cs",
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcCleanupConfig.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/IdentityTokenManagementApplicationServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Controllers/OidcTenantDiscoveryIntegrationTests.cs"
+      ],
+      "anchors": [
+        { "source": "[HttpPost(\"device_authorization\")]", "content": "device_authorization_endpoint" },
+        { "source": "public bool AllowDeviceCode", "content": "allowDeviceCode=true" },
+        { "source": "DeviceCodePollingInterval", "content": "interval seconds" },
+        { "source": "AuthorizationPending", "content": "authorization_pending" },
+        { "source": "SlowDown", "content": "slow_down" },
+        { "source": "AccessDenied", "content": "access_denied" },
+        { "source": "device_authorization_endpoint", "content": "platform and tenant protocol routes" },
+        { "source": "device_code_retention_days", "content": "device_code_retention_days" }
+      ]
+    },
+    {
+      "name": "OIDC application and resource API integration",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcAuthorityService.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/MetadataController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcScopeService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Helpers.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantOidcScopeController.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/TenantOidcScopeDto.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantOidcClientController.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/TenantOidcClientInfoDto.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcClientInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/AsgardIdentityClaimsBuilder.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcTokenService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityUserInfoApplicationService.cs",
+        "be/Asgard.Heimdall/Extensions/Plugin/MultiTenantCorsPolicyProvider.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcApplicationManager.cs"
+      ],
+      "anchors": [
+        { "source": "GetResourcesAsync", "content": "Resources" },
+        { "source": "resources.Count > 0 ? resources : [client.ClientId!]", "content": "falls back to client_id" },
+        { "source": "public client 使用 authorization_code 时必须启用 PKCE", "content": "Authorization Code + PKCE" },
+        { "source": "AllowAccessTokensViaBrowser == true", "content": "front-channel access tokens are disabled" },
+        { "source": "AllowedCorsOrigins", "content": "allowedCorsOrigins" },
+        { "source": "AsgardIdentityClaimTypes.Permissions", "content": "permissions" },
+        { "source": "UpdateAccessTokenClaimsOnRefresh", "content": "updateAccessTokenClaimsOnRefresh" },
+        { "source": "OpenIddictConstants.Scopes.OfflineAccess", "content": "offline_access" }
+      ]
+    },
+    {
+      "name": "Heimdall database and proxy operations",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcPluginConfig.cs",
+        "be/Asgard.Heimdall/OidcPlugin.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcAuthorityService.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OidcServerConfig.cs",
+        "be/Asgard.Heimdall/app.yaml",
+        "be/Asgard.Heimdall/plugin.yaml",
+        "be/Docker/generate-config.ps1",
+        "be/Docker/deploy.sh",
+        "be/Database/Migrations/20260715_object_storage.postgresql.sql",
+        "be/Database/Migrations/20260715_tenant_login_branding.postgresql.sql",
+        "be/Database/Migrations/20260715_tenant_oidc_cors.postgresql.sql",
+        "be/Database/Migrations/20260715_identity_webhook.postgresql.sql",
+        "be/Database/Migrations/20260715_mcp_credentials.postgresql.sql"
+      ],
+      "anchors": [
+        { "source": "oidc.bootstrap.auto_sync_schema", "content": "auto_sync_schema" },
+        { "source": "SyncStructure", "content": "SyncStructure" },
+        { "source": "CookieSecurePolicy.SameAsRequest", "content": "SameAsRequest" },
+        { "source": "request.Scheme", "content": "Request.Scheme" },
+        { "source": "_oidcPluginConfig.Issuer.Trim()", "content": "HTTPS issuer" },
+        { "source": "endpoint: \"/health\"", "content": "host.healthCheck.endpoint" },
+        { "source": "${COMPOSE_CMD[@]} pull", "content": "pulls and runs up -d --remove-orphans" },
+        { "source": "${COMPOSE_CMD[@]} up -d --remove-orphans", "content": "up -d --remove-orphans" },
+        { "source": "${COMPOSE_CMD[@]} ps", "content": "Compose service status" },
+        { "source": "identity_webhook:", "content": "identity_webhook" },
+        { "source": "credential_name varchar(128)", "content": "identity-webhook, MCP, security-event-lifecycle, and sys_user_profile increments" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.3.19 database migration operations",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcPluginConfig.cs",
+        "be/Asgard.Heimdall/OidcPlugin.cs",
+        "be/Database/Migrations/20260715_identity_webhook.postgresql.sql",
+        "be/Database/Migrations/20260715_mcp_credentials.postgresql.sql",
+        "be/Database/Migrations/20260715_object_storage.postgresql.sql",
+        "be/Database/Migrations/20260715_tenant_login_branding.postgresql.sql",
+        "be/Database/Migrations/20260715_tenant_oidc_cors.postgresql.sql",
+        "be/Database/Migrations/20260716_security_event_lifecycle.postgresql.sql",
+        "be/Database/Migrations/20260718_sys_user_profile.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_00_precheck.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_01_migrate.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_02_postcheck.postgresql.sql",
+        "be/Database/Migrations/20260720_application_domain_03_cleanup.postgresql.sql",
+        "be/Database/Migrations/20260720_mcp_credential_policy.postgresql.sql",
+        "be/Test/Asgard.Heimdall.Tests/Database/PostgreSqlCompatibilityIntegrationTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/LoginProtectionMigrationSqlContractTests.cs"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"oidc.bootstrap.auto_sync_schema\", DefaultValue = false)]", "content": "defaults false" },
+        { "source": "freeSql.CodeFirst.SyncStructure(_schemaEntityTypes)", "content": "FreeSql CodeFirst.SyncStructure" },
+        { "source": "await BackfillTenantCorsOriginsAsync", "content": "backfills tenant CORS" },
+        { "source": "await EnsurePostgreSqlConditionalIndexesAsync", "content": "ensures PostgreSQL partial indexes" },
+        { "source": "await MigrateRuntimeSettingsAsync", "content": "migrates runtime settings" },
+        { "source": "await SeedDefaultSysUserAsync", "content": "seeds the default administrator" },
+        { "source": "CREATE TABLE IF NOT EXISTS identity_webhook_subscription", "content": "identity_webhook" },
+        { "source": "uidx_sys_mcp_open_key_active", "content": "mcp_credentials" },
+        { "source": "heimdall_object_storage_settings", "content": "object_storage" },
+        { "source": "login_brand_name", "content": "tenant_login_branding" },
+        { "source": "allowed_cors_origins", "content": "tenant_oidc_cors" },
+        { "source": "idx_security_event_lifecycle", "content": "security_event_lifecycle" },
+        { "source": "display_name", "content": "sys_user_profile" },
+        { "source": "CREATE TABLE IF NOT EXISTS application_migration_catalog", "content": "precheck" },
+        { "source": "application_info", "content": "Application structures" },
+        { "source": "应用域迁移后检查失败", "content": "postcheck" },
+        { "source": "DROP TABLE IF EXISTS tenant_role_permission", "content": "cleanup" },
+        { "source": "TYPE varchar(8192)", "content": "MCP policy" },
+        { "source": "PostgreSqlCompatibilityIntegrationTests", "content": "PostgreSqlCompatibilityIntegrationTests" },
+        { "source": "MigrationSources_ShouldMergeDuplicatesBeforeCreatingUniqueIndex", "content": "migration" }
+      ]
+    },
+    {
+      "name": "Heimdall reverse-proxy and secure-cookie operations",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcPluginConfig.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcAuthorityService.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OidcServerConfig.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcMetadataService.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/AuthorizationController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/AccountController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/LogoutController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityLogoutApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Helpers2.cs",
+        "be/Test/Asgard.Heimdall.Tests/Controllers/OidcTenantDiscoveryIntegrationTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/OidcAuthorityServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/OidcServerConfigTests.cs",
+        "be/Docker/deploy.sh"
+      ],
+      "anchors": [
+        { "source": "[ConfigPath(\"oidc.issuer\")]", "content": "oidc.issuer" },
+        { "source": "request.Scheme", "content": "Request.Scheme" },
+        { "source": "request.PathBase", "content": "Request.PathBase" },
+        { "source": "CookieSecurePolicy.SameAsRequest", "content": "SecurePolicy=SameAsRequest" },
+        { "source": "Asgard.Identity", "content": "Asgard.Identity" },
+        { "source": "userinfo_endpoint", "content": "userinfo_endpoint" },
+        { "source": "end_session_endpoint", "content": "end_session_endpoint" },
+        { "source": "introspection_endpoint", "content": "introspection_endpoint" },
+        { "source": "TenantDiscovery_ShouldExposeReachableTenantScopedEndpoints", "content": "tenant Discovery" },
+        { "source": "${COMPOSE_CMD[@]} up -d", "content": "deploy.sh" }
+      ]
+    },
+    {
+      "name": "Heimdall disaster recovery",
+      "sourceFiles": [
+        "be/Docker/generate-config.ps1",
+        "be/Asgard.Heimdall/app.yaml",
+        "be/Asgard.Heimdall/plugin.yaml",
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcPluginConfig.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OpenIddict/SystemSecurityMaterial.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OpenIddict/TenantSecurityKeyProvider.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcKeyService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/ExternalOidcLoginTransactionService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/MfaLoginTicketService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/PasskeyLoginService.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/OidcActiveSessionEntity.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/IdentityWebhookOutboxEntity.cs",
+        "be/Asgard.Heimdall/Models/Entities/Identity/IdentityWebhookDeliveryEntity.cs",
+        "be/Asgard.Heimdall/Identity/IdentityWebhookConstants.cs",
+        "be/Asgard.Heimdall/Jobs/OidcTokenCleanupJob.cs",
+        "be/Asgard.Heimdall/Jobs/RotateTenantOidcKeysJob.cs",
+        "be/Asgard.Heimdall/Services/Services/Platform/ObjectStorageSettingsService.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantProfile.cs",
+        "be/Database/Migrations/20260715_identity_webhook.postgresql.sql",
+        "be/Database/Migrations/README.runtime-settings.md"
+      ],
+      "anchors": [
+        { "source": "$encryptionKey = New-Base64Random 32", "content": "AES Key/IV" },
+        { "source": "oidc.signing.rsa_private_key is required outside development", "content": "system signing key" },
+        { "source": "_encryptionService.Encrypt(dto.PrivateKey)", "content": "tenant signing key" },
+        { "source": "_cachePrefix = \"heimdall:external-oidc-login:\"", "content": "external OIDC state" },
+        { "source": "_expiresInSeconds = 300", "content": "MFA ticket" },
+        { "source": "_transactionPrefix = \"heimdall:passkey-login:\"", "content": "Passkey transaction" },
+        { "source": "identity.subject.invalidated", "content": "identity.subject.invalidated" },
+        { "source": "public sealed class OidcTokenCleanupJob", "content": "OidcTokenCleanupJob" },
+        { "source": "public sealed class RotateTenantOidcKeysJob", "content": "tenant key rotation" },
+        { "source": "_encryptionService.Decrypt(encrypted)", "content": "object-storage settings" },
+        { "source": "login_background_object_key", "content": "login backgrounds" },
+        { "source": "oidc.bootstrap.auto_sync_schema", "content": "auto_sync_schema" },
+        { "source": "CREATE TABLE IF NOT EXISTS identity_webhook_outbox", "content": "PostgreSQL outbox" }
+      ]
+    },
+    {
+      "name": "Heimdall client credentials",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Token.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Helpers.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcClientCredentialsReader.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcClientAuthenticationValidator.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/AsgardIdentityClaimsBuilder.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcTokenService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcClientInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcClientInfoService.Admin.cs",
+        "be/Asgard.Heimdall/Models/DTO/Tenants/TenantOidcClientSecretRotateDto.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/OidcClientCredentialsReaderTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/OidcClientAuthenticationValidatorTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/IdentityAuthorizationAudienceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/IdentityAuthorizationApplicationServiceTests.cs"
+      ],
+      "anchors": [
+        { "source": "Public clients cannot use client_credentials", "content": "clientType=confidential" },
+        { "source": "client_secret_basic", "content": "client_secret_basic" },
+        { "source": "AsgardIdentityTokenTypes.BackendService", "content": "BackendService" },
+        { "source": "includeRefreshToken: false", "content": "no refresh token" },
+        { "source": "ApplicationType", "content": "applicationType" },
+        { "source": "resources.Count > 0 ? resources : [client.ClientId!]", "content": "falls back to client_id" },
+        { "source": "identity.SetResources(result.Audiences)", "content": "aud values" },
+        { "source": "PreviousClientSecretExpiresAt > DateTime.UtcNow", "content": "PreviousClientSecretExpiresAt" },
+        { "source": "RandomNumberGenerator.GetBytes(16)", "content": "16 random bytes" },
+        { "source": "[Range(0, 1440)]", "content": "0–1440" },
+        { "source": "RevokeClientProtocolStateAsync", "content": "Client disable/delete" },
+        { "source": "ExchangeAsync_CustomScopeWithResources_ShouldUseConfiguredAudience", "content": "custom-resource audience" },
+        { "source": "ExchangeAsync_OnlyBuiltInOidcScopes_ShouldFallbackToClientIdAudience", "content": "built-in-scope fallback" },
+        { "source": "Validate_ConfidentialClientWithUnexpiredPreviousSecret_ShouldSucceed", "content": "previous hash" }
+      ]
+    },
+    {
+      "name": "Heimdall token lifecycle, introspection, and revocation",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/AuthorizationController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/TokenManagementController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityAuthorizationApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Token.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityLoginApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserLoginInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.LoginInfo.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantUserLoginInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Helpers.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityTokenManagementApplicationService.SubjectState.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TenantUserIdentityStateService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcPkceValidator.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityTokenManagementApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcTokenService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcProtocolStoreService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcProtocolStoreService.Credentials.cs",
+        "be/Asgard.Heimdall/Config/PluginConfigs/OidcCleanupConfig.cs",
+        "be/Asgard.Heimdall/Jobs/OidcTokenCleanupJob.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/IdentityLoginApplicationServiceSubjectStateTests.cs"
+      ],
+      "anchors": [
+        { "source": "RedeemAuthorizationCodeAsync", "content": "Redeemed" },
+        { "source": "refresh_token_usage", "content": "RefreshTokenUsage=0" },
+        { "source": "IntrospectAsync", "content": "active:false" },
+        { "source": "IsTokenOwnedByClient", "content": "token.client_id" },
+        { "source": "TokenTypeHints.RefreshToken", "content": "token_type_hint=refresh_token" },
+        { "source": "RevokeJwtAccessTokenAsync", "content": "blacklist" },
+        { "source": "OidcTokenCleanupJob", "content": "every six hours" },
+        { "source": "The subject is no longer active.", "content": "invalid_grant" },
+        { "source": "OpenIddictConstants.Errors.LoginRequired", "content": "login_required" },
+        { "source": "item.RevokedAt >= issuedAt.Value", "content": "revocation watermark" },
+        { "source": "IsAuthorizationSubjectActiveAsync", "content": "both platform and tenant users" },
+        { "source": "LoginTypeEnum.Username", "content": "Username → Email → Phone" },
+        { "source": "string.IsNullOrWhiteSpace(loginInfo.Uid)", "content": "must link to an existing enabled business user" },
+        { "source": "AuthenticateAsync_MissingSystemUser_ReturnsInvalidCredentials", "content": "existing enabled business user" },
+        { "source": "AuthenticateAsync_DisabledTenantUser_ReturnsInvalidCredentials", "content": "both platform and tenant users" }
+      ]
+    },
+    {
+      "name": "Heimdall resource-server revocation integration",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/TokenManagementController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityTokenManagementApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcTokenService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcProtocolStoreService.RevocationAndDevice.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/OidcMetadataService.cs",
+        "be/Asgard.Heimdall/Identity/IdentityWebhookConstants.cs",
+        "be/Asgard.Heimdall/Identity/BackendDirectoryConstants.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/BackendDirectoryController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityWebhookDeliveryService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TenantUserIdentityInvalidationService.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/IdentityTokenManagementApplicationServiceTests.cs"
+      ],
+      "anchors": [
+        { "source": "[HttpPost(\"introspect\")]", "content": "/connect/introspect" },
+        { "source": "AuthenticateConfidentialClientAsync", "content": "confidential client" },
+        { "source": "IsRouteTenantCompatible", "content": "route tenantId" },
+        { "source": "IsTokenOwnedByClient", "content": "client+tenant ownership checks" },
+        { "source": "new OkObjectResult(new { active = false })", "content": "active=false" },
+        { "source": "OidcConstants.AccessTokenFormats.Opaque", "content": "opaque Access Token" },
+        { "source": "IsSubjectOrSessionRevokedAsync", "content": "subject revocation" },
+        { "source": "identity.subject.invalidated", "content": "identity.subject.invalidated" },
+        { "source": "heimdall-directory-api", "content": "Backend Directory" },
+        { "source": "IntrospectAsync_TokenOwnedByDifferentClient_ReturnsInactive", "content": "foreign-client tokens" },
+        { "source": "IntrospectAsync_MismatchedOrMissingRouteTenant_ReturnsInactive", "content": "wrong-route" }
+      ]
+    },
+    {
+      "name": "Heimdall tenant signing key rotation",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantOidcKeyController.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcKeyService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcKeyService.Activate.Transaction.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantOidcKeyRuntimeStateHelper.cs",
+        "be/Asgard.Heimdall/Domains/Repositories/Tenants/TenantOidcKeyRepository.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantOidcKey.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OpenIddict/TenantSecurityKeyProvider.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OpenIddict/SystemClientProvider.cs",
+        "be/Asgard.Heimdall/Jobs/RotateTenantOidcKeysJob.cs",
+        "be/Asgard.Heimdall/Config/PluginConfigs/TenantOidcKeyRotationConfig.cs",
+        "be/Asgard.Heimdall/Services/Services/Platform/RuntimeSettingRegistry.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Tenants/TenantOidcKeyServiceActivateTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Tenants/TenantOidcKeyRuntimeStateHelperTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/TenantSecurityKeyProviderTests.cs"
+      ],
+      "anchors": [
+        { "source": "complete-retirement", "content": "complete-retirement" },
+        { "source": "TimeSpan.FromMinutes(5)", "content": "five minutes" },
+        { "source": "oidc.key_rotation.enabled", "content": "oidc.key_rotation.enabled" },
+        { "source": "RotateBeforeExpireDays", "content": "interval_days" },
+        { "source": "Retiring", "content": "Retiring" },
+        { "source": "FreeSqlUnitOfWorkExecutor.ExecuteAsync", "content": "FreeSql UnitOfWork" },
+        { "source": "entity.Activate(dto.ActivateAt", "content": "RetireAt=null" },
+        { "source": "currentActive.MarkRetiring(dto.ActivateAt.AddDays(dto.RetentionDays)", "content": "RetireAt=ActivateAt+retentionDays" },
+        { "source": "oidc-tenant-signing-keyset:", "content": "signing keysets" },
+        { "source": "oidc-tenant-jwks:all", "content": "Root /.well-known/jwks" },
+        { "source": "_systemClientProvider.GetSystemKeySet()", "content": "system key" },
+        { "source": "GetAllCurrentValidationKeysAsync", "content": "all tenants" },
+        { "source": "GetCurrentValidationKeysAsync", "content": "tenant's Active/Retiring" },
+        { "source": "ActivateAsync_ShouldClearRetireAt_WhenDraftKeyContainsLegacyRetireAt", "content": "transactional Activate read-back" },
+        { "source": "GetCurrentSigningKeySetAsync_UsesSerializableCacheMaterial_CanReadBackFromJsonCache", "content": "serializable provider cache" }
+      ]
+    },
+    {
+      "name": "mini JWT issuer",
+      "sourceFiles": [
+        "be/Directory.Build.props",
+        "be/Asgard.Heimdall.JwtSigning/Asgard.Heimdall.JwtSigning.csproj",
+        "be/Asgard.Heimdall.JwtSigning/AsgardJwtSigningOptions.cs",
+        "be/Asgard.Heimdall.JwtSigning/AsgardJwtConstants.cs",
+        "be/Asgard.Heimdall.JwtSigning/AsgardJwtSubject.cs",
+        "be/Asgard.Heimdall.JwtSigning/AsgardJwtIssuer.cs",
+        "be/Asgard.Heimdall.JwtSigning.AspNetCore/Asgard.Heimdall.JwtSigning.AspNetCore.csproj",
+        "be/Asgard.Heimdall.JwtSigning.AspNetCore/AsgardHeimdallJwtSigningServiceCollectionExtensions.cs",
+        "be/Asgard.Heimdall.JwtSigning.AspNetCore/AsgardHeimdallJwtSigningEndpointRouteBuilderExtensions.cs",
+        "be/Test/Asgard.Heimdall.Tests/JwtSigning/AsgardJwtIssuerTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/JwtSigning/AsgardHeimdallJwtSigningEndpointTests.cs"
+      ],
+      "anchors": [
+        { "source": "<PackageVersion>$(Version)</PackageVersion>", "content": "5.3.19" },
+        { "source": "AddAsgardHeimdallJwtSigning", "content": "AddAsgardHeimdallJwtSigning" },
+        { "source": "MapAsgardHeimdallJwtSigningDiscovery", "content": "MapAsgardHeimdallJwtSigningDiscovery" },
+        { "source": "DiscoveryPathPrefix", "content": "DiscoveryPathPrefix" },
+        { "source": "JwksUriOverride", "content": "JwksUriOverride" },
+        { "source": "BackendServiceTokenType", "content": "BackendService" },
+        { "source": "ApplicationManifestVersion", "content": "Application authorization claims" },
+        { "source": "SymmetricSecurityKey", "content": "symmetric key" },
+        { "source": "对称签名密钥不能通过 JWKS 公开", "content": "CreateJwksDocument rejects it" },
+        { "source": "signingRsa.KeySize < 2048", "content": "at least 2048 bits" },
+        { "source": "ValidateRsaKeyPair", "content": "matching RSA key pair" },
+        { "source": "services.AddSingleton<IAsgardJwtIssuer>", "content": "Singleton" },
+        { "source": "TimeSpan.FromHours(1)", "content": "one hour" },
+        { "source": "response_types_supported", "content": "empty response_types" },
+        { "source": "Issue_BackendServiceToken_ShouldRequireClientIdAndOmitUserId", "content": "forbids UserId" },
+        { "source": "CreateJwksDocument_ShouldExposeCurrentSigningKey", "content": "JWKS publishes that key only" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.3.19 governed MCP",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/McpCredentialController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/McpProtectedResourceMetadataController.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/HeimdallMcpAuthenticationHandler.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OidcServerConfig.cs",
+        "be/Asgard.Heimdall/Mcp/HeimdallMcpOriginMiddleware.cs",
+        "be/Asgard.Heimdall/Mcp/HeimdallMcpTools.cs",
+        "be/Asgard.Heimdall/Mcp/Infrastructure/McpCredentialPolicyBoundary.cs",
+        "be/Asgard.Heimdall/Mcp/Infrastructure/McpCredentialToolFilter.cs",
+        "be/Asgard.Heimdall/Mcp/Infrastructure/McpOperationConfirmationService.cs",
+        "be/Asgard.Heimdall/Mcp/Infrastructure/McpWriteGuard.cs",
+        "be/Asgard.Heimdall/Mcp/Platform/PlatformOperationsMcpTools.cs",
+        "be/Asgard.Heimdall/Mcp/Tenant/TenantWorkspaceWriteMcpTools.cs",
+        "be/Asgard.Heimdall/Mcp/Resources/HeimdallMcpResources.cs",
+        "be/Asgard.Heimdall/Mcp/Prompts/HeimdallManagementPrompts.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/McpCredentialService.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserLoginInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantUserLoginInfoService.cs",
+        "be/Asgard.Heimdall/Enums/LoginTypeEnum.cs",
+        "be/Asgard.Heimdall/Models/Entities/SystemUsers/SysUserLoginInfo.cs",
+        "be/Asgard.Heimdall/Models/Entities/Tenants/TenantUserLoginInfo.cs",
+        "be/Asgard.Heimdall/OidcPlugin.cs",
+        "be/Database/Migrations/20260715_mcp_credentials.postgresql.sql",
+        "be/Database/Migrations/20260720_mcp_credential_policy.postgresql.sql",
+        "be/Test/Asgard.Heimdall.Tests/Identity/McpCredentialGovernanceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/McpManagementContractTests.cs"
+      ],
+      "anchors": [
+        { "source": "[Route(\"api/mcp-credentials\")]", "content": "GET /api/mcp-credentials" },
+        { "source": "_platformPrefix = \"hmcp_p_\"", "content": "hmcp_p_" },
+        { "source": "_tenantPrefix = \"hmcp_t_\"", "content": "hmcp_t_" },
+        { "source": "AccessKeyHeader = \"X-Heimdall-Access-Key\"", "content": "X-Heimdall-Access-Key" },
+        { "source": "MapMcp(\"/mcp\")", "content": "POST /mcp" },
+        { "source": "[HttpGet(\"mcp\")]", "content": "/.well-known/oauth-protected-resource/mcp" },
+        { "source": "McpWriteGuard", "content": "two-phase confirmation" },
+        { "source": "McpCredentialPolicyBoundary", "content": "delegation" },
+        { "source": "RateLimitPerMinute", "content": "rateLimitPerMinute" },
+        { "source": "MaxConcurrentCalls", "content": "maxConcurrentCalls" },
+        { "source": "mcp.tool.invoked", "content": "security-event audit" },
+        { "source": "TYPE varchar(8192)", "content": "varchar(8192)" },
+        { "source": "ResolveAllowedOrigins", "content": "allowed_cors_origins" },
+        { "source": "options.ForwardDefaultSelector", "content": "site-wide" },
+        { "source": "McpAccessKey = 200", "content": "AK/SK" },
+        { "source": "credential_name", "content": "credential_name" },
+        { "source": "IsInteractivePasswordLoginType", "content": "Username, Email, or Phone" }
+      ]
+    },
+    {
+      "name": "identity webhooks",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Config/PluginConfigs/IdentityWebhookConfig.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/IdentityWebhookController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/AuthorizationAdminController.cs",
+        "be/Asgard.Heimdall/Identity/IdentityWebhookConstants.cs",
+        "be/Asgard.Heimdall/Extensions/HeimdallModuleRegistrationExtensions.cs",
+        "be/Asgard.Heimdall/OidcPlugin.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityWebhookEndpointValidator.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityWebhookDeliveryService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TenantUserIdentityInvalidationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TenantUserIdentityStateService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantUserService.Lifecycle.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcProtocolStoreService.RevocationAndDevice.cs",
+        "be/Asgard.Heimdall/Models/DTO/Identity/SubjectRevokeDto.cs",
+        "be/Database/Migrations/20260715_identity_webhook.postgresql.sql"
+      ],
+      "anchors": [
+        { "source": "identity_webhook.poll_interval_seconds", "content": "poll_interval_seconds" },
+        { "source": "identity.subject.invalidated", "content": "identity.subject.invalidated" },
+        { "source": "X-Heimdall-Signature", "content": "X-Heimdall-Signature" },
+        { "source": "AllowAutoRedirect = false", "content": "disables automatic redirects" },
+        { "source": "MaxAttempts", "content": "max_attempts" },
+        { "source": "NoSubscribers", "content": "no_subscribers" },
+        { "source": "new(5, 3, 19)", "content": "Heimdall 5.3.19" },
+        { "source": "管理员撤销 Subject 必须提供 idempotencyKey", "content": "missing or blank input returns 400" },
+        { "source": "[FromBody] SubjectRevokeDto dto", "content": "must send { idempotencyKey }" },
+        { "source": "public sealed class TenantUserIdentityStateService", "content": "Platform users are outside the Webhook scope" },
+        { "source": "RevokeSubjectAsync(string.Empty, id", "content": "creates no identity.subject.invalidated Outbox" }
+      ]
+    },
+    {
+      "name": "Heimdall account security and session governance",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/CurrentAccountController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/PasskeyManagementController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantActiveSessionController.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/CurrentAccountService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityAuthorizationApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Token.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityLoginApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.LoginInfo.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserLoginInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantUserLoginInfoService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/TotpManagementService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/MfaRecoveryCodeService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/ActiveSessionService.cs",
+        "be/Test/Asgard.Heimdall.Tests/Identity/IdentityLoginApplicationServiceSubjectStateTests.cs"
+      ],
+      "anchors": [
+        { "source": "[Route(\"api/account/me\")]", "content": "GET /api/account/me" },
+        { "source": "[HttpPost(\"totp/provision\")]", "content": "totp/provision" },
+        { "source": "mfa/recovery-codes/rotate", "content": "recovery-codes/rotate" },
+        { "source": "registration/options", "content": "registration/options" },
+        { "source": "sessions/revoke-others", "content": "sessions/revoke-others" },
+        { "source": "revoke-matching", "content": "revoke-matching" },
+        { "source": "IsAuthorizationSubjectActiveAsync", "content": "both platform and tenant users" },
+        { "source": "IsInteractivePasswordLoginType", "content": "accepts only Username, Email, or Phone" },
+        { "source": "AuthenticateAsync_MissingSystemUser_ReturnsInvalidCredentials", "content": "existing enabled business user" },
+        { "source": "AuthenticateAsync_DisabledTenantUser_ReturnsInvalidCredentials", "content": "both platform and tenant users" }
+      ]
+    },
+    {
+      "name": "Heimdall management API index and permission matrix",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Applications/ApplicationController.cs",
+        "be/Asgard.Heimdall/Controllers/Applications/ApplicationManifestController.cs",
+        "be/Asgard.Heimdall/Controllers/Applications/SysUserApplicationGrantController.cs",
+        "be/Asgard.Heimdall/Controllers/Applications/TenantApplicationController.cs",
+        "be/Asgard.Heimdall/Controllers/Applications/TenantApplicationRoleController.cs",
+        "be/Asgard.Heimdall/Controllers/Applications/TenantUserApplicationRoleController.cs",
+        "be/Asgard.Heimdall/Services/Services/Applications/ApplicationResourceAccessGuard.cs",
+        "be/Asgard.Heimdall/Identity/AsgardIdentityClaimTypes.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantProfileController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantActiveSessionController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantUserController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantOidcClientController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/SecurityEventController.cs",
+        "be/Asgard.Heimdall/Controllers/Logging/SystemLogController.cs",
+        "be/Asgard.Heimdall/Controllers/Tracing/TraceLogController.cs"
+      ],
+      "anchors": [
+        { "source": "[AsgardTsGen]", "content": "AsgardTsGen" },
+        { "source": "[Route(\"api/Application\")]", "content": "/api/Application" },
+        { "source": "[Route(\"api/Application/{applicationId}/Manifest\")]", "content": "Manifest" },
+        { "source": "ApplicationResourceAccessGuard", "content": "Application resource" },
+        { "source": "ApplicationManifestVersion", "content": "application_manifest_version" },
+        { "source": "[Route(\"api/[controller]\")]", "content": "[controller]" },
+        { "source": "reset-secret", "content": "reset-secret" },
+        { "source": "TenantWorkspacePermissions.BrandingManage", "content": "tenant.branding.manage" },
+        { "source": "TenantWorkspacePermissions.UserManage", "content": "tenant.user.manage" },
+        { "source": "File(", "content": "file rather than Response" }
+      ]
+    },
+    {
+      "name": "Heimdall 5.1.2 SysUser management",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/SystemUsers/SysUserController.cs",
+        "be/Asgard.Heimdall/Models/DTO/SystemUsers/SysUserDto.cs",
+        "be/Asgard.Heimdall/Models/VO/SystemUsers/SysUserVo.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.LoginInfo.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcProtocolStoreService.RevocationAndDevice.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/SystemUsers/SysUserServiceUpdateTests.cs"
+      ],
+      "anchors": [
+        { "source": "ValidateStatus(dto.Status)", "content": "only Enabled or Disabled" },
+        { "source": "SyncManagedLoginInfosAsync", "content": "synchronize open keys, password hash, and state" },
+        { "source": "DeleteBySysUserIdAsync", "content": "removes the user and all login information" },
+        { "source": "RevokeSubjectAsync(string.Empty, id", "content": "after commit" },
+        { "source": "public string? Password", "content": "Password exists only on the request DTO" },
+        { "source": "public sealed class SysUserVo", "content": "remove description" },
+        { "source": "loginInfo.Sk.Should().Be(\"hashed:new-password\")", "content": "Focused tests cover PUT synchronization" }
+      ]
+    },
+    {
+      "name": "Heimdall custom frontend integration",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/AuthorizationController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/AccountController.cs",
+        "be/Asgard.Heimdall/Controllers/Identity/LogoutController.cs",
+        "be/Asgard.Heimdall/Identity/Infrastructure/OidcServerConfig.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/OidcPkceValidator.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/IdentityAuthorizationApplicationService.cs",
+        "be/Asgard.Heimdall/Services/Services/Identity/Support/IdentityAuthorizationApplicationService.Token.cs",
+        "be/Asgard.Heimdall/Services/Services/SystemUsers/SysUserService.LoginInfo.cs",
+        "be/Asgard.Heimdall/Extensions/Plugin/MultiTenantCorsPolicyProvider.cs",
+        "be/Asgard.Heimdall/wwwroot/login.html",
+        "be/Asgard.Heimdall/wwwroot/consent.html"
+      ],
+      "anchors": [
+        { "source": "HostedLoginPagePath = \"/login.html\"", "content": "/login.html" },
+        { "source": "CookieSecurePolicy.SameAsRequest", "content": "SameAsRequest" },
+        { "source": "IsSafeLocalReturnUrl", "content": "local-path check" },
+        { "source": "code_challenge_method must be S256", "content": "S256" },
+        { "source": "fetch('/connect/consent'", "content": "hard-codes root /connect/consent" },
+        { "source": "Asgard.Identity", "content": "Asgard.Identity" },
+        { "source": "IsSubjectActiveAsync", "content": "both platform and tenant users" }
+      ]
+    },
+    {
+      "name": "Heimdall SCIM operations",
+      "sourceFiles": [
+        "be/Asgard.Heimdall/Controllers/Identity/ScimController.cs",
+        "be/Asgard.Heimdall/Controllers/Tenants/TenantScimController.cs",
+        "be/Asgard.Heimdall/Identity/ScimAuthorizationFilter.cs",
+        "be/Asgard.Heimdall/Identity/AsgardPlatformPermissions.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/TenantScimService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/ScimProvisioningService.cs",
+        "be/Asgard.Heimdall/Services/Services/Tenants/ScimGroupProvisioningService.cs",
+        "be/Test/Asgard.Heimdall.Tests/Services/Tenants/TenantScimServiceTests.cs",
+        "be/Test/Asgard.Heimdall.Tests/Controllers/ControllerContractTests.cs"
+      ],
+      "anchors": [
+        { "source": "maxResults = 200", "content": "maxResults=200" },
+        { "source": "Math.Clamp(count, 0, 200)", "content": "0–200" },
+        { "source": "GetByTenantIdAsync(tenantId)", "content": "loads all tenant users or groups" },
+        { "source": "userName|externalId", "content": "userName eq" },
+        { "source": "bulk = new { supported = false", "content": "No /Bulk" },
+        { "source": "TenantDirectoryManage", "content": "platform.tenant_directory.manage" },
+        { "source": "SHA256.HashData", "content": "SHA-256" }
+      ]
+    }
+  ],
+  "skills": {
+    "path": "C:\\Users\\benla\\Documents\\GitHub\\Asgard.Skills",
+    "commit": "7b26856",
+    "version": null,
+    "worktreeDirty": false,
+    "worktreeFingerprint": null
+  },
+  "skillsContract": {
+    "reviewedAt": "2026-07-28",
+    "repository": "https://github.com/BenLampson/Asgard.Skills",
+    "fullCommit": "7b26856ae6a3266f9d33be44c8880ee8863888d3",
+    "auditDelta": {
+      "previousFullCommit": "7839e3a67c169b539d5f74cc07e97978f7ce4f5b",
+      "commitRange": "7839e3a67c169b539d5f74cc07e97978f7ce4f5b..7b26856ae6a3266f9d33be44c8880ee8863888d3",
+      "previousSkillCount": 27,
+      "currentSkillCount": 29,
+      "addedSkills": ["heimdall-application-rbac", "heimdall-mcp-management"],
+      "removedSkills": [],
+      "renamedSkills": [],
+      "changedSkills": ["asgard-identity-userinfo", "asgard-mini-jwt-issuer", "heimdall-service-integration", "identity-integration"],
+      "resolvedCompatibilityWarningIds": [],
+      "addedCompatibilityWarningIds": [],
+      "retargetedCompatibilityWarningIds": ["stale-asgard-release-baseline", "fixed-mini-issuer-template", "stale-host-auth-tenant-placeholder", "stale-static-default-file-default", "stale-health-check-endpoint-key"]
+    },
+    "tagAtReview": "v4.0.0",
+    "releaseStatus": "audited-snapshot",
+    "expectedSkills": [
+      "asgard-admin-frontend",
+      "asgard-api-development",
+      "asgard-auth-authorization",
+      "asgard-backend-guard",
+      "asgard-base-types",
+      "asgard-cache",
+      "asgard-configuration",
+      "asgard-context-usage",
+      "asgard-database",
+      "asgard-dotnet-10-csharp-14",
+      "asgard-framework-overview",
+      "asgard-host-features",
+      "asgard-host-project",
+      "asgard-identity-userinfo",
+      "asgard-job-scheduling",
+      "asgard-messaging",
+      "asgard-mini-jwt-issuer",
+      "asgard-plugin-development",
+      "asgard-plugin-lifecycle",
+      "asgard-plugin-structure",
+      "asgard-repository-service-registration",
+      "asgard-security",
+      "asgard-tracing-observability",
+      "dotnet-10-csharp-14",
+      "dotnet-unit-testing",
+      "heimdall-application-rbac",
+      "heimdall-mcp-management",
+      "heimdall-service-integration",
+      "identity-integration"
+    ],
+    "bundles": [
+      {
+        "id": "all-reviewed",
+        "purposeZh": "安装当前审核快照中的全部 29 个 Skill；这是显式集合，不推断传递依赖。",
+        "purposeEn": "Install all 29 Skills in the reviewed snapshot; this is an explicit set and does not infer transitive dependencies.",
+        "skills": [
+          "asgard-admin-frontend", "asgard-api-development", "asgard-auth-authorization", "asgard-backend-guard", "asgard-base-types", "asgard-cache", "asgard-configuration", "asgard-context-usage", "asgard-database", "asgard-dotnet-10-csharp-14", "asgard-framework-overview", "asgard-host-features", "asgard-host-project", "asgard-identity-userinfo", "asgard-job-scheduling", "asgard-messaging", "asgard-mini-jwt-issuer", "asgard-plugin-development", "asgard-plugin-lifecycle", "asgard-plugin-structure", "asgard-repository-service-registration", "asgard-security", "asgard-tracing-observability", "dotnet-10-csharp-14", "dotnet-unit-testing", "heimdall-application-rbac", "heimdall-mcp-management", "heimdall-service-integration", "identity-integration"
+        ]
+      },
+      {
+        "id": "asgard-api",
+        "purposeZh": "实现并复查标准 Asgard Web API 与 CRUD 纵切。",
+        "purposeEn": "Implement and review a standard Asgard Web API and CRUD vertical slice.",
+        "skills": ["asgard-framework-overview", "asgard-plugin-structure", "asgard-api-development", "asgard-database", "asgard-repository-service-registration", "asgard-dotnet-10-csharp-14", "dotnet-unit-testing", "asgard-backend-guard"]
+      },
+      {
+        "id": "identity-integration",
+        "purposeZh": "对接 SPA、Heimdall、资源 API 与后端服务身份。",
+        "purposeEn": "Integrate SPAs, Heimdall, resource APIs, and backend service identities.",
+        "skills": ["identity-integration", "heimdall-application-rbac", "heimdall-mcp-management", "heimdall-service-integration", "asgard-auth-authorization", "asgard-identity-userinfo", "asgard-host-features", "asgard-mini-jwt-issuer"]
+      },
+      {
+        "id": "infrastructure-operations",
+        "purposeZh": "配置和排查 Asgard 基础设施与可观测性模块。",
+        "purposeEn": "Configure and troubleshoot Asgard infrastructure and observability modules.",
+        "skills": ["asgard-context-usage", "asgard-configuration", "asgard-database", "asgard-cache", "asgard-messaging", "asgard-job-scheduling", "asgard-security", "asgard-tracing-observability"]
+      }
+    ],
+    "compatibilityWarnings": [
+      {
+        "id": "stale-asgard-release-baseline",
+        "name": "stale Asgard release baseline",
+        "sourceFiles": ["skills/asgard-framework-overview/SKILL.md"],
+        "source": "5.0.1",
+        "content": "5.0.1",
+        "guidanceZh": "asgard-framework-overview 仍把 5.0.1 写成最新基线，而当前 Asgard 审核基线是 5.1.3。",
+        "guidanceEn": "asgard-framework-overview still calls 5.0.1 the latest baseline while the reviewed Asgard baseline is 5.1.3."
+      },
+      {
+        "id": "fixed-mini-issuer-template",
+        "name": "fixed mini issuer template",
+        "sourceFiles": ["skills/asgard-mini-jwt-issuer/SKILL.md"],
+        "source": "issuerTemplate: \"https://auth.example.com/scm\"",
+        "content": "fixed issuerTemplate",
+        "guidanceZh": "asgard-mini-jwt-issuer 仍给出 fixed issuerTemplate；它与 5.1.3 要求恰好一个 {tenant} 的 host.auth 合同冲突。",
+        "guidanceEn": "asgard-mini-jwt-issuer still shows a fixed issuerTemplate that conflicts with the 5.1.3 host.auth contract requiring exactly one {tenant}."
+      },
+      {
+        "id": "stale-host-auth-tenant-placeholder",
+        "name": "stale host auth tenant placeholder",
+        "sourceFiles": ["skills/asgard-host-features/SKILL.md"],
+        "source": "issuerTemplate: \"https://idp.example.com/realms/{tenantId}\"",
+        "content": "{tenantId}",
+        "guidanceZh": "asgard-host-features 仍使用 {tenantId}；5.1.3 只接受 {tenant}，照抄会在配置校验阶段失败。",
+        "guidanceEn": "asgard-host-features still uses {tenantId}; 5.1.3 accepts only {tenant}, so copying it fails configuration validation."
+      },
+      {
+        "id": "stale-database-routing-template",
+        "name": "stale database routing template",
+        "sourceFiles": ["skills/asgard-framework-overview/templates/question-routing.md.template"],
+        "source": "数据库/EF Core/仓储模式",
+        "content": "EF Core",
+        "guidanceZh": "question-routing 模板仍把数据库路由写成 EF Core，并遗漏当前部分身份、追踪、测试与复查入口。",
+        "guidanceEn": "The question-routing template still routes database work as EF Core and omits some current identity, tracing, testing, and review entries."
+      },
+      {
+        "id": "stale-static-default-file-default",
+        "name": "stale static default-file default",
+        "sourceFiles": ["skills/asgard-host-features/SKILL.md"],
+        "source": "`enableDefaultFiles`",
+        "content": "host.staticFiles.enableDefaultFiles",
+        "guidanceZh": "asgard-host-features 仍把 host.staticFiles.enableDefaultFiles 描述为默认开启；5.1.3 实际默认 false。",
+        "guidanceEn": "asgard-host-features still describes host.staticFiles.enableDefaultFiles as enabled by default; 5.1.3 actually defaults it to false."
+      },
+      {
+        "id": "stale-health-check-endpoint-key",
+        "name": "stale health-check endpoint key",
+        "sourceFiles": ["skills/asgard-host-features/SKILL.md"],
+        "source": "endpoint: \"/health\"",
+        "content": "host.healthCheck.path",
+        "guidanceZh": "asgard-host-features 仍使用旧 healthCheck endpoint；5.1.3 的有效键是 host.healthCheck.path。",
+        "guidanceEn": "asgard-host-features still uses the obsolete health-check endpoint key; 5.1.3 reads host.healthCheck.path."
+      },
+      {
+        "id": "overstated-middleware-placement-control",
+        "name": "overstated middleware placement control",
+        "sourceFiles": ["skills/asgard-host-project/SKILL.md"],
+        "source": "通过 `ConfigureMiddleware` 完全控制",
+        "content": "arbitrary placement",
+        "guidanceZh": "asgard-host-project 把 ConfigureMiddleware 描述为 arbitrary placement；当前主路径不保证任意位置控制。",
+        "guidanceEn": "asgard-host-project describes ConfigureMiddleware as arbitrary placement, which the current primary path does not guarantee."
+      },
+      {
+        "id": "unreliable-pre-framework-override-claim",
+        "name": "unreliable pre-framework override claim",
+        "sourceFiles": ["skills/asgard-host-project/SKILL.md", "skills/asgard-plugin-lifecycle/SKILL.md"],
+        "source": "覆盖框架默认",
+        "content": "override later framework registrations",
+        "guidanceZh": "host-project 与 plugin-lifecycle 暗示钩子可 override later framework registrations；当前注册顺序不保证该语义。",
+        "guidanceEn": "host-project and plugin-lifecycle imply hooks can override later framework registrations; current registration order does not guarantee that behavior."
+      },
+      {
+        "id": "overstated-plugin-state-transition-graph",
+        "name": "overstated plugin state transition graph",
+        "sourceFiles": ["skills/asgard-plugin-lifecycle/SKILL.md"],
+        "source": "Unloaded → Loading → Loaded → Initializing → Initialized → Starting → Running",
+        "content": "does not write most transient states",
+        "guidanceZh": "plugin-lifecycle 展示完整状态图，但当前主路径 does not write most transient states，不能把它当作可观测事实。",
+        "guidanceEn": "plugin-lifecycle shows a complete graph, but the primary path does not write most transient states, so it is not an observable runtime contract."
+      },
+      {
+        "id": "automatic-discovery-assumption",
+        "name": "automatic discovery assumption",
+        "sourceFiles": ["README.md"],
+        "source": "由 AI 助手自动加载使用",
+        "content": "Do not assume that placing the repository under a project makes every agent load it",
+        "guidanceZh": "Do not assume that placing the repository under a project makes every agent load it；必须验证实际发现根与下一轮加载结果。",
+        "guidanceEn": "Do not assume that placing the repository under a project makes every agent load it; verify the discovery root and the next-turn load result."
+      }
+    ]
+  }
+}
