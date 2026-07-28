@@ -21,8 +21,8 @@ function Sidebar({ locale, current, product }: { locale: Locale; current: string
   );
 }
 
-function CodeBlock({ language, value }: { language: string; value: string }) {
-  if (language.toLowerCase() === "mermaid") return <MermaidDiagram value={value} />;
+function CodeBlock({ language, value, locale }: { language: string; value: string; locale: Locale }) {
+  if (language.toLowerCase() === "mermaid") return <MermaidDiagram value={value} locale={locale} />;
   return <div className="code-block"><div><span>{language}</span><span>ASGARD</span></div><pre><code>{value}</code></pre></div>;
 }
 
@@ -56,7 +56,7 @@ export function DocsShell({ locale, doc, product }: { locale: Locale; doc: DocPa
                 {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
                 {section.links && <p className="doc-artifact-links">{section.links.map((link) => <a href={link.href} key={link.href}>{link.label} ↗</a>)}</p>}
-                {section.code && <CodeBlock {...section.code} />}
+                {section.code && <CodeBlock {...section.code} locale={locale} />}
                 {section.note && <div className="doc-note"><b>{locale === "zh" ? "说明" : "Note"}</b><p>{section.note}</p></div>}
               </section>
             ))}
