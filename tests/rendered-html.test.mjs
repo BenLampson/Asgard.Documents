@@ -63,6 +63,14 @@ test("keeps Mermaid architecture diagrams and source fallbacks in both locales",
   }
 });
 
+test("keeps the expanded Mermaid backdrop behind the white diagram", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /\.mermaid-backdrop\s*\{[^}]*z-index:\s*0;/s);
+  assert.match(css, /\.mermaid-expanded \.mermaid-toolbar\s*\{[^}]*z-index:\s*2;/s);
+  assert.match(css, /\.mermaid-expanded \.mermaid-svg\s*\{[^}]*z-index:\s*1;/s);
+  assert.doesNotMatch(css, /\.mermaid-backdrop\s*\{[^}]*z-index:\s*-1;/s);
+});
+
 test("renders the bilingual Heimdall 5.3.19 release with tag-equal HEAD", async () => {
   const [zhResponse, enResponse] = await Promise.all([
     render("/zh/heimdall/docs/heimdall-release-notes"),
