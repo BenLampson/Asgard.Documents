@@ -129,6 +129,7 @@ Label roadmap items clearly. Do not present planned work as shipped capability.
 - Preserve the legacy `/{locale}/docs/{slug}` route for existing bookmarks until the CDN redirect/static-shim contract is explicitly defined.
 - Preserve the documentation-first visual direction: compact fixed header, clear product navigation, strong search, high-readability content, left documentation tree, and right page table of contents.
 - The design is inspired by modern developer portals such as Dyte Docs, but Asgard branding, copy, code, and assets must remain original.
+- Use Mermaid for source-verified architecture, protocol, and lifecycle diagrams when a visual materially improves comprehension. Keep the same diagram meaning and section ID in both locales, expose the Mermaid source as an accessible fallback, and never draw an option or roadmap item as a shipped runtime capability without source and test evidence.
 - Keep pages responsive and keyboard accessible. Respect `prefers-reduced-motion`.
 - Prefer semantic HTML and CSS. Avoid decorative dependencies and unnecessary client state.
 - Store shared localized content and navigation in `app/content.ts` until scale justifies a generated content pipeline.
