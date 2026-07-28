@@ -408,7 +408,7 @@ export const docs: Record<Locale, DocPage[]> = {
       slug: "api-development", group: "框架", eyebrow: "WEB API", title: "API 开发",
       description: "按 Asgard 的分层、响应和授权约定编写稳定 API。",
       sections: [
-        { id: "rules", title: "不可跳过的边界", bullets: ["Controller 必须继承 BaseController", "固定调用方向：Controller → Service → Repository → Entity", "Service 产出 DTO，Controller 映射为 VO", "返回 Response<T>、PageResponse<T> 或 CursorResponse<T>，不直接返回裸对象"] },
+        { id: "rules", title: "不可跳过的边界", bullets: ["Controller 必须继承 BaseController", "固定调用方向：Controller → Service → Repository → Entity", "Service 产出 DTO，Controller 映射为 VO", "返回 Response<T>、PageResponse<T> 或 CursorResponse<T>，不直接返回裸对象"], code: { language: "mermaid", value: asgardRuntimeDiagram } },
         { id: "example", title: "控制器示例", code: { language: "csharp", value: controllerCode } },
         { id: "authorization", title: "认证与授权", paragraphs: ["宿主通过 host.auth 接入 JWT Bearer。业务接口通过 AsgardAuth 属性与表达式组合角色、权限、Scope 和 token_type 条件；前端隐藏按钮只改善体验，后端授权才是安全边界。"] },
       ],

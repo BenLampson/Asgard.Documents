@@ -46,6 +46,8 @@ test("keeps Mermaid architecture diagrams and source fallbacks in both locales",
   const routes = [
     "/zh/asgard/docs/overview",
     "/en/asgard/docs/overview",
+    "/zh/asgard/docs/api-development",
+    "/en/asgard/docs/api-development",
     "/zh/heimdall/docs/heimdall",
     "/en/heimdall/docs/heimdall",
     "/zh/skills/docs/ai-ready",
