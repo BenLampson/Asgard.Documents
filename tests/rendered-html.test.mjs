@@ -186,7 +186,11 @@ test("renders the bilingual Asgard 5.1.3 release delta", async () => {
 
 const { slugs: documentationSlugs } = await getDocumentationRoutes();
 
-test("keeps every documentation topic available in both locales", async () => {
+function renderedSectionIds(html) {
+  return [...html.matchAll(/<section id="([a-z0-9-]+)"/g)].map((match) => match[1]);
+}
+
+test("keeps every documentation topic available with bilingual section parity", async () => {
   for (const slug of documentationSlugs) {
     const product = productForDocumentationSlug(slug);
     const [zhResponse, enResponse] = await Promise.all([
@@ -203,6 +207,11 @@ test("keeps every documentation topic available in both locales", async () => {
     ]);
     assert.match(zhHtml, new RegExp(`href="/en/${product}/docs/${slug}"`));
     assert.match(enHtml, new RegExp(`href="/zh/${product}/docs/${slug}"`));
+    assert.deepEqual(
+      renderedSectionIds(zhHtml),
+      renderedSectionIds(enHtml),
+      `${product}:${slug} section IDs differ across locales`,
+    );
   }
 });
 
