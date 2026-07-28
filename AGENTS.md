@@ -20,6 +20,7 @@ Use these local repositories as the current sources of truth:
 | Asgard framework user docs | `D:\Codes\AsgardV3\src\doc` |
 | Heimdall OIDC/IDP | `D:\Codes\github\Asgard.Heimdall` |
 | AI-ready Skills | `C:\Users\benla\Documents\GitHub\Asgard.Skills` |
+| Asgard StoryMaker (candidate; not yet published in this site) | `D:\Codes\github\Asgard.StoryMaker` |
 | Public Asgard repository | `https://github.com/BenLampson/Asgard` |
 
 Future ecosystem repositories must be added to this table before their documentation is published.
