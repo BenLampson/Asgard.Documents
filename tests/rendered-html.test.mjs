@@ -42,6 +42,25 @@ test("renders matching Chinese and English documentation routes", async () => {
   assert.match(await enResponse.text(), /Integrate Heimdall/);
 });
 
+test("keeps Mermaid architecture diagrams and source fallbacks in both locales", async () => {
+  const routes = [
+    "/zh/asgard/docs/overview",
+    "/en/asgard/docs/overview",
+    "/zh/heimdall/docs/heimdall",
+    "/en/heimdall/docs/heimdall",
+    "/zh/skills/docs/ai-ready",
+    "/en/skills/docs/ai-ready",
+  ];
+  for (const route of routes) {
+    const response = await render(route);
+    assert.equal(response.status, 200, route);
+    const html = await response.text();
+    assert.match(html, /class="mermaid-block"/, route);
+    assert.match(html, /class="mermaid-source"/, route);
+    assert.match(html, /MermaidDiagram-[^"]+\.js/, route);
+  }
+});
+
 test("renders the bilingual Heimdall 5.3.19 release with tag-equal HEAD", async () => {
   const [zhResponse, enResponse] = await Promise.all([
     render("/zh/heimdall/docs/heimdall-release-notes"),
