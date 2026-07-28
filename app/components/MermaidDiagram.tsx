@@ -18,7 +18,27 @@ export function MermaidDiagram({ value, locale }: MermaidDiagramProps) {
     const id = `mermaid-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
     void import("mermaid")
       .then(async ({ default: mermaid }) => {
-        mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "neutral" });
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: "strict",
+          theme: "base",
+          themeVariables: {
+            background: "#ffffff",
+            primaryColor: "#ffffff",
+            primaryTextColor: "#20242b",
+            primaryBorderColor: "#cbd5e1",
+            lineColor: "#64748b",
+            secondaryColor: "#f8fafc",
+            tertiaryColor: "#ffffff",
+            noteBkgColor: "#ffffff",
+            noteTextColor: "#20242b",
+            actorBkg: "#ffffff",
+            actorBorder: "#cbd5e1",
+            actorTextColor: "#20242b",
+            signalColor: "#475569",
+            signalTextColor: "#20242b",
+          },
+        });
         const result = await mermaid.render(id, value);
         if (!cancelled) setSvg(result.svg);
       })
