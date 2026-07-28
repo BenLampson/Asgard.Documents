@@ -48,6 +48,15 @@ Never preserve an existing page merely because it is already translated. Update 
 9. Run the site build and tests. For meaningful UI changes, verify the home page, one Chinese article, one English article, and a narrow viewport.
 10. Report which source repositories and versions/commits were used. Call out any unresolved ambiguity instead of inventing behavior.
 
+## Git hygiene and delivery history
+
+- Treat Git history as part of the documentation deliverable. Do not leave multiple unrelated documentation topics accumulated in one opaque worktree.
+- Commit after each coherent, verified documentation slice: for example one guide plus its bilingual counterpart, source contract, navigation/search integration, and focused tests.
+- Use concise commit subjects that name the delivered capability. Keep unrelated content, tooling, deployment, and cleanup changes in separate commits.
+- Before starting the next topic, confirm the previous commit is reproducible and the worktree contains only intentional follow-up changes.
+- Push verified commits promptly when the maintainer has authorized pushing for the active task. Confirm the local commit and remote branch resolve to the same commit after push.
+- Never commit generated `dist/` output, release archives, local caches, `.env` files, credentials, private keys, or source-repository dirty state.
+
 ## Content requirements
 
 Each library or major module should eventually have:
