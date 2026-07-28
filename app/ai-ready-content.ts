@@ -210,6 +210,15 @@ const engineeringSkills = [
   "asgard-admin-frontend — Umi Max / Ant Design Pro management screens, TsGen clients, OIDC, and tenant workspaces",
 ];
 
+const documentationDiagramCode = `flowchart LR
+  Source["Source code / tests"] --> Verify["Verify behavior"]
+  Verify --> Guide["Bilingual guide"]
+  Guide --> Diagram["Mermaid architecture"]
+  Diagram --> Fallback["Source fallback"]
+  Guide --> Search["Search / Markdown / llms.txt"]
+  Search --> Agent["AI Agent"]
+  Agent --> Source`;
+
 export const zhAiReadyDocs: DocPage[] = [
   {
     slug: "ai-ready",
@@ -267,6 +276,15 @@ export const zhAiReadyDocs: DocPage[] = [
         id: "loop",
         title: "推荐协作闭环",
         code: { language: "text", value: collaborationLoopCode },
+      },
+      {
+        id: "diagrams",
+        title: "用 Mermaid 表达已验证的架构",
+        paragraphs: [
+          "架构图用于压缩稳定关系，而不是替代源码证据。先从源码、配置、运行时和测试确认节点与箭头，再在中英文页面使用相同 section ID 和等价图形；图下始终保留可展开的 Mermaid 源码，方便窄屏阅读、无脚本访问和 Agent 复制。",
+        ],
+        code: { language: "mermaid", value: documentationDiagramCode },
+        bullets: ["只画已经验证的依赖、协议或生命周期关系", "产品边界用不同节点表达，避免把 Portal、Asgard、Heimdall 和 Skills 混成一个库", "新增能力先更新图旁的文字和来源合同，再把图纳入搜索与 Markdown 产物"],
       },
       {
         id: "discovery",
@@ -507,6 +525,15 @@ export const enAiReadyDocs: DocPage[] = [
         code: { language: "text", value: explicitWorkflowCode },
       },
       { id: "loop", title: "Recommended collaboration loop", code: { language: "text", value: collaborationLoopCode } },
+      {
+        id: "diagrams",
+        title: "Use Mermaid for verified architecture",
+        paragraphs: [
+          "Use a diagram to compress a stable relationship, never to replace source evidence. Confirm nodes and arrows against source, configuration, runtime behavior, and tests first; then keep the same section ID and equivalent meaning in both locales. Every diagram exposes expandable Mermaid source for narrow screens, no-script readers, and agent reuse.",
+        ],
+        code: { language: "mermaid", value: documentationDiagramCode },
+        bullets: ["Draw only dependencies, protocols, or lifecycle relationships that have been verified", "Use distinct nodes for the Portal, Asgard, Heimdall, and Skills instead of presenting one blended library", "Update the nearby prose and source contract before adding a new capability to the diagram, search index, and Markdown artifact"],
+      },
       {
         id: "discovery",
         title: "Give agents clean documentation discovery",
