@@ -45,3 +45,16 @@ next-env.d.ts
 # generated release packages
 /build/*.tar.gz
 /build/*.tar.gz.sha256
+
+# generated documentation assets and browser reports
+/public/zh/
+/public/en/
+/public/llms.txt
+/public/llms-full.txt
+/public/search-index.json
+/public/sitemap.xml
+/public/robots.txt
+/test-results/
+/playwright-report/
+
+/public/generated-2.jpg

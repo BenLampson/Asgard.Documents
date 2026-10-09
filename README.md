@@ -1,72 +1,39 @@
-# Asgard Documentation
+# Asgard Documents
 
-The bilingual documentation site for the Asgard ecosystem: the Asgard application framework, Heimdall identity provider, AI-ready Skills, and future libraries.
+Current, bilingual documentation for Asgard, Heimdall and Asgard Skills. The site is rebuilt from the active graphite/coral design in `asgardDocument.pen` and uses plain Markdown as its content source.
 
-## Local development
+## Development
 
-```powershell
-npm install
+Node.js 22.13+ and npm:
+
+```sh
+npm ci
 npm run dev
-```
-
-Open `http://localhost:3000`. Chinese content is available at `/zh` and English content at `/en`.
-
-The site is organized as three connected documentation surfaces:
-
-- `/{locale}` — ecosystem architecture, package map, installation entry points, and AI Ready story
-- `/{locale}/asgard` — the Asgard framework product site and scoped documentation
-- `/{locale}/heimdall` — the Heimdall identity product site and scoped documentation
-- `/{locale}/skills` — the shared AI Ready / Asgard Skills site, installation guidance, and catalog
-
-Canonical articles use `/{locale}/{product}/docs/{slug}`. The older `/{locale}/docs/{slug}` route remains available for bookmark compatibility.
-
-## Validation and packaging
-
-```powershell
-npm run build
-npm run build:cdn
-npm test
-npm run docs:check:live
-npm run links:external
 npm run verify
 ```
 
-The deployment build is written to `dist/`. See `AGENTS.md` for source-of-truth repositories, bilingual policy, version maintenance, content requirements, and CDN handoff rules.
+`npm run build` creates a fully static site in `out/`. Serve that directory with any static web server with directory index support. No Worker, database, API key or AI backend is required.
 
-`npm test` verifies that every topic exists once in each locale and compares documented versions, commits, clean/dirty state, and dirty-worktree fingerprints with local source. `npm run docs:check:live` additionally verifies every recorded Asgard package against the live NuGet V3 feed. Source and package review state is recorded in `docs-sources.json`.
+## Authoring
 
-`npm run verify` is the release gate. It checks live source/package freshness, builds the site, runs lint and content tests, renders every canonical and legacy route, verifies internal links and page anchors, and performs a deterministic offline audit of external-link syntax and same-origin resources. Run `npm run links:external` for a non-blocking live network report or `npm run links:external:strict` when confirmed `404`/`410` responses should fail a release review.
+Write matching Markdown files in `content/zh/{product}/` and `content/en/{product}/`, using the same filename. Frontmatter fields: `title`, `description`, `section`, `order`. Canonical URL: `/{locale}/{product}/docs/{slug}/`. Keep code, package versions, default values and security claims grounded in current source. Source links are included in each guide; private repository links need GitHub access.
 
-`npm run build` produces the Worker-compatible application in `dist/server/` plus `dist/client/`. After building, `npm start` runs that exact Worker bundle through Wrangler, including its `ASSETS` binding. `npm run build:cdn` additionally renders every canonical and legacy route to a plain static site in `dist/static/`.
+Development regenerates discovery assets when Markdown changes; refresh the page to read updated content.
 
-For a static object CDN, upload the **contents** of `dist/static/` and configure directory-index resolution to serve `index.html`. The artifact also contains `sitemap.xml`, `robots.txt`, a versioned `search-index.json`, `llms.txt`, `llms-full.txt`, an audited `skills-manifest.json`, its derived `asgard-skills.lock.json`, and one `index.html.md` companion for every canonical localized guide. The sitemap/search/AI discovery surfaces include only product-scoped canonical pages; legacy bookmark routes remain in the artifact but are deliberately excluded from discovery. `npm run static:check` validates these files against the shared route manifest and shared document content, in addition to route completeness, language/canonical metadata, referenced assets, and the absence of Worker or build-machine file dependencies. For a Worker-compatible runtime, deploy `dist/server/` and `dist/client/` together instead.
+Navigation, search, Markdown companions, `llms.txt`, `llms-full.txt` and sitemap are generated from those files. Use fenced Mermaid for source-verified diagrams and standard `> [!NOTE]`, `> [!WARNING]`, `> [!DANGER]`, or `> [!PREVIEW]` blocks for labeled callouts. Numbered guide headings become procedure steps, and Agent workflow/source sections receive consistent article treatments.
 
-### Windows CDN handoff
+No historical version registry or documentation migration layer is maintained. Update the current product version in `lib/products.json` when changing the current documentation.
 
-After `npm run verify` and `npm run build:cdn`, use the PowerShell helper to package `dist/static/`, upload an immutable release archive, install the Nginx configuration, and switch the remote `current` symlink:
+Search works locally over the generated content index. Agent context is assembled and copied locally, including the selected guide and optional task. It does not submit tasks to an AI service.
 
-```powershell
-$release = Get-Date -Format 'yyyyMMdd-HHmmss'
-& .\build\deploy-asgard-docs.ps1 -ReleaseId $release -KeyPath 'D:\sshKey' -SshHost 'root@47.109.145.141'
-```
+## Verification
 
-The helper fails on archive, upload, SSH, or Nginx errors and keeps each remote release immutable. Keep the private key outside the repository; never commit credentials, `.env` files, or generated archives. Roll back by pointing `current` to a previously verified release instead of overwriting files in place.
+`npm run verify` runs lint, TypeScript, content tests, static build and internal link/asset validation. `npm run test:browser` starts a local preview and tests Chromium (run `npx playwright install chromium` if needed). Browser checks cover both locales, all product surfaces, mobile overflow, search, copy and context-panel navigation. Never treat local export validation as proof of a public deployment.
 
-Public URLs default to `https://asgard.benlampson.cn`. Set `DOCS_SITE_ORIGIN` to a different absolute HTTPS origin before `npm run build:cdn` and all static checks when packaging for another hostname; paths, credentials, query strings, and fragments are rejected.
+## Design and source provenance
 
-Configure CDN metadata so `llms.txt` and `llms-full.txt` are served as UTF-8 `text/plain` (or Markdown-compatible text), every `index.html.md` as UTF-8 `text/markdown` or `text/plain`, and `search-index.json`, `skills-manifest.json`, and `asgard-skills.lock.json` as `application/json`. Before switching traffic, verify real HTTPS `GET` responses, content types, and the links advertised by `llms.txt`; local file existence alone is not a production availability check.
+The active BRAND / NEW / DOCS frames in `asgardDocument.pen` define the visual system. Archived frames are not implementation requirements. Technical guide content follows the current source repositories linked from each article.
 
-`npm run verify` builds and validates both delivery formats. The maintainer remains responsible for uploading the selected artifact and configuring CDN cache/rollback policy.
+Artwork reconciled from `b5d50da1b2df1a87b5fac9413a327553c5c085c1`, which adds only `generated-2.png`; the Pen blob is unchanged. The original image is 1344 × 784 JPEG data despite its filename. The build copies its bytes unchanged to `public/generated-2.jpg`, ensuring a correct MIME type. Desktop cover, opacity and readability veils follow the active Pen frames; mobile adapts the crop and contrast. Faint guide lines and coordinate labels are baked into the supplied original, and have not been retouched.
 
-## Current documentation baseline
-
-- Matched Chinese/English topic counts are derived by the route manifest and exposed in `release-readiness-report.json`; they are not hand-maintained here
-- Asgard `5.1.3`
-- Heimdall `5.3.19`（clean `main` 与 tag `v5.3.19` 均为 `0032070`，当前没有 HEAD-only 差异）
-- Public Asgard core package line `5.1.3` (verified against the NuGet V3 feed)
-- .NET `10` / C# `14`
-- Source review date: `2026-07-28`
-
-## License
-
-MIT
+Repository publication and hosting deployment are separate actions. The static build does not deploy or modify the production server.
