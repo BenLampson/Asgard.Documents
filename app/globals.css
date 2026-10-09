@@ -83,24 +83,28 @@ a:hover {
 }
 .wordmark {
   display: flex;
-  flex-direction: column;
   flex-shrink: 0;
-  text-align: center;
-  gap: 2px;
 }
 .wordmark:hover {
   text-decoration: none;
 }
-.wordmark strong {
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  line-height: 1.2;
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
 }
-.wordmark span {
-  font: 9px var(--zh);
-  letter-spacing: 3px;
-  color: var(--coral);
+.brand-mark {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.brand-lockup strong {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 .global-nav {
   display: flex;
@@ -161,10 +165,12 @@ a:hover {
   align-items: center;
   justify-content: space-between;
 }
-.site-footer strong {
-  font-size: 42px;
-  font-weight: 800;
-  letter-spacing: 3px;
+.site-footer .brand-lockup strong {
+  font-size: 36px;
+}
+.site-footer .brand-mark {
+  width: 44px;
+  height: 44px;
 }
 .site-footer span {
   font-size: 14px;
@@ -883,8 +889,15 @@ a:hover {
     height: 68px;
     gap: 18px;
   }
+  .wordmark .brand-lockup {
+    gap: 10px;
+  }
   .wordmark strong {
-    font-size: 19px;
+    font-size: 23px;
+  }
+  .wordmark .brand-mark {
+    width: 28px;
+    height: 28px;
   }
   .global-nav {
     display: none;

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { Brand } from "./Brand";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Search, Github, X, Menu, ArrowUpRight } from "lucide-react";
@@ -109,8 +110,7 @@ export function Header({
           href={`/${locale}/`}
           aria-label="Asgard home"
         >
-          <strong>ASGARD</strong>
-          <span>阿斯加德</span>
+          <Brand />
         </Link>
         <nav
           className={mobile ? "global-nav expanded" : "global-nav"}
@@ -251,7 +251,7 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="site-footer">
       <div>
-        <strong>ASGARD</strong>
+        <Brand />
         <span>Knowledge for the next move.</span>
       </div>
       <nav>
